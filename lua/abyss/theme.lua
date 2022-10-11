@@ -186,7 +186,7 @@ function theme.loadTreeSitter()
 	TSParameterReference = { link = "TSParameter" }, -- For references to parameters of a function.
 	TSPunctDelimiter = { link = "Delimiter" }, -- For delimiters ie: `.`
 	TSPunctBracket = { fg = colors.fg }, -- For brackets and parens.
-	TSPunctSpecial = { fg = colors.darkblue }, -- For special punctutation that does not fall in the catagories before.
+	TSPunctSpecial = { fg = colors.midblue }, -- For special punctutation that does not fall in the catagories before.
 	TSSymbol = { fg = colors.pink }, -- For identifiers referring to symbols or atoms.
 	TSType = { fg = colors.yellow }, -- For types.
 	TSTypeBuiltin = { link = "TSType" }, -- For builtin types.
