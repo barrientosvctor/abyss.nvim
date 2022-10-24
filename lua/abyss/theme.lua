@@ -21,7 +21,7 @@ function theme.loadSyntax()
 	Operator = { fg = colors.darkgrey }, -- "sizeof", "+", "*", etc.
 	Exception = { fg = colors.darkgrey }, -- try, catch, throw etc.
 	Type = { fg = colors.heavyyellow, style = "underline" }, -- int, long, chat etc.
-	Constant = { fg = colors.yellow, style = "underline" }, -- any constant
+	Constant = { fg = colors.fg }, -- any constant
 	SpecialChar = { fg = colors.yellow, style = "underline" }, -- special character in a constant
 	Typedef = { fg = colors.purple, style = "italic" }, -- A typedef
 	Structure = { fg = colors.purple }, -- struct, union, enum etc.
@@ -48,6 +48,16 @@ function theme.loadSyntax()
 	-- PHP
 	phpRegion = { fg = colors.fg },
 	phpIdentifier = { fg = colors.fg },
+
+	-- YAML
+	yamlBlockMappingKey = { fg = colors.fg },
+	yamlBlockMapping = { fg = colors.fg },
+	yamlKeyValueDelimiter = { fg = colors.midblue },
+	yamlPlainScalar = { fg = colors.midblue },
+	yamlFlowMapping = { fg = colors.fg },
+	yamlFlowMappingKey = { fg = colors.fg },
+	yamlFlowIndicator = { fg = colors.fg },
+	yamlBool = { link = "Boolean" },
     }
     return syntax
 end
@@ -159,33 +169,18 @@ end
 function theme.loadTreeSitter()
     local treesitter = {
 	TSAnnotation = { fg = colors.fg }, -- For C++/Dart attributes, annotations thatcan be attached to the code to denote some kind of meta information.
-	TSConstructor = { fg = colors.yellow }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-	TSConstant = { link = "Constant" }, -- For constants
 	TSFloat = { link = "Float" }, -- For floats
 	TSNumber = { link = "Number" }, -- For all number
 	TSBoolean = { link = "Boolean" }, -- For booleans.
 
 	TSAttribute = { fg = colors.fg }, -- (unstable) TODO: docs
-	TSProperty = { fg = colors.fg },
-	TSField = { link = "Field" },
-	TSVariable = { link = "Variable" }, -- Any variable name that does not have another highlight.
 	TSVariableBuiltin = { link = "Variable" },
 	TSPreProc = { link = "PreProc" },
-	TSConstBuiltin = { link = "Constant" }, -- For constant that are built in the language: `nil` in Lua.
-	TSConstMacro = { link = "Constant" }, -- For constants that are defined by macros: `NULL` in C.
 	TSError = { fg = colors.red, style = "underline" }, -- For syntax/parser errors.
-	TSException = { link = "Exception" }, -- For exception related keywords.
-	TSFunction = { fg = colors.yellow }, -- For function (calls and definitions)
-	TSFunctionCall = { link = 'TSFunction' },
-	TSFuncBuiltin = { link = 'TSFunction' },
-	TSFuncMacro = { link = "TSFunction" }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
 	TSInclude = { link = "Include" }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 	TSLabel = { link = "Label" }, -- For labels: `label:` in C and `:label:` in Lua.
 	TSOperator = { link = "Operator" }, -- For any operator: `+`, but also `->` and `*` in C.
-	TSParameter = { fg = colors.shinyblue, style = "italic" }, -- For parameters of a function.
-	TSParameterReference = { link = "TSParameter" }, -- For references to parameters of a function.
 	TSPunctDelimiter = { link = "Delimiter" }, -- For delimiters ie: `.`
-	TSPunctBracket = { fg = colors.fg }, -- For brackets and parens.
 	TSPunctSpecial = { fg = colors.midblue }, -- For special punctutation that does not fall in the catagories before.
 	TSSymbol = { fg = colors.pink }, -- For identifiers referring to symbols or atoms.
 	TSType = { fg = colors.yellow }, -- For types.
@@ -200,6 +195,23 @@ function theme.loadTreeSitter()
 	TSLiteral = { fg = colors.fg }, -- Literal text.
 	TSURI = { fg = colors.heavyyellow, style = "underline" }, -- Any URI like a link or email.
 	TSAnnotation = { fg = colors.fg }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+
+	["@constructor"] = { fg = colors.yellow }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+	["@field"] = { link = "Field" },
+	["@variable"] = { link = "Variable" }, -- Any variable name that does not have another highlight.
+	["@property"] = { fg = colors.fg },
+	["@parameter"] = { fg = colors.shinyblue, style = "italic" }, -- For parameters of a function.
+	["@function"] = { fg = colors.yellow }, -- For function (calls and definitions)
+	["@function.call"] = { link = "@function" },
+	["@function.builtin"] = { link = "@function" },
+	["@function.macro"] = { link = "@function" }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+	["@constant"] = { link = "Constant" }, -- For constants
+	["@constant.builtin"] = { link = "Constant" }, -- For constant that are built in the language: `nil` in Lua.
+	["@constant.macro"] = { link = "Constant" }, -- For constants that are defined by macros: `NULL` in C.
+	["@parameter.reference"] = { link = "@parameter" }, -- For references to parameters of a function.
+	["@punctuation.bracket"] = { fg = colors.fg }, -- For brackets and parens.
+	["@exception"] = { link = "Exception" }, -- For exception related keywords.
+	["@comment"] = { link = "Comment" }, -- any comment
     }
     return treesitter
 end
