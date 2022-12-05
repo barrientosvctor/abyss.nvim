@@ -7,7 +7,7 @@ Neovim colorscheme inspired by Abyss theme in Visual Studio Code.
 ## 📦 Installation
 ```lua
 -- Packer
-use 'uShawnTS/abyss.nvim'
+use 'barrientosvctor/abyss.nvim'
 ```
 
 ## Plugins supported
