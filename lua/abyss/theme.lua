@@ -76,7 +76,7 @@ function theme.loadEditor()
 	PmenuSbar = { link = "Pmenu" }, -- Popup menu: Scrollbar.
 	PmenuSel = { bg = colors.fg, fg = colors.bg }, -- Popup menu: Selected item.
 	PmenuThumb = { bg = colors.lightgrey, fg = colors.white }, -- Popup menu: Thumb of the scrollbar.
-	ColorColumn = { bg = colors.bg, fg = colors.fg }, -- column color
+	ColorColumn = { bg = colors.darkred, fg = colors.bg }, -- column color
 	LineNR = { bg = colors.bg, fg = colors.lowgrey }, -- inactive cursor line numbers
 	LineNrAbove = { bg = colors.bg, fg = colors.lowgrey }, -- Line number for when the 'relativenumber' option is set, above the cursor line.
 	LineNrBelow = { link = "LineNrAbove" }, -- Line number for when the 'relativenumber' option is set, below the cursor line.
