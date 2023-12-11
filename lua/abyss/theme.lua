@@ -133,14 +133,9 @@ function theme.loadTerminal()
 	vim.g.terminal_color_13 = colors.darkred
 	vim.g.terminal_color_14 = colors.orange
 	vim.g.terminal_color_15 = colors.yellow
-end
 
-function theme.loadCursorTerminal()
-	local cursorTerminal = {
-		TermCursor = { bg = colors.white },
-		TermCursorNC = { bg = colors.fg },
-	}
-	return cursorTerminal
+	highlight(0, "TermCursor", { fg = colors.none, bg = colors.white })
+	highlight(0, "TermCursorNC", { fg = colors.none, bg = colors.fg })
 end
 
 function theme.loadTreeSitter()

@@ -15,6 +15,7 @@ function util.load()
 
 	abyss.loadSyntax()
 	abyss.loadEditor()
+	abyss.loadTerminal()
 end
 
 return util
