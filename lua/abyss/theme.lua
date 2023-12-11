@@ -47,80 +47,73 @@ function theme.loadSyntax()
 end
 
 function theme.loadEditor()
-	-- Editor highlight groups
-	local editor = {
-		Normal = { bg = colors.bg, fg = colors.fg },               -- normal text and background color
-		NormalNC = { link = "Normal" },                            -- Normal text in non-current windows.
-		NormalFloat = { fg = colors.fg, bg = colors.black },       -- normal text and background color
-		FloatBorder = { fg = colors.fg, bg = colors.black },       -- normal text and background color
-		SignColumn = { bg = colors.bg, fg = colors.fg },           -- used for the columns set with 'colorcolumn'
-		Question = { fg = colors.yellow, bg = colors.none },       -- hit-enter prompt and yes/no questions.
-		Title = { fg = colors.heavyyellow, style = "underline,italic" }, -- Titles for output from ":set all", ":autocmd" etc.
-		Pmenu = { bg = colors.bg, fg = colors.fg },                -- Popup menu: Normal item.
-		PmenuSbar = { link = "Pmenu" },                            -- Popup menu: Scrollbar.
-		PmenuSel = { bg = colors.fg, fg = colors.bg },             -- Popup menu: Selected item.
-		PmenuThumb = { bg = colors.lightgrey, fg = colors.white }, -- Popup menu: Thumb of the scrollbar.
-		ColorColumn = { bg = colors.darkred, fg = colors.bg },     -- column color
-		LineNR = { bg = colors.bg, fg = colors.lowgrey },          -- inactive cursor line numbers
-		LineNrAbove = { bg = colors.bg, fg = colors.lowgrey },     -- Line number for when the 'relativenumber' option is set, above the cursor line.
-		LineNrBelow = { link = "LineNrAbove" },                    -- Line number for when the 'relativenumber' option is set, below the cursor line.
-		StatusLine = { bg = colors.bg },
-		StatusLineNC = { bg = colors.black },
-		VertSplit = { fg = colors.fg, bg = colors.bg },                       -- Split windows color
-		Conceal = { fg = colors.fg },                                         -- placeholder characters substituted for concealed text (see 'conceallevel')
-		Cursor = { fg = colors.midblue, bg = colors.darkred, style = "reverse" }, -- the character under the cursor
-		lCursor = { fg = colors.midblue, bg = colors.darkred, style = "reverse" }, -- the character under the cursor
-		CursorIM = { fg = colors.lowgrey, bg = colors.darkred, style = "reverse" }, -- the character under the cursor
-		CursorLine = { bg = colors.darkblue },                                -- cursor line border
-		CursorLineNR = { bg = colors.bg, fg = colors.lightgrey },             -- active cursor line
-		Directory = { fg = colors.heavyyellow, bg = colors.none },            -- directory names (and other special names in listings)
-		EndOfBuffer = { fg = colors.lowgrey },
-		ErrorMsg = { fg = colors.red, bg = colors.none },
-		WarningMsg = { fg = colors.heavyyellow, bg = colors.none },      -- Warning messages. hl-WarningMsg
-		Folded = { fg = colors.darkgrey, bg = colors.none, style = "italic" }, -- Line used for closed folds.
-		Search = { fg = colors.black, bg = colors.yellow },              -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-		IncSearch = { fg = colors.black, bg = colors.yellow },           -- 'incsearch' highlighting; also used for the text replaced with ":s///c".
-		TabLine = { fg = colors.lightgrey, bg = colors.bg },             -- Tab pages line, not active tab page label. hl-TabLine
-		TabLineFill = { bg = colors.bg },                                -- Tab pages line, where there are no labels. hl-TabLineFill
-		TabLineSel = { fg = colors.white, bg = colors.darkblue },        -- Tab pages line, active tab page label. hl-TabLineSel
-		Visual = { bg = colors.darkred },                                -- Visual mode selection. hl-Visual
-		VisualNOS = { link = "Visual" },                                 -- Visual mode selection when vim is "Not Owning the Selection". hl-VisualNOS
-		NonText = { fg = colors.darkgrey },                              -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		MsgArea = { fg = colors.fg },                                    -- Area for messages and cmdline. hl-MsgArea
-		ModeMsg = { link = "MsgArea" },                                  -- 'showmode' message (e.g., "-- INSERT --"). hl-ModeMsg
-		MoreMsg = { link = "ModeMsg" },                                  -- more-prompt (https://neovim.io/doc/user/message.html#more-prompt)
-		MatchParen = { fg = colors.heavyyellow, bg = colors.darkred },   -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		MatchWordCur = { fg = colors.none, bg = colors.none, style = "underline" },
-		MatchParenCur = { link = "MatchWordCur" },
-		SpecialKey = { fg = colors.heavyyellow },                            -- Unprintable characters: Text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
-		SpellBad = { fg = colors.darkred, bg = colors.none, style = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. hl-SpellBad
-		SpellRare = { fg = colors.yellow, bg = colors.none, style = "undercurl" }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-		SpellCap = { fg = colors.yellow, style = "underline" },              -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		SpellLocal = { fg = colors.orange, style = "underline" },            -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		Substitute = { fg = colors.none, bg = colors.darkred },              -- |:substitute| replacement text highlighting. hl-Substitute
-		QuickFixLine = { fg = colors.none, bg = colors.darkred },            -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		WildMenu = { fg = colors.bg, bg = colors.fg },                       -- Current match in 'wildmenu' completion. hl-WildMenu
-		Whitespace = { fg = colors.bg, bg = colors.none },                   -- "nbsp", "space", "tab", "multispace", "lead" and "trail" in 'listchars'.
-		WinBar = { fg = colors.white, bg = colors.bg },                      -- Window bar of current window. hl-WinBar
-		WinBarNC = { fg = colors.fg, bg = colors.bg },                       -- Window bar of not-current windows. hl-WinBarNC
+	highlight(0, "Normal", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "NormalNC", { link = "Normal" })
+	highlight(0, "NormalFloat", { fg = colors.fg, bg = colors.black })
+	highlight(0, "FloatBorder", { fg = colors.fg, bg = colors.black })
+	highlight(0, "SignColumn", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "Question", { fg = colors.yellow, bg = colors.none })
+	highlight(0, "Title", { fg = colors.heavyyellow, bg = colors.none, underline = true, italic = true })
+	highlight(0, "Pmenu", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "PmenuSbar", { link = "Pmenu" })
+	highlight(0, "PmenuSel", { fg = colors.bg, bg = colors.fg })
+	highlight(0, "PmenuThumb", { fg = colors.white, bg = colors.lightgrey })
+	highlight(0, "ColorColumn", { fg = colors.bg, bg = colors.darkred })
+	highlight(0, "LineNR", { fg = colors.lowgrey, bg = colors.bg })
+	highlight(0, "LineNrAbove", { fg = colors.lowgrey, bg = colors.bg })
+	highlight(0, "LineNrBelow", { link = "LineNrAbove" })
+	highlight(0, "StatusLine", { fg = colors.none, bg = colors.bg })
+	highlight(0, "StatusLineNC", { fg = colors.none, bg = colors.black })
+	highlight(0, "VertSplit", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "Conceal", { fg = colors.fg, bg = colors.none })
+	highlight(0, "Cursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
+	highlight(0, "lCursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
+	highlight(0, "CursorIM", { fg = colors.lowgrey, bg = colors.darkred, reverse = true })
+	highlight(0, "CursorLine", { fg = colors.none, bg = colors.darkblue })
+	highlight(0, "CursorLineNR", { fg = colors.lightgrey, bg = colors.bg })
+	highlight(0, "Directory", { fg = colors.heavyyellow, bg = colors.none })
+	highlight(0, "EndOfBuffer", { fg = colors.lowgrey, bg = colors.none })
+	highlight(0, "ErrorMsg", { fg = colors.red, bg = colors.none })
+	highlight(0, "WarningMsg", { fg = colors.heavyyellow, bg = colors.none })
+	highlight(0, "Folded", { fg = colors.darkgrey, bg = colors.none, italic = true })
+	highlight(0, "Search", { fg = colors.black, bg = colors.yellow })
+	highlight(0, "IncSearch", { fg = colors.black, bg = colors.yellow })
+	highlight(0, "TabLine", { fg = colors.lightgrey, bg = colors.bg })
+	highlight(0, "TabLineFill", { fg = colors.none, bg = colors.bg })
+	highlight(0, "TabLineSel", { fg = colors.white, bg = colors.darkblue })
+	highlight(0, "Visual", { fg = colors.none, bg = colors.darkred })
+	highlight(0, "VisualNOS", { link = "Visual" })
+	highlight(0, "NonText", { fg = colors.darkgrey, bg = colors.none })
+	highlight(0, "MsgArea", { fg = colors.fg, bg = colors.none })
+	highlight(0, "ModeMsg", { link = "MsgArea" })
+	highlight(0, "MoreMsg", { link = "MsgArea" })
+	highlight(0, "MatchParen", { fg = colors.heavyyellow, bg = colors.darkred })
+	highlight(0, "MatchWordCur", { fg = colors.none, bg = colors.none, underline = true })
+	highlight(0, "MatchParenCur", { link = "MatchWordCur" })
+	highlight(0, "SpecialKey", { fg = colors.heavyyellow, bg = colors.none })
+	highlight(0, "SpellBad", { fg = colors.darkred, bg = colors.none, undercurl = true })
+	highlight(0, "SpellRare", { fg = colors.yellow, bg = colors.none, undercurl = true })
+	highlight(0, "SpellCap", { fg = colors.yellow, bg = colors.none, underline = true })
+	highlight(0, "SpellLocal", { fg = colors.orange, bg = colors.none, underline = true })
+	highlight(0, "Substitute", { fg = colors.none, bg = colors.darkred })
+	highlight(0, "QuickFixLine", { fg = colors.none, bg = colors.darkred })
+	highlight(0, "WildMenu", { fg = colors.bg, bg = colors.fg })
+	highlight(0, "Whitespace", { fg = colors.bg, bg = colors.none })
+	highlight(0, "WinBar", { fg = colors.white, bg = colors.bg })
+	highlight(0, "WinBarNC", { fg = colors.fg, bg = colors.bg })
 
+	highlight(0, "diffAdded", { fg = colors.darkgreen, bg = colors.none })
+	highlight(0, "diffRemoved", { fg = colors.darkred, bg = colors.none })
+	highlight(0, "diffChanged", { fg = colors.yellow, bg = colors.none })
+	highlight(0, "diffOldFile", { link = "diffRemoved" })
+	highlight(0, "diffNewFile", { link = "diffAdded" })
+	highlight(0, "diffFile", { fg = colors.darkred, bg = colors.none, bold = true })
+	highlight(0, "diffLine", { link = "diffFile" })
+	highlight(0, "diffIndexLine", { fg = colors.orange, bg = colors.none })
 
-		-- Diffs
-		diffAdded = { fg = colors.darkgreen },
-		diffRemoved = { fg = colors.darkred },
-		diffChanged = { fg = colors.yellow },
-		diffOldFile = { link = "diffRemoved" },
-		diffNewFile = { link = "diffAdded" },
-		diffFile = { fg = colors.darkred, style = "bold" },
-		diffLine = { link = "diffFile" },
-		diffIndexLine = { fg = colors.orange },
-
-		-- Health
-		healthError = { fg = colors.red },
-		healthSuccess = { fg = colors.green },
-		healthWarning = { fg = colors.yellow },
-	}
-	return editor
+	highlight(0, "healthError", { fg = colors.red, bg = colors.none })
+	highlight(0, "healthSuccess", { fg = colors.green, bg = colors.none })
+	highlight(0, "healthWarning", { fg = colors.yellow, bg = colors.none })
 end
 
 function theme.loadTerminal()

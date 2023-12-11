@@ -14,6 +14,7 @@ function util.load()
 	vim.g.colors_name = "abyss"
 
 	abyss.loadSyntax()
+	abyss.loadEditor()
 end
 
 return util
