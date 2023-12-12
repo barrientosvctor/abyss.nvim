@@ -5,6 +5,8 @@ local highlight = vim.api.nvim_set_hl
 -- All syntax groups: https://neovim.io/doc/user/syntax.html#group-name
 -- All highlight groups: https://neovim.io/doc/user/syntax.html#highlight-groups
 -- Documentation about `vim.api.nvim_set_hl()` function: https://neovim.io/doc/user/api.html#nvim_set_hl()
+-- All treesitter captures: https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights
+-- All treesitter captures linked by default to standard group names: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
 function theme.loadSyntax()
 	highlight(0, "String", { fg = colors.darkgreen, bg = colors.none })
@@ -139,53 +141,22 @@ function theme.loadTerminal()
 end
 
 function theme.loadTreeSitter()
-	local treesitter = {
-		TSAnnotation = { fg = colors.fg }, -- For C++/Dart attributes, annotations thatcan be attached to the code to denote some kind of meta information.
-		TSFloat = { link = "Float" }, -- For floats
-		TSNumber = { link = "Number" }, -- For all number
-		TSBoolean = { link = "Boolean" }, -- For booleans.
-
-		TSAttribute = { fg = colors.fg }, -- (unstable) TODO: docs
-		TSVariableBuiltin = { link = "Variable" },
-		TSPreProc = { link = "PreProc" },
-		TSError = { fg = colors.red, style = "underline" },                       -- For syntax/parser errors.
-		TSInclude = { link = "Include" },                                         -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-		TSLabel = { link = "Label" },                                             -- For labels: `label:` in C and `:label:` in Lua.
-		TSOperator = { link = "Operator" },                                       -- For any operator: `+`, but also `->` and `*` in C.
-		TSPunctDelimiter = { link = "Delimiter" },                                -- For delimiters ie: `.`
-		TSPunctSpecial = { fg = colors.midblue },                                 -- For special punctutation that does not fall in the catagories before.
-		TSSymbol = { fg = colors.pink },                                          -- For identifiers referring to symbols or atoms.
-		TSType = { fg = colors.yellow },                                          -- For types.
-		TSTypeBuiltin = { link = "TSType" },                                      -- For builtin types.
-		TSTag = { link = "Tag" },                                                 -- Tags like html tag names.
-		TSTagDelimiter = { fg = colors.fg },                                      -- Tag delimiter like `<` `>` `/`
-		TSText = { fg = colors.fg },                                              -- For strings considecolors11_gui text in a markup language.
-		TSTextReference = { link = "TSText" },                                    -- FIXME
-		TSEmphasis = { fg = colors.heavyyellow, style = "bold,underline" },       -- For text to be represented with emphasis.
-		TSUnderline = { fg = colors.darkgreen, bg = colors.none, style = "underline" }, -- For text to be represented with an underline.
-		TSTitle = { link = "Title" },                                             -- Text that is part of a title.
-		TSLiteral = { fg = colors.fg },                                           -- Literal text.
-		TSURI = { fg = colors.heavyyellow, style = "underline" },                 -- Any URI like a link or email.
-		TSAnnotation = { fg = colors.fg },                                        -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-
-		["@constructor"] = { fg = colors.yellow },                                -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-		["@field"] = { link = "Field" },
-		["@variable"] = { link = "Variable" },                                    -- Any variable name that does not have another highlight.
-		["@property"] = { fg = colors.fg },
-		["@parameter"] = { fg = colors.shinyblue, style = "italic" },             -- For parameters of a function.
-		["@function"] = { fg = colors.yellow },                                   -- For function (calls and definitions)
-		["@function.call"] = { link = "@function" },
-		["@function.builtin"] = { link = "@function" },
-		["@function.macro"] = { link = "@function" }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-		["@constant"] = { link = "Constant" },        -- For constants
-		["@constant.builtin"] = { link = "Constant" }, -- For constant that are built in the language: `nil` in Lua.
-		["@constant.macro"] = { link = "Constant" },  -- For constants that are defined by macros: `NULL` in C.
-		["@parameter.reference"] = { link = "@parameter" }, -- For references to parameters of a function.
-		["@punctuation.bracket"] = { fg = colors.fg }, -- For brackets and parens.
-		["@exception"] = { link = "Exception" },      -- For exception related keywords.
-		["@comment"] = { link = "Comment" },          -- any comment
-	}
-	return treesitter
+	highlight(0, "@constructor", { fg = colors.yellow })
+	highlight(0, "@field", { link = "Field" })
+	highlight(0, "@variable", { link = "Variable" })
+	highlight(0, "@property", { fg = colors.fg })
+	highlight(0, "@parameter", { fg = colors.shinyblue, italic = true })
+	highlight(0, "@function", { fg = colors.yellow })
+	highlight(0, "@function.call", { link = "@function" })
+	highlight(0, "@function.builtin", { link = "@function" })
+	highlight(0, "@function.macro", { link = "@function" })
+	highlight(0, "@constant", { link = "Constant" })
+	highlight(0, "@constant.builtin", { link = "Constant" })
+	highlight(0, "@constant.macro", { link = "Constant" })
+	highlight(0, "@parameter.reference", { link = "@parameter" })
+	highlight(0, "@punctuation.bracket", { fg = colors.fg })
+	highlight(0, "@exception", { link = "Exception" })
+	highlight(0, "@comment", { link = "Comment" })
 end
 
 function theme.loadLSP()
