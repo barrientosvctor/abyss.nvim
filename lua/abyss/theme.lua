@@ -120,12 +120,12 @@ end
 
 function theme.loadTerminal()
 	vim.g.terminal_color_0 = colors.bg
-	vim.g.terminal_color_1 = colors.fg
+	vim.g.terminal_color_1 = colors.red
 	vim.g.terminal_color_2 = colors.darkgreen
 	vim.g.terminal_color_3 = colors.green
 	vim.g.terminal_color_4 = colors.darkblue
 	vim.g.terminal_color_5 = colors.purple
-	vim.g.terminal_color_6 = colors.pink
+	vim.g.terminal_color_6 = colors.darkgreen
 	vim.g.terminal_color_7 = colors.lightgrey
 	vim.g.terminal_color_8 = colors.heavyyellow
 	vim.g.terminal_color_9 = colors.shinyblue
