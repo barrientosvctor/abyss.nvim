@@ -14,6 +14,7 @@ function util.load()
 	abyss.loadSyntax()
 	abyss.loadEditor()
 	abyss.loadTerminal()
+	abyss.loadTreeSitter()
 end
 
 return util
