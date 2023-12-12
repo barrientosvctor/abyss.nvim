@@ -172,21 +172,21 @@ function theme.loadLSP()
 end
 
 function theme.loadPlugins()
-	local plugins = {
-		-- Telescope
-		TelescopeNormal = { fg = colors.fg },                   -- text color
-		TelescopePrompt = { link = "TelescopeNormal" },         -- text color
-		TelescopePromptBorder = { fg = colors.fg },             -- prompt section
-		TelescopeResultsBorder = { link = "TelescopePromptBorder" }, -- results section
-		TelescopePreviewBorder = { link = "TelescopePromptBorder" }, -- preview section
-		TelescopeSelectionCaret = { fg = colors.white },        -- arrow selector
-		TelescopePromptPrefix = { link = "TelescopeSelectionCaret" }, -- arrow in file browser's search field
-		TelescopeSelection = { link = "TelescopeSelectionCaret" }, -- selection text color
-		TelescopeMultiSelection = { link = "TelescopeSelectionCaret" },
-		TelescopeMatching = { fg = colors.yellow },             -- text matching
-		TelescopePromptCounter = { fg = colors.fg },
-		TelescopePreviewHyphen = { link = "TelescopePromptCounter" },
+	-- Telescope
+	highlight(0, "TelescopeNormal", { fg = colors.fg })
+	highlight(0, "TelescopePrompt", { link = "TelescopeNormal" })
+	highlight(0, "TelescopePromptBorder", { fg = colors.fg })
+	highlight(0, "TelescopeResultsBorder", { link = "TelescopePromptBorder" })
+	highlight(0, "TelescopePreviewBorder", { link = "TelescopePromptBorder" })
+	highlight(0, "TelescopeSelectionCaret", { fg = colors.white })
+	highlight(0, "TelescopePromptPrefix", { link = "TelescopeSelectionCaret" })
+	highlight(0, "TelescopeSelection", { link = "TelescopeSelectionCaret" })
+	highlight(0, "TelescopeMultiSelection", { link = "TelescopeSelectionCaret" })
+	highlight(0, "TelescopeMatching", { fg = colors.yellow })
+	highlight(0, "TelescopePromptCounter", { fg = colors.fg })
+	highlight(0, "TelescopePreviewHyphen", { link = "TelescopePromptCounter" })
 
+	--[[ local plugins = {
 		-- nvim-cmp
 		CmpItemKind = { fg = colors.heavyyellow },
 		CmpItemAbbrMatch = { fg = colors.yellow, style = "bold" },
@@ -305,7 +305,7 @@ function theme.loadPlugins()
 		DashboardCenter = { fg = colors.heavyyellow },
 		DashboardFooter = { fg = colors.fg, style = "italic" },
 	}
-	return plugins
+	return plugins ]]
 end
 
 return theme
