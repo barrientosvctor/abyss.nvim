@@ -160,53 +160,15 @@ function theme.loadTreeSitter()
 end
 
 function theme.loadLSP()
-	local lsp = {
-		LspDiagnosticsDefaultError = { fg = colors.red },                              -- used for "Error" diagnostic virtual text
-		LspDiagnosticsSignError = { fg = colors.red },                                 -- used for "Error" diagnostic signs in sign column
-		LspDiagnosticsFloatingError = { fg = colors.red },                             -- used for "Error" diagnostic messages in the diagnostics float
-		LspDiagnosticsVirtualTextError = { fg = colors.red },                          -- Virtual text "Error"
-		LspDiagnosticsUnderlineError = { style = "undercurl", sp = colors.red },       -- used to underline "Error" diagnostics.
-		LspDiagnosticsDefaultWarning = { fg = colors.heavyyellow },                    -- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsSignWarning = { fg = colors.heavyyellow },                       -- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsFloatingWarning = { fg = colors.heavyyellow },                   -- used for "Warning" diagnostic messages in the diagnostics float
-		LspDiagnosticsVirtualTextWarning = { fg = colors.heavyyellow },                -- Virtual text "Warning"
-		LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = colors.heavyyellow }, -- used to underline "Warning" diagnostics.
-		LspDiagnosticsDefaultInformation = { fg = colors.shinyblue },                  -- used for "Information" diagnostic virtual text
-		LspDiagnosticsSignInformation = { fg = colors.shinyblue },                     -- used for "Information" diagnostic signs in sign column
-		LspDiagnosticsFloatingInformation = { fg = colors.shinyblue },                 -- used for "Information" diagnostic messages in the diagnostics float
-		LspDiagnosticsVirtualTextInformation = { fg = colors.shinyblue },              -- Virtual text "Information"
-		LspDiagnosticsUnderlineInformation = { style = "undercurl", sp = colors.shinyblue }, -- used to underline "Information" diagnostics.
-		LspDiagnosticsDefaultHint = { fg = colors.white },                             -- used for "Hint" diagnostic virtual text
-		LspDiagnosticsSignHint = { fg = colors.white },                                -- used for "Hint" diagnostic signs in sign column
-		LspDiagnosticsFloatingHint = { fg = colors.white },                            -- used for "Hint" diagnostic messages in the diagnostics float
-		LspDiagnosticsVirtualTextHint = { fg = colors.white },                         -- Virtual text "Hint"
-		LspDiagnosticsUnderlineHint = { style = "undercurl", sp = colors.white },      -- used to underline "Hint" diagnostics.
-		LspReferenceText = { fg = colors.fg, bg = colors.bg },                         -- used for highlighting "text" references
-		LspReferenceRead = { fg = colors.fg, bg = colors.bg },                         -- used for highlighting "read" references
-		LspReferenceWrite = { fg = colors.fg, bg = colors.bg },                        -- used for highlighting "write" references
+	highlight(0, "DiagnosticError", { fg = colors.red })
+	highlight(0, "DiagnosticWarn", { fg = colors.heavyyellow })
+	highlight(0, "DiagnosticInfo", { fg = colors.shinyblue })
+	highlight(0, "DiagnosticHint", { fg = colors.white })
 
-		DiagnosticError = { link = "LspDiagnosticsDefaultError" },
-		DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
-		DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
-		DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
-		DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
-		DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
-		DiagnosticFloatingWarn = { link = "LspDiagnosticsFloatingWarning" },
-		DiagnosticSignWarn = { link = "LspDiagnosticsSignWarning" },
-		DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
-		DiagnosticUnderlineError = { link = "LspDiagnosticsUnderlineError" },
-		DiagnosticFloatingError = { link = "LspDiagnosticsFloatingError" },
-		DiagnosticSignError = { link = "LspDiagnosticsSignError" },
-		DiagnosticVirtualTextInfo = { link = "LspDiagnosticsVirtualTextInformation" },
-		DiagnosticUnderlineInfo = { link = "LspDiagnosticsUnderlineInformation" },
-		DiagnosticFloatingInfo = { link = "LspDiagnosticsFloatingInformation" },
-		DiagnosticSignInfo = { link = "LspDiagnosticsSignInformation" },
-		DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
-		DiagnosticUnderlineHint = { link = "LspDiagnosticsUnderlineHint" },
-		DiagnosticFloatingHint = { link = "LspDiagnosticsFloatingHint" },
-		DiagnosticSignHint = { link = "LspDiagnosticsSignHint" },
-	}
-	return lsp
+	highlight(0, "DiagnosticUnderlineError", { sp = colors.red, undercurl = true })
+	highlight(0, "DiagnosticUnderlineWarn", { sp = colors.heavyyellow, undercurl = true })
+	highlight(0, "DiagnosticUnderlineInfo", { sp = colors.shinyblue, undercurl = true })
+	highlight(0, "DiagnosticUnderlineHint", { sp = colors.white, undercurl = true })
 end
 
 function theme.loadPlugins()

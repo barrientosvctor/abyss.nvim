@@ -15,6 +15,7 @@ function util.load()
 	abyss.loadEditor()
 	abyss.loadTerminal()
 	abyss.loadTreeSitter()
+	abyss.loadLSP()
 end
 
 return util
