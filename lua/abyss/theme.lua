@@ -218,22 +218,22 @@ function theme.loadPlugins()
 	highlight(0, "CmpItemKindOperator", { fg = colors.pink })
 	highlight(0, "CmpItemKindTypeParameter", { link = "CmpItemKindProperty" })
 
+	-- gitsigns
+	highlight(0, "GitSignsAddLn", { fg = colors.darkgreen })
+	highlight(0, "GitSignsAddNr", { fg = colors.darkgreen })
+	highlight(0, "GitSignsChangeLn", { fg = colors.yellow })
+	highlight(0, "GitSignsChangeNr", { fg = colors.yellow })
+	highlight(0, "GitSignsDeleteLn", { fg = colors.darkred })
+	highlight(0, "GitSignsDeleteNr", { fg = colors.darkred })
+	highlight(0, "GitSignsCurrentLineBlame", { fg = colors.orange, bold = true })
+
+	-- git gutter
+	highlight(0, "GitGutterAdd", { fg = colors.green })
+	highlight(0, "GitGutterChange", { fg = colors.yellow })
+	highlight(0, "GitGutterDelete", { fg = colors.red })
+	highlight(0, "GitGutterChangeDelete", { fg = colors.red })
+
 	--[[ local plugins = {
-		-- Git Signs
-		GitSignsAddLn = { fg = colors.darkgreen },
-		GitSignsAddNr = { fg = colors.darkgreen },
-		GitSignsChangeLn = { fg = colors.yellow },
-		GitSignsChangeNr = { fg = colors.yellow },
-		GitSignsDeleteLn = { fg = colors.darkred },
-		GitSignsDeleteNr = { fg = colors.darkred },
-		GitSignsCurrentLineBlame = { fg = colors.orange, style = "bold" },
-
-		-- Git gutter
-		GitGutterAdd = { fg = colors.green },
-		GitGutterChange = { fg = colors.yellow },
-		GitGutterDelete = { fg = colors.red },
-		GitGutterChangeDelete = { fg = colors.red },
-
 		-- Lspsaga
 		DiagnosticError = { fg = colors.red },
 		DiagnosticWarning = { fg = colors.yellow },
