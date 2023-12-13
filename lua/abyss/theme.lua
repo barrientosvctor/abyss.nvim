@@ -283,19 +283,19 @@ function theme.loadPlugins()
 	-- neo-tree
 	highlight(0, "NeoTreeRootName", { fg = colors.fg, bold = true })
 
-	--[[ local plugins = {
-		-- Notify
-		NotifyERROR = { fg = colors.red },
-		NotifyWARN = { fg = colors.yellow },
-		NotifyINFO = { fg = colors.fg },
-		NotifyDEBUG = { fg = colors.midblue },
-		NotifyTRACE = { fg = colors.lightgrey },
-		NotifyERRORTitle = { fg = colors.red },
-		NotifyWARNTitle = { fg = colors.yellow },
-		NotifyINFOTitle = { fg = colors.fg },
-		NotifyDEBUGTitle = { fg = colors.midblue },
-		NotifyTRACETitle = { fg = colors.lightgrey },
+	-- notify
+	highlight(0, "NotifyERROR", { fg = colors.red })
+	highlight(0, "NotifyWARN", { fg = colors.yellow })
+	highlight(0, "NotifyINFO", { fg = colors.fg })
+	highlight(0, "NotifyDEBUG", { fg = colors.midblue })
+	highlight(0, "NotifyTRACE", { fg = colors.lightgrey })
+	highlight(0, "NotifyERRORTitle", { link = "NotifyERROR" })
+	highlight(0, "NotifyWARNTitle", { link = "NotifyWARN" })
+	highlight(0, "NotifyINFOTitle", { link = "NotifyINFO" })
+	highlight(0, "NotifyDEBUGTitle", { link = "NotifyDEBUG" })
+	highlight(0, "NotifyTRACETitle", { link = "NotifyTRACE" })
 
+	--[[ local plugins = {
 		-- Dashboard
 		DashboardShortCut = { fg = colors.orange },
 		DashboardHeader = { fg = colors.darkgreen },
