@@ -295,14 +295,11 @@ function theme.loadPlugins()
 	highlight(0, "NotifyDEBUGTitle", { link = "NotifyDEBUG" })
 	highlight(0, "NotifyTRACETitle", { link = "NotifyTRACE" })
 
-	--[[ local plugins = {
-		-- Dashboard
-		DashboardShortCut = { fg = colors.orange },
-		DashboardHeader = { fg = colors.darkgreen },
-		DashboardCenter = { fg = colors.heavyyellow },
-		DashboardFooter = { fg = colors.fg, style = "italic" },
-	}
-	return plugins ]]
+	-- dashboard
+	highlight(0, "DashboardShortCut", { fg = colors.orange })
+	highlight(0, "DashboardHeader", { fg = colors.darkgreen })
+	highlight(0, "DashboardCenter", { fg = colors.heavyyellow })
+	highlight(0, "DashboardFooter", { fg = colors.fg, italic = true })
 end
 
 return theme
