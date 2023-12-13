@@ -2,7 +2,7 @@
 Neovim colorscheme inspired by Abyss theme in Visual Studio Code.
 
 ## ⚡️ Requeriments
-* Neovim >= 0.5.0
+* [Neovim](https://github.com/neovim/neovim) >= **0.8.0**
 
 ## 📦 Installation
 
