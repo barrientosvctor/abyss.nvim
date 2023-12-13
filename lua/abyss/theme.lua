@@ -164,6 +164,7 @@ function theme.loadLSP()
 	highlight(0, "DiagnosticWarn", { fg = colors.heavyyellow })
 	highlight(0, "DiagnosticInfo", { fg = colors.shinyblue })
 	highlight(0, "DiagnosticHint", { fg = colors.white })
+	highlight(0, "DiagnosticTruncateLine", { fg = colors.fg })
 
 	highlight(0, "DiagnosticUnderlineError", { sp = colors.red, undercurl = true })
 	highlight(0, "DiagnosticUnderlineWarn", { sp = colors.heavyyellow, undercurl = true })
@@ -233,30 +234,25 @@ function theme.loadPlugins()
 	highlight(0, "GitGutterDelete", { fg = colors.red })
 	highlight(0, "GitGutterChangeDelete", { fg = colors.red })
 
-	--[[ local plugins = {
-		-- Lspsaga
-		DiagnosticError = { fg = colors.red },
-		DiagnosticWarning = { fg = colors.yellow },
-		DiagnosticInformation = { fg = colors.shinyblue },
-		DiagnosticHint = { fg = colors.white },
-		DiagnosticTruncateLine = { fg = colors.fg },
-		LspFloatWinNormal = { bg = colors.bg },
-		LspFloatWinBorder = { fg = colors.fg },
-		LspSagaBorderTitle = { fg = colors.yellow },
-		LspSagaHoverBorder = { fg = colors.yellow },
-		LspSagaRenameBorder = { fg = colors.orange },
-		LspSagaDefPreviewBorder = { fg = colors.yellow },
-		LspSagaCodeActionBorder = { fg = colors.red },
-		LspSagaFinderSelection = { fg = colors.heavyyellow },
-		LspSagaCodeActionTitle = { fg = colors.yellow },
-		LspSagaCodeActionContent = { fg = colors.fg },
-		LspSagaSignatureHelpBorder = { fg = colors.orange },
-		ReferencesCount = { fg = colors.white },
-		DefinitionCount = { fg = colors.fg },
-		DefinitionIcon = { fg = colors.shinyblue },
-		ReferencesIcon = { fg = colors.yellow },
-		TargetWord = { fg = colors.red },
+	-- lspsaga
+	highlight(0, "LspFloatWinNormal", { bg = colors.bg })
+	highlight(0, "LspFloatWinBorder", { fg = colors.fg })
+	highlight(0, "LspSagaBorderTitle", { fg = colors.yellow })
+	highlight(0, "LspSagaHoverBorder", { fg = colors.yellow })
+	highlight(0, "LspSagaRenameBorder", { fg = colors.orange })
+	highlight(0, "LspSagaDefPreviewBorder", { fg = colors.yellow })
+	highlight(0, "LspSagaCodeActionBorder", { fg = colors.red })
+	highlight(0, "LspSagaFinderSelection", { fg = colors.heavyyellow })
+	highlight(0, "LspSagaCodeActionTitle", { fg = colors.yellow })
+	highlight(0, "LspSagaCodeActionContent", { fg = colors.fg })
+	highlight(0, "LspSagaSignatureHelpBorder", { fg = colors.orange })
+	highlight(0, "ReferencesCount", { fg = colors.white })
+	highlight(0, "DefinitionCount", { fg = colors.fg })
+	highlight(0, "DefinitionIcon", { fg = colors.shinyblue })
+	highlight(0, "ReferencesIcon", { fg = colors.yellow })
+	highlight(0, "TargetWord", { fg = colors.red })
 
+	--[[ local plugins = {
 		-- NvimTree
 		NvimTreeRootFolder = { fg = colors.heavyyellow, style = "bold" },
 		NvimTreeGitDirty = { fg = colors.orange },
