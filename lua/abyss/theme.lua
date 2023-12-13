@@ -188,8 +188,8 @@ function theme.loadPlugins()
 
 	-- nvim-cmp
 	highlight(0, "CmpItemKind", { fg = colors.heavyyellow })
-	highlight(0, "CmpItemAbbrMatch", { fg = colors.yellow, style = "bold" })
-	highlight(0, "CmpItemAbbrMatchFuzzy", { fg = colors.lightgrey, style = "bold" })
+	highlight(0, "CmpItemAbbrMatch", { fg = colors.yellow, bold = true })
+	highlight(0, "CmpItemAbbrMatchFuzzy", { fg = colors.lightgrey, bold = true })
 	highlight(0, "CmpItemAbbr", { fg = colors.lighgrey })
 	highlight(0, "CmpItemMenu", { fg = colors.heavyyellow })
 	highlight(0, "CmpItemKindText", { fg = colors.darkgreen })
