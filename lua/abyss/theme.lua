@@ -269,14 +269,14 @@ function theme.loadPlugins()
 	highlight(0, "NvimTreeFolderIcon", { fg = colors.shinyblue })
 	highlight(0, "NvimTreeIndentMarker", { fg = colors.white })
 
-	--[[ local plugins = {
-		-- Packer
-		packerString = { fg = colors.darkgreen, bg = colors.none },
-		packerHash = { fg = colors.yellow, bg = colors.none, style = "bold" },
-		packerRelDate = { fg = colors.lightgrey, style = "bold,underline" },
-		packerSuccess = { fg = colors.green, bg = colors.none, style = "bold" },
-		packerStatusSuccess = { link = "PackerSuccess" },
+	-- packer
+	highlight(0, "packerString", { fg = colors.darkgreen, bg = colors.none })
+	highlight(0, "packerHash", { fg = colors.yellow, bg = colors.none, bold = true })
+	highlight(0, "packerRelDate", { fg = colors.lightgrey, bold = true, underline = true })
+	highlight(0, "packerSuccess", { fg = colors.green, bg = colors.none, bold = true })
+	highlight(0, "packerStatusSuccess", { link = "PackerSuccess" })
 
+	--[[ local plugins = {
 		-- Indent Blankline
 		IndentBlanklineChar = { fg = colors.lowgrey },
 		IndentBlanklineContextChar = { fg = colors.shinyblue },
