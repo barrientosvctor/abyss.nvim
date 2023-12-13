@@ -170,6 +170,11 @@ function theme.loadLSP()
 	highlight(0, "DiagnosticUnderlineWarn", { sp = colors.heavyyellow, undercurl = true })
 	highlight(0, "DiagnosticUnderlineInfo", { sp = colors.shinyblue, undercurl = true })
 	highlight(0, "DiagnosticUnderlineHint", { sp = colors.white, undercurl = true })
+
+	highlight(0, "LspDiagnosticsError", { fg = colors.red })
+	highlight(0, "LspDiagnosticsWarning", { fg = colors.yellow })
+	highlight(0, "LspDiagnosticsInformation", { fg = colors.shinyblue })
+	highlight(0, "LspDiagnosticsHint", { fg = colors.white })
 end
 
 function theme.loadPlugins()
@@ -252,23 +257,19 @@ function theme.loadPlugins()
 	highlight(0, "ReferencesIcon", { fg = colors.yellow })
 	highlight(0, "TargetWord", { fg = colors.red })
 
-	--[[ local plugins = {
-		-- NvimTree
-		NvimTreeRootFolder = { fg = colors.heavyyellow, style = "bold" },
-		NvimTreeGitDirty = { fg = colors.orange },
-		NvimTreeGitNew = { fg = colors.green },
-		NvimTreeImageFile = { fg = colors.pink },
-		NvimTreeExecFile = { fg = colors.fg },
-		NvimTreeSpecialFile = { fg = colors.yellow, style = "underline" },
-		NvimTreeFolderName = { fg = colors.fg },
-		NvimTreeEmptyFolderName = { fg = colors.fg },
-		NvimTreeFolderIcon = { fg = colors.shinyblue },
-		NvimTreeIndentMarker = { fg = colors.white },
-		LspDiagnosticsError = { fg = colors.red },
-		LspDiagnosticsWarning = { fg = colors.yellow },
-		LspDiagnosticsInformation = { fg = colors.shinyblue },
-		LspDiagnosticsHint = { fg = colors.white },
+	-- nvim-tree
+	highlight(0, "NvimTreeRootFolder", { fg = colors.heavyyellow, bold = true })
+	highlight(0, "NvimTreeGitDirty", { fg = colors.orange })
+	highlight(0, "NvimTreeGitNew", { fg = colors.green })
+	highlight(0, "NvimTreeImageFile", { fg = colors.pink })
+	highlight(0, "NvimTreeExecFile", { fg = colors.fg })
+	highlight(0, "NvimTreeSpecialFile", { fg = colors.yellow, underline = true })
+	highlight(0, "NvimTreeFolderName", { fg = colors.fg })
+	highlight(0, "NvimTreeEmptyFolderName", { fg = colors.fg })
+	highlight(0, "NvimTreeFolderIcon", { fg = colors.shinyblue })
+	highlight(0, "NvimTreeIndentMarker", { fg = colors.white })
 
+	--[[ local plugins = {
 		-- Packer
 		packerString = { fg = colors.darkgreen, bg = colors.none },
 		packerHash = { fg = colors.yellow, bg = colors.none, style = "bold" },
