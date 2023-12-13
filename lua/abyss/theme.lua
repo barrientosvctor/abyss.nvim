@@ -276,14 +276,14 @@ function theme.loadPlugins()
 	highlight(0, "packerSuccess", { fg = colors.green, bg = colors.none, bold = true })
 	highlight(0, "packerStatusSuccess", { link = "PackerSuccess" })
 
+	-- indent blankline
+	highlight(0, "IndentBlanklineChar", { fg = colors.lowgrey })
+	highlight(0, "IndentBlanklineContextChar", { fg = colors.shinyblue })
+
+	-- neo-tree
+	highlight(0, "NeoTreeRootName", { fg = colors.fg, bold = true })
+
 	--[[ local plugins = {
-		-- Indent Blankline
-		IndentBlanklineChar = { fg = colors.lowgrey },
-		IndentBlanklineContextChar = { fg = colors.shinyblue },
-
-		-- Neo-tree
-		NeoTreeRootName = { fg = colors.fg, style = "bold" },
-
 		-- Notify
 		NotifyERROR = { fg = colors.red },
 		NotifyWARN = { fg = colors.yellow },
