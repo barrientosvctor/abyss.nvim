@@ -186,39 +186,39 @@ function theme.loadPlugins()
 	highlight(0, "TelescopePromptCounter", { fg = colors.fg })
 	highlight(0, "TelescopePreviewHyphen", { link = "TelescopePromptCounter" })
 
-	--[[ local plugins = {
-		-- nvim-cmp
-		CmpItemKind = { fg = colors.heavyyellow },
-		CmpItemAbbrMatch = { fg = colors.yellow, style = "bold" },
-		CmpItemAbbrMatchFuzzy = { fg = colors.lightgrey, style = "bold" },
-		CmpItemAbbr = { fg = colors.lighgrey },
-		CmpItemMenu = { fg = colors.heavyyellow },
-		CmpItemKindText = { fg = colors.darkgreen },
-		CmpItemKindMethod = { fg = colors.yellow },
-		CmpItemKindFunction = { link = "CmpItemKindMethod" },
-		CmpItemKindConstructor = { link = "CmpItemKindMethod" },
-		CmpItemKindField = { fg = colors.fg },
-		CmpItemKindVariable = { link = "CmpItemKindField" },
-		CmpItemKindClass = { fg = colors.heavyyellow },
-		CmpItemKindInterface = { link = "CmpItemKindClass" },
-		CmpItemKindModule = { link = "CmpItemKindField" },
-		CmpItemKindProperty = { fg = colors.shinyblue },
-		CmpItemKindUnit = { link = "CmpItemKindField" },
-		CmpItemKindValue = { link = "CmpItemKindText" },
-		CmpItemKindEnum = { link = "CmpItemKindField" },
-		CmpItemKindKeyword = { link = "CmpItemKindField" },
-		CmpItemKindSnippet = { fg = colors.orange },
-		CmpItemKindColor = { link = "CmpItemKindProperty" },
-		CmpItemKindFile = { fg = colors.red },
-		CmpItemKindReference = { link = "CmpItemKindMethod" },
-		CmpItemKindFolder = { fg = colors.darkred },
-		CmpItemKindEnumMember = { link = "CmpItemKindField" },
-		CmpItemKindConstant = { fg = colors.purple },
-		CmpItemKindStruct = { link = "CmpItemKindClass" },
-		CmpItemKindEvent = { link = "CmpItemKindMethod" },
-		CmpItemKindOperator = { fg = colors.pink },
-		CmpItemKindTypeParameter = { link = "CmpItemKindProperty" },
+	-- nvim-cmp
+	highlight(0, "CmpItemKind", { fg = colors.heavyyellow })
+	highlight(0, "CmpItemAbbrMatch", { fg = colors.yellow, style = "bold" })
+	highlight(0, "CmpItemAbbrMatchFuzzy", { fg = colors.lightgrey, style = "bold" })
+	highlight(0, "CmpItemAbbr", { fg = colors.lighgrey })
+	highlight(0, "CmpItemMenu", { fg = colors.heavyyellow })
+	highlight(0, "CmpItemKindText", { fg = colors.darkgreen })
+	highlight(0, "CmpItemKindMethod", { fg = colors.yellow })
+	highlight(0, "CmpItemKindFunction", { link = "CmpItemKindMethod" })
+	highlight(0, "CmpItemKindConstructor", { link = "CmpItemKindMethod" })
+	highlight(0, "CmpItemKindField", { fg = colors.fg })
+	highlight(0, "CmpItemKindVariable", { link = "CmpItemKindField" })
+	highlight(0, "CmpItemKindClass", { fg = colors.heavyyellow })
+	highlight(0, "CmpItemKindInterface", { link = "CmpItemKindClass" })
+	highlight(0, "CmpItemKindModule", { link = "CmpItemKindField" })
+	highlight(0, "CmpItemKindProperty", { fg = colors.shinyblue })
+	highlight(0, "CmpItemKindUnit", { link = "CmpItemKindField" })
+	highlight(0, "CmpItemKindValue", { link = "CmpItemKindText" })
+	highlight(0, "CmpItemKindEnum", { link = "CmpItemKindField" })
+	highlight(0, "CmpItemKindKeyword", { link = "CmpItemKindField" })
+	highlight(0, "CmpItemKindSnippet", { fg = colors.orange })
+	highlight(0, "CmpItemKindColor", { link = "CmpItemKindProperty" })
+	highlight(0, "CmpItemKindFile", { fg = colors.red })
+	highlight(0, "CmpItemKindReference", { link = "CmpItemKindMethod" })
+	highlight(0, "CmpItemKindFolder", { fg = colors.darkred })
+	highlight(0, "CmpItemKindEnumMember", { link = "CmpItemKindField" })
+	highlight(0, "CmpItemKindConstant", { fg = colors.purple })
+	highlight(0, "CmpItemKindStruct", { link = "CmpItemKindClass" })
+	highlight(0, "CmpItemKindEvent", { link = "CmpItemKindMethod" })
+	highlight(0, "CmpItemKindOperator", { fg = colors.pink })
+	highlight(0, "CmpItemKindTypeParameter", { link = "CmpItemKindProperty" })
 
+	--[[ local plugins = {
 		-- Git Signs
 		GitSignsAddLn = { fg = colors.darkgreen },
 		GitSignsAddNr = { fg = colors.darkgreen },
