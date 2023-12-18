@@ -42,6 +42,8 @@ function theme.loadSyntax()
 	highlight(0, "Error", { fg = colors.red, bold = true, underline = true })
 
 	highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.darkred, bold = true })
+
+	highlight(0, "markdownURL", { fg = colors.darkgreen, underline = true })
 end
 
 function theme.loadEditor()
