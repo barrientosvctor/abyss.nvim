@@ -1,5 +1,9 @@
 return {
-	bg = "#000c18",     -- background
+	bg = "#000c18", -- background
+	bg_alt = "#000C38",
+	bg_completion = "#262641",
+	bg_completion_sel = "#08286B",
+	fg_completion_match = "#041D52",
 	fg = "#6688cc",     -- foreground
 	darkgreen = "#22aa44", -- strings
 	green = "#44cb46",  -- success text color
