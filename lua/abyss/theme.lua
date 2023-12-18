@@ -9,43 +9,39 @@ local highlight = vim.api.nvim_set_hl
 -- All treesitter captures linked by default to standard group names: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
 function theme.loadSyntax()
-	highlight(0, "String", { fg = colors.darkgreen, bg = colors.none })
-	highlight(0, "Comment", { fg = colors.midblue, bg = colors.none, italic = true })
-	highlight(0, "Number", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Float", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Keyword", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Field", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Repeat", { link = "Keyword" })
-	highlight(0, "Boolean", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Variable", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Character", { fg = colors.lightgrey, bg = colors.none })
-	highlight(0, "Statement", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "StorageClass", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Function", { fg = colors.yellow, bg = colors.none })
-	highlight(0, "Label", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Operator", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Exception", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Type", { fg = colors.heavyyellow, bg = colors.none, underline = true })
-	highlight(0, "Constant", { fg = colors.fg, bg = colors.none })
-	highlight(0, "SpecialChar", { fg = colors.yellow, bg = colors.none, underline = true })
-	highlight(0, "Typedef", { fg = colors.purple, bg = colors.none, italic = true })
-	highlight(0, "Structure", { fg = colors.purple, bg = colors.none })
-	highlight(0, "PreProc", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Include", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Define", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Macro", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "PreCondit", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Special", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Underlined", { fg = colors.darkgreen, bg = colors.none, underline = true })
-	highlight(0, "Conceal", { fg = colors.none, bg = colors.bg })
-	highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.none, italic = true })
-	highlight(0, "Tag", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Escape", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Delimiter", { fg = colors.midblue, bg = colors.none })
-	highlight(0, "SpecialComment", { fg = colors.purple, bg = colors.none })
-	highlight(0, "Debug", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Error", { fg = colors.red, bg = colors.none, bold = true, underline = true })
-	highlight(0, "Ignore", { fg = colors.darkgrey, bg = colors.none })
+	highlight(0, "Comment", { fg = colors.midblue, italic = true })
+
+	highlight(0, "Constant", { fg = colors.fg })
+	highlight(0, "String", { fg = colors.darkgreen })
+	highlight(0, "Character", { link = "String" })
+	highlight(0, "Number", { fg = colors.pink })
+	highlight(0, "Boolean", { fg = colors.pink })
+	highlight(0, "Float", { link = "Number" })
+
+	highlight(0, "Identifier", { fg = colors.fg })
+	highlight(0, "Function", { fg = colors.yellow })
+
+	highlight(0, "Statement", { fg = colors.darkgrey })
+
+	highlight(0, "PreProc", { fg = colors.darkgrey })
+
+	highlight(0, "Type", { fg = colors.heavyyellow, underline = true })
+	highlight(0, "StorageClass", { fg = colors.darkgrey })
+	highlight(0, "Structure", { fg = colors.purple })
+
+	highlight(0, "Special", { fg = colors.pink })
+	highlight(0, "SpecialChar", { fg = colors.pink })
+	highlight(0, "Delimiter", { fg = colors.fg })
+	highlight(0, "SpecialComment", { fg = colors.purple })
+	highlight(0, "Debug", { fg = colors.darkgrey })
+
+	highlight(0, "Underlined", { underline = true })
+
+	highlight(0, "Ignore", { fg = colors.darkgrey })
+
+	highlight(0, "Error", { fg = colors.red, bold = true, underline = true })
+
+	highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.darkred, bold = true })
 end
 
 function theme.loadEditor()
