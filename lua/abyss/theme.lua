@@ -25,11 +25,11 @@ function theme.loadSyntax()
 
 	highlight(0, "PreProc", { fg = colors.darkgrey })
 
-	highlight(0, "Type", { fg = colors.heavyyellow, underline = true })
+	highlight(0, "Type", { fg = colors.purple, italic = true })
 	highlight(0, "StorageClass", { fg = colors.darkgrey })
 	highlight(0, "Structure", { fg = colors.purple })
 
-	highlight(0, "Special", { fg = colors.pink })
+	highlight(0, "Special", { fg = colors.yellow })
 	highlight(0, "SpecialChar", { fg = colors.pink })
 	highlight(0, "Delimiter", { fg = colors.fg })
 	highlight(0, "SpecialComment", { fg = colors.purple })
