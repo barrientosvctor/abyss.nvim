@@ -47,73 +47,100 @@ function theme.loadSyntax()
 end
 
 function theme.loadEditor()
+	highlight(0, "ColorColumn", { fg = colors.none, bg = colors.darkred })
+	highlight(0, "Conceal", { fg = colors.fg, bg = colors.none })
+
+	highlight(0, "Cursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
+	highlight(0, "lCursor", { link = "Cursor" })
+	highlight(0, "CursorIM", { fg = colors.lowgrey, bg = colors.darkred, reverse = true })
+	highlight(0, "CursorLine", { fg = colors.none, bg = colors.darkblue })
+	highlight(0, "CursorLineNr", { fg = colors.lightgrey, bg = colors.bg })
+	highlight(0, "CursorColumn", { link = "CursorLine" })
+
+	highlight(0, "Directory", { fg = colors.heavyyellow, bg = colors.none })
+
+	highlight(0, "DiffAdd", { fg = colors.darkgreen })
+	highlight(0, "DiffChange", { fg = colors.yellow })
+	highlight(0, "DiffDelete", { fg = colors.red })
+	highlight(0, "DiffText", { fg = colors.red, italic = true })
+	highlight(0, "diffAdded", { link = "DiffAdd" })
+	highlight(0, "diffRemoved", { link = "DiffDelete" })
+	highlight(0, "diffChanged", { link = "DiffChange" })
+	highlight(0, "diffOldFile", { link = "DiffDelete" })
+	highlight(0, "diffNewFile", { link = "DiffAdd" })
+	highlight(0, "diffFile", { fg = colors.red, bg = colors.none, bold = true })
+	highlight(0, "diffLine", { link = "diffFile" })
+	highlight(0, "diffIndexLine", { fg = colors.orange, bg = colors.none })
+
+	highlight(0, "healthError", { fg = colors.red })
+	highlight(0, "healthSuccess", { fg = colors.green })
+	highlight(0, "healthWarning", { fg = colors.yellow })
+
+	highlight(0, "NonText", { fg = colors.bg, bg = colors.bg })
+	highlight(0, "EndOfBuffer", { link = "NonText" })
+
+	highlight(0, "VertSplit", { fg = colors.fg, bg = colors.bg })
+
+	highlight(0, "ErrorMsg", { fg = colors.red })
+	highlight(0, "WarningMsg", { fg = colors.heavyyellow })
+
+	highlight(0, "Folded", { fg = colors.darkgrey, bg = colors.none, italic = true })
+	highlight(0, "FoldColumn", { bg = colors.bg_completion_sel })
+	highlight(0, "SignColumn", { fg = colors.fg, bg = colors.bg })
+
+	highlight(0, "IncSearch", { fg = colors.black, bg = colors.yellow })
+	highlight(0, "Substitute", { link = "IncSearch" })
+
+	highlight(0, "LineNr", { fg = colors.lowgrey, bg = colors.bg })
+	highlight(0, "LineNrAbove", { fg = colors.lowgrey, bg = colors.bg })
+	highlight(0, "LineNrBelow", { link = "LineNrAbove" })
+
+	highlight(0, "MatchParen", { fg = colors.heavyyellow, bg = colors.darkred })
+
+	highlight(0, "MsgArea", { fg = colors.white })
+	highlight(0, "ModeMsg", { link = "MsgArea" })
+	highlight(0, "MoreMsg", { link = "MsgArea" })
+
 	highlight(0, "Normal", { fg = colors.fg, bg = colors.bg })
 	highlight(0, "NormalNC", { link = "Normal" })
 	highlight(0, "NormalFloat", { fg = colors.fg, bg = colors.bg_alt })
 	highlight(0, "FloatBorder", { link = "NormalFloat" })
-	highlight(0, "SignColumn", { fg = colors.fg, bg = colors.bg })
-	highlight(0, "Question", { fg = colors.yellow })
-	highlight(0, "Title", { fg = colors.heavyyellow, underline = true, bold = true })
+
 	highlight(0, "Pmenu", { fg = colors.fg, bg = colors.bg_completion })
 	highlight(0, "PmenuSbar", { bg = colors.bg_completion })
 	highlight(0, "PmenuSel", { fg = colors.white, bg = colors.bg_completion_sel })
 	highlight(0, "PmenuThumb", { bg = colors.lightgrey })
-	highlight(0, "ColorColumn", { fg = colors.bg, bg = colors.darkred })
-	highlight(0, "LineNR", { fg = colors.lowgrey, bg = colors.bg })
-	highlight(0, "LineNrAbove", { fg = colors.lowgrey, bg = colors.bg })
-	highlight(0, "LineNrBelow", { link = "LineNrAbove" })
+
+	highlight(0, "Question", { fg = colors.yellow })
+
+	highlight(0, "QuickFixLine", { fg = colors.none, bg = colors.darkred })
+
+	highlight(0, "Search", { fg = colors.black, bg = colors.yellow })
+	highlight(0, "SpecialKey", { fg = colors.heavyyellow, bg = colors.none })
+
+	highlight(0, "SpellBad", { fg = colors.darkred, undercurl = true })
+	highlight(0, "SpellRare", { fg = colors.yellow, undercurl = true })
+	highlight(0, "SpellCap", { fg = colors.yellow, underline = true })
+	highlight(0, "SpellLocal", { fg = colors.orange, underline = true })
+
 	highlight(0, "StatusLine", { fg = colors.none, bg = colors.bg })
 	highlight(0, "StatusLineNC", { fg = colors.none, bg = colors.black })
-	highlight(0, "VertSplit", { fg = colors.fg, bg = colors.bg })
-	highlight(0, "Conceal", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Cursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
-	highlight(0, "lCursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
-	highlight(0, "CursorIM", { fg = colors.lowgrey, bg = colors.darkred, reverse = true })
-	highlight(0, "CursorLine", { fg = colors.none, bg = colors.darkblue })
-	highlight(0, "CursorLineNR", { fg = colors.lightgrey, bg = colors.bg })
-	highlight(0, "Directory", { fg = colors.heavyyellow, bg = colors.none })
-	highlight(0, "EndOfBuffer", { fg = colors.lowgrey, bg = colors.none })
-	highlight(0, "ErrorMsg", { fg = colors.red, bg = colors.none })
-	highlight(0, "WarningMsg", { fg = colors.heavyyellow, bg = colors.none })
-	highlight(0, "Folded", { fg = colors.darkgrey, bg = colors.none, italic = true })
-	highlight(0, "Search", { fg = colors.black, bg = colors.yellow })
-	highlight(0, "IncSearch", { fg = colors.black, bg = colors.yellow })
+
 	highlight(0, "TabLine", { fg = colors.lightgrey, bg = colors.bg })
 	highlight(0, "TabLineFill", { fg = colors.none, bg = colors.bg })
 	highlight(0, "TabLineSel", { fg = colors.white, bg = colors.darkblue })
+
+	highlight(0, "Title", { fg = colors.heavyyellow, underline = true, bold = true })
+
 	highlight(0, "Visual", { fg = colors.none, bg = colors.darkred })
 	highlight(0, "VisualNOS", { link = "Visual" })
-	highlight(0, "NonText", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "MsgArea", { fg = colors.fg, bg = colors.none })
-	highlight(0, "ModeMsg", { link = "MsgArea" })
-	highlight(0, "MoreMsg", { link = "MsgArea" })
-	highlight(0, "MatchParen", { fg = colors.heavyyellow, bg = colors.darkred })
-	highlight(0, "MatchWordCur", { fg = colors.none, bg = colors.none, underline = true })
-	highlight(0, "MatchParenCur", { link = "MatchWordCur" })
-	highlight(0, "SpecialKey", { fg = colors.heavyyellow, bg = colors.none })
-	highlight(0, "SpellBad", { fg = colors.darkred, bg = colors.none, undercurl = true })
-	highlight(0, "SpellRare", { fg = colors.yellow, bg = colors.none, undercurl = true })
-	highlight(0, "SpellCap", { fg = colors.yellow, bg = colors.none, underline = true })
-	highlight(0, "SpellLocal", { fg = colors.orange, bg = colors.none, underline = true })
-	highlight(0, "Substitute", { fg = colors.none, bg = colors.darkred })
-	highlight(0, "QuickFixLine", { fg = colors.none, bg = colors.darkred })
-	highlight(0, "WildMenu", { fg = colors.bg, bg = colors.fg })
+
 	highlight(0, "Whitespace", { fg = colors.bg, bg = colors.none })
+
+	highlight(0, "WildMenu", { fg = colors.bg, bg = colors.fg })
+
 	highlight(0, "WinBar", { fg = colors.white, bg = colors.bg })
 	highlight(0, "WinBarNC", { fg = colors.fg, bg = colors.bg })
-
-	highlight(0, "diffAdded", { fg = colors.darkgreen, bg = colors.none })
-	highlight(0, "diffRemoved", { fg = colors.darkred, bg = colors.none })
-	highlight(0, "diffChanged", { fg = colors.yellow, bg = colors.none })
-	highlight(0, "diffOldFile", { link = "diffRemoved" })
-	highlight(0, "diffNewFile", { link = "diffAdded" })
-	highlight(0, "diffFile", { fg = colors.darkred, bg = colors.none, bold = true })
-	highlight(0, "diffLine", { link = "diffFile" })
-	highlight(0, "diffIndexLine", { fg = colors.orange, bg = colors.none })
-
-	highlight(0, "healthError", { fg = colors.red, bg = colors.none })
-	highlight(0, "healthSuccess", { fg = colors.green, bg = colors.none })
-	highlight(0, "healthWarning", { fg = colors.yellow, bg = colors.none })
 end
 
 function theme.loadTerminal()
