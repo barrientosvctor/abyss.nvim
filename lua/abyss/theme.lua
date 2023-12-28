@@ -166,9 +166,18 @@ function theme.loadTerminal()
 end
 
 function theme.loadTreeSitter()
+	-- Misc
+	highlight(0, "@comment", { link = "Comment" })
+	highlight(0, "@error", { link = "Error" })
+
+	-- Punctuation
+	highlight(0, "@punctuation.delimiter", { link = "Delimiter" })
+	highlight(0, "@punctuation.bracket", { fg = colors.fg })
+	highlight(0, "@punctuation.special", { fg = colors.darkgrey })
+
 	highlight(0, "@constructor", { fg = colors.yellow })
-	highlight(0, "@field", { link = "Field" })
-	highlight(0, "@variable", { link = "Variable" })
+	highlight(0, "@field", { fg = colors.fg })
+	highlight(0, "@variable", { fg = colors.fg })
 	highlight(0, "@property", { fg = colors.fg })
 	highlight(0, "@parameter", { fg = colors.shinyblue, italic = true })
 	highlight(0, "@function", { fg = colors.yellow })
@@ -179,9 +188,7 @@ function theme.loadTreeSitter()
 	highlight(0, "@constant.builtin", { link = "Constant" })
 	highlight(0, "@constant.macro", { link = "Constant" })
 	highlight(0, "@parameter.reference", { link = "@parameter" })
-	highlight(0, "@punctuation.bracket", { fg = colors.fg })
 	highlight(0, "@exception", { link = "Exception" })
-	highlight(0, "@comment", { link = "Comment" })
 end
 
 function theme.loadLSP()
