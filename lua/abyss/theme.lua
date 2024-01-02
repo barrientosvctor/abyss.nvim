@@ -189,6 +189,9 @@ function theme.loadTreeSitter()
 	highlight(0, "@constant.macro", { link = "Constant" })
 	highlight(0, "@parameter.reference", { link = "@parameter" })
 	highlight(0, "@exception", { link = "Exception" })
+
+	-- Typescript
+	highlight(0, "@type.qualifier.typescript", { link = "Statement" })
 end
 
 function theme.loadLSP()
