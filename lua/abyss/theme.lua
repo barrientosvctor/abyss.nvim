@@ -27,7 +27,7 @@ function theme.loadSyntax()
 
 	highlight(0, "Type", { fg = colors.purple, italic = true })
 	highlight(0, "StorageClass", { fg = colors.darkgrey })
-	highlight(0, "Structure", { fg = colors.purple })
+	highlight(0, "Structure", { fg = colors.heavyyellow, underline = true })
 
 	highlight(0, "Special", { fg = colors.yellow })
 	highlight(0, "SpecialChar", { fg = colors.pink })
