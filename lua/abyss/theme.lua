@@ -44,6 +44,7 @@ function theme.loadSyntax()
 	highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.darkred, bold = true })
 
 	highlight(0, "markdownURL", { fg = colors.darkgreen, underline = true })
+	highlight(0, "markdownCodeBlock", { fg = colors.yellow, italic = true })
 end
 
 function theme.loadEditor()
