@@ -192,6 +192,7 @@ function theme.loadTreeSitter()
 
 	-- Typescript
 	highlight(0, "@type.qualifier.typescript", { link = "Statement" })
+	highlight(0, "@constant.builtin.typescript", { link = "Boolean" })
 end
 
 function theme.loadLSP()
