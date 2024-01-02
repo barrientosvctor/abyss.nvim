@@ -211,6 +211,8 @@ function theme.loadLSP()
 	highlight(0, "LspDiagnosticsWarning", { link = "DiagnosticWarn" })
 	highlight(0, "LspDiagnosticsInformation", { link = "DiagnosticInfo" })
 	highlight(0, "LspDiagnosticsHint", { link = "DiagnosticHint" })
+
+	highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, italic = true })
 end
 
 function theme.loadPlugins()
