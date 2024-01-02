@@ -203,10 +203,10 @@ function theme.loadLSP()
 	highlight(0, "DiagnosticUnderlineInfo", { sp = colors.shinyblue, undercurl = true })
 	highlight(0, "DiagnosticUnderlineHint", { sp = colors.white, undercurl = true })
 
-	highlight(0, "LspDiagnosticsError", { fg = colors.red })
-	highlight(0, "LspDiagnosticsWarning", { fg = colors.yellow })
-	highlight(0, "LspDiagnosticsInformation", { fg = colors.shinyblue })
-	highlight(0, "LspDiagnosticsHint", { fg = colors.white })
+	highlight(0, "LspDiagnosticsError", { link = "DiagnosticError" })
+	highlight(0, "LspDiagnosticsWarning", { link = "DiagnosticWarn" })
+	highlight(0, "LspDiagnosticsInformation", { link = "DiagnosticInfo" })
+	highlight(0, "LspDiagnosticsHint", { link = "DiagnosticHint" })
 end
 
 function theme.loadPlugins()
