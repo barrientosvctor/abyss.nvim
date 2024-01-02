@@ -215,18 +215,19 @@ end
 
 function theme.loadPlugins()
 	-- Telescope
-	highlight(0, "TelescopeNormal", { fg = colors.fg })
+	-- Sets the highlight for selected items within the picker.
+	highlight(0, "TelescopeSelection", { fg = colors.white })
+	highlight(0, "TelescopeSelectionCaret", { link = "TelescopeSelection" })
+	highlight(0, "TelescopeMultiSelection", { link = "TelescopeSelection" })
+	highlight(0, "TelescopeMultiIcon", { link = "TelescopeSelectionCaret" })
+
+	highlight(0, "TelescopeTitle", { fg = colors.white })
+
+	highlight(0, "TelescopeBorder", { fg = colors.fg })
+
 	highlight(0, "TelescopePrompt", { link = "TelescopeNormal" })
-	highlight(0, "TelescopePromptBorder", { fg = colors.fg })
-	highlight(0, "TelescopeResultsBorder", { link = "TelescopePromptBorder" })
-	highlight(0, "TelescopePreviewBorder", { link = "TelescopePromptBorder" })
-	highlight(0, "TelescopeSelectionCaret", { fg = colors.white })
 	highlight(0, "TelescopePromptPrefix", { link = "TelescopeSelectionCaret" })
-	highlight(0, "TelescopeSelection", { link = "TelescopeSelectionCaret" })
-	highlight(0, "TelescopeMultiSelection", { link = "TelescopeSelectionCaret" })
 	highlight(0, "TelescopeMatching", { fg = colors.yellow })
-	highlight(0, "TelescopePromptCounter", { fg = colors.fg })
-	highlight(0, "TelescopePreviewHyphen", { link = "TelescopePromptCounter" })
 
 	-- nvim-cmp
 	highlight(0, "CmpItemKind", { fg = colors.heavyyellow })
