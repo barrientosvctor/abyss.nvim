@@ -230,7 +230,7 @@ function theme.loadLSP()
 	highlight(0, "LspDiagnosticsInformation", { link = "DiagnosticInfo" })
 	highlight(0, "LspDiagnosticsHint", { link = "DiagnosticHint" })
 
-	highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, bg = colors.fg, blend = 60, italic = true })
+	highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, bg = colors.fg_alt, italic = true })
 end
 
 function theme.loadPlugins()
