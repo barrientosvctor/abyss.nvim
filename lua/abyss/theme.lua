@@ -167,6 +167,23 @@ function theme.loadTerminal()
 end
 
 function theme.loadTreeSitter()
+	-- Semantic tokens
+	highlight(0, "@lsp.type.class", { link = "Structure" })
+	highlight(0, "@lsp.type.comment", { link = "Comment" })
+	highlight(0, "@lsp.type.enum", { link = "Structure" })
+	highlight(0, "@lsp.type.enumMember", { link = "Constant" })
+	highlight(0, "@lsp.type.function", { link = "Function" })
+	highlight(0, "@lsp.type.interface", { link = "Structure" })
+	highlight(0, "@lsp.type.macro", { link = "Macro" })
+	highlight(0, "@lsp.type.method", { link = "Function" })
+	highlight(0, "@lsp.type.namespace", { link = "Structure" })
+	highlight(0, "@lsp.type.parameter", { fg = colors.shinyblue, italic = true })
+	highlight(0, "@lsp.type.property", { link = "Constant" })
+	highlight(0, "@lsp.type.struct", { link = "Structure" })
+	highlight(0, "@lsp.type.type", { link = "Type" })
+	highlight(0, "@lsp.type.typeParameter", { link = "Type" })
+	highlight(0, "@lsp.type.variable", { link = "Constant" })
+
 	-- Misc
 	highlight(0, "@comment", { link = "Comment" })
 	highlight(0, "@error", { link = "Error" })
