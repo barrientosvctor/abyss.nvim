@@ -185,7 +185,7 @@ function theme.loadTreeSitter()
 	highlight(0, "@lsp.type.variable", { link = "Constant" })
 
 	-- Misc
-	highlight(0, "@comment", { link = "Comment" })
+	highlight(0, "@comment", { link = "@lsp.type.comment" })
 	highlight(0, "@error", { link = "Error" })
 
 	-- Punctuation
@@ -193,19 +193,19 @@ function theme.loadTreeSitter()
 	highlight(0, "@punctuation.bracket", { fg = colors.fg })
 	highlight(0, "@punctuation.special", { fg = colors.darkgrey })
 
-	highlight(0, "@constructor", { fg = colors.yellow })
-	highlight(0, "@field", { fg = colors.fg })
-	highlight(0, "@variable", { fg = colors.fg })
-	highlight(0, "@property", { fg = colors.fg })
-	highlight(0, "@parameter", { fg = colors.shinyblue, italic = true })
-	highlight(0, "@function", { fg = colors.yellow })
-	highlight(0, "@function.call", { link = "@function" })
-	highlight(0, "@function.builtin", { link = "@function" })
-	highlight(0, "@function.macro", { link = "@function" })
+	highlight(0, "@constructor", { link = "@lsp.type.class" })
+	highlight(0, "@field", { link = "@lsp.type.property" })
+	highlight(0, "@variable", { link = "@lsp.type.variable" })
+	highlight(0, "@property", { link = "@lsp.type.property" })
+	highlight(0, "@parameter", { link = "@lsp.type.parameter" })
+	highlight(0, "@function", { link = "@lsp.type.function" })
+	highlight(0, "@function.call", { link = "@lsp.type.function" })
+	highlight(0, "@function.builtin", { link = "@lsp.type.function" })
+	highlight(0, "@function.macro", { link = "@lsp.type.function" })
 	highlight(0, "@constant", { link = "Constant" })
 	highlight(0, "@constant.builtin", { link = "Constant" })
 	highlight(0, "@constant.macro", { link = "Constant" })
-	highlight(0, "@parameter.reference", { link = "@parameter" })
+	highlight(0, "@parameter.reference", { link = "@lsp.type.parameter" })
 	highlight(0, "@exception", { link = "Exception" })
 
 	-- Typescript
