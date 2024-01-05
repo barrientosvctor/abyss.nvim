@@ -62,6 +62,16 @@ colorscheme abyss
 vim.cmd.colorscheme 'abyss'
 ```
 
+Abyss.nvim also includes a [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) theme, you can use it setting up into lualine setup options:
+
+```lua
+require('lualine').setup {
+    options = {
+        theme = 'abyss'
+    }
+}
+```
+
 ## 📸 Screenshots
 ![Telescope](https://github.com/uShawnTS/abyss.nvim/raw/main/screenshots/telescope.PNG)
 ![Code](https://github.com/uShawnTS/abyss.nvim/raw/main/screenshots/code.PNG)
