@@ -71,7 +71,3 @@ require('lualine').setup {
     }
 }
 ```
-
-## 📸 Screenshots
-![Telescope](https://github.com/uShawnTS/abyss.nvim/raw/main/screenshots/telescope.PNG)
-![Code](https://github.com/uShawnTS/abyss.nvim/raw/main/screenshots/code.PNG)
