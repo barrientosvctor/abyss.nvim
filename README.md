@@ -1,6 +1,8 @@
 # abyss.nvim
 Neovim colorscheme inspired by Abyss theme in Visual Studio Code.
 
+https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
+
 ## ⚡️ Requeriments
 * [Neovim](https://github.com/neovim/neovim) >= **0.8.0**
 
