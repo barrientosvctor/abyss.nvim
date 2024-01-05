@@ -36,6 +36,7 @@ use 'barrientosvctor/abyss.nvim'
 * [Indent-Blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 * [nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [Dashboard](https://github.com/glepnir/dashboard-nvim)
+* [Which-key](https://github.com/folke/which-key.nvim)
 
 ## 🚀 Usage
 ```lua
