@@ -6,10 +6,20 @@ Neovim colorscheme inspired by Abyss theme in Visual Studio Code.
 
 ## 📦 Installation
 
+You can use any package manager you like, in these examples I'm using [Packer.nvim](https://github.com/wbthomason/packer.nvim) and [Lazy.nvim](https://github.com/folke/lazy.nvim)
+
 > Packer.nvim
 
 ```lua
-use 'barrientosvctor/abyss.nvim'
+use {
+    'barrientosvctor/abyss.nvim',
+    run = function()
+        local status, abyss = pcall(require, 'abyss')
+        if not status then return end
+
+        abyss.setup()
+    end
+}
 ```
 
 > Lazy.nvim
