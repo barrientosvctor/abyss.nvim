@@ -9,113 +9,139 @@ local highlight = vim.api.nvim_set_hl
 -- All treesitter captures linked by default to standard group names: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
 function theme.loadSyntax()
-	highlight(0, "String", { fg = colors.darkgreen, bg = colors.none })
-	highlight(0, "Comment", { fg = colors.midblue, bg = colors.none, italic = true })
-	highlight(0, "Number", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Float", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Keyword", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Field", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Repeat", { link = "Keyword" })
-	highlight(0, "Boolean", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Variable", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Character", { fg = colors.lightgrey, bg = colors.none })
-	highlight(0, "Statement", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "StorageClass", { fg = colors.fg, bg = colors.none })
-	highlight(0, "Function", { fg = colors.yellow, bg = colors.none })
-	highlight(0, "Label", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Operator", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Exception", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Type", { fg = colors.heavyyellow, bg = colors.none, underline = true })
-	highlight(0, "Constant", { fg = colors.fg, bg = colors.none })
-	highlight(0, "SpecialChar", { fg = colors.yellow, bg = colors.none, underline = true })
-	highlight(0, "Typedef", { fg = colors.purple, bg = colors.none, italic = true })
-	highlight(0, "Structure", { fg = colors.purple, bg = colors.none })
-	highlight(0, "PreProc", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Include", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Define", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Macro", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "PreCondit", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Special", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Underlined", { fg = colors.darkgreen, bg = colors.none, underline = true })
-	highlight(0, "Conceal", { fg = colors.none, bg = colors.bg })
-	highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.none, italic = true })
-	highlight(0, "Tag", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Escape", { fg = colors.pink, bg = colors.none })
-	highlight(0, "Delimiter", { fg = colors.midblue, bg = colors.none })
-	highlight(0, "SpecialComment", { fg = colors.purple, bg = colors.none })
-	highlight(0, "Debug", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "Error", { fg = colors.red, bg = colors.none, bold = true, underline = true })
-	highlight(0, "Ignore", { fg = colors.darkgrey, bg = colors.none })
+	highlight(0, "Comment", { fg = colors.midblue, italic = true })
+
+	highlight(0, "Constant", { fg = colors.fg })
+	highlight(0, "String", { fg = colors.darkgreen })
+	highlight(0, "Character", { link = "String" })
+	highlight(0, "Number", { fg = colors.pink })
+	highlight(0, "Boolean", { fg = colors.pink })
+	highlight(0, "Float", { link = "Number" })
+
+	highlight(0, "Identifier", { fg = colors.fg })
+	highlight(0, "Function", { fg = colors.yellow })
+
+	highlight(0, "Statement", { fg = colors.darkgrey })
+
+	highlight(0, "PreProc", { fg = colors.darkgrey })
+
+	highlight(0, "Type", { fg = colors.purple, italic = true })
+	highlight(0, "StorageClass", { fg = colors.darkgrey })
+	highlight(0, "Structure", { fg = colors.heavyyellow, underline = true })
+
+	highlight(0, "Special", { fg = colors.yellow })
+	highlight(0, "SpecialChar", { fg = colors.pink })
+	highlight(0, "Delimiter", { fg = colors.fg })
+	highlight(0, "SpecialComment", { fg = colors.purple })
+	highlight(0, "Debug", { fg = colors.darkgrey })
+
+	highlight(0, "Underlined", { underline = true })
+
+	highlight(0, "Ignore", { fg = colors.darkgrey })
+
+	highlight(0, "Error", { fg = colors.red, bold = true, underline = true })
+
+	highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.darkred, bold = true })
+
+	highlight(0, "markdownURL", { fg = colors.darkgreen, underline = true })
+	highlight(0, "markdownCodeBlock", { fg = colors.yellow, italic = true })
 end
 
 function theme.loadEditor()
-	highlight(0, "Normal", { fg = colors.fg, bg = colors.bg })
-	highlight(0, "NormalNC", { link = "Normal" })
-	highlight(0, "NormalFloat", { fg = colors.fg, bg = colors.black })
-	highlight(0, "FloatBorder", { fg = colors.fg, bg = colors.black })
-	highlight(0, "SignColumn", { fg = colors.fg, bg = colors.bg })
-	highlight(0, "Question", { fg = colors.yellow, bg = colors.none })
-	highlight(0, "Title", { fg = colors.heavyyellow, bg = colors.none, underline = true, italic = true })
-	highlight(0, "Pmenu", { fg = colors.fg, bg = colors.bg })
-	highlight(0, "PmenuSbar", { link = "Pmenu" })
-	highlight(0, "PmenuSel", { fg = colors.bg, bg = colors.fg })
-	highlight(0, "PmenuThumb", { fg = colors.white, bg = colors.lightgrey })
-	highlight(0, "ColorColumn", { fg = colors.bg, bg = colors.darkred })
-	highlight(0, "LineNR", { fg = colors.lowgrey, bg = colors.bg })
-	highlight(0, "LineNrAbove", { fg = colors.lowgrey, bg = colors.bg })
-	highlight(0, "LineNrBelow", { link = "LineNrAbove" })
-	highlight(0, "StatusLine", { fg = colors.none, bg = colors.bg })
-	highlight(0, "StatusLineNC", { fg = colors.none, bg = colors.black })
-	highlight(0, "VertSplit", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "ColorColumn", { fg = colors.none, bg = colors.darkred })
 	highlight(0, "Conceal", { fg = colors.fg, bg = colors.none })
+
 	highlight(0, "Cursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
-	highlight(0, "lCursor", { fg = colors.midblue, bg = colors.darkred, reverse = true })
+	highlight(0, "lCursor", { link = "Cursor" })
 	highlight(0, "CursorIM", { fg = colors.lowgrey, bg = colors.darkred, reverse = true })
 	highlight(0, "CursorLine", { fg = colors.none, bg = colors.darkblue })
-	highlight(0, "CursorLineNR", { fg = colors.lightgrey, bg = colors.bg })
-	highlight(0, "Directory", { fg = colors.heavyyellow, bg = colors.none })
-	highlight(0, "EndOfBuffer", { fg = colors.lowgrey, bg = colors.none })
-	highlight(0, "ErrorMsg", { fg = colors.red, bg = colors.none })
-	highlight(0, "WarningMsg", { fg = colors.heavyyellow, bg = colors.none })
-	highlight(0, "Folded", { fg = colors.darkgrey, bg = colors.none, italic = true })
-	highlight(0, "Search", { fg = colors.black, bg = colors.yellow })
-	highlight(0, "IncSearch", { fg = colors.black, bg = colors.yellow })
-	highlight(0, "TabLine", { fg = colors.lightgrey, bg = colors.bg })
-	highlight(0, "TabLineFill", { fg = colors.none, bg = colors.bg })
-	highlight(0, "TabLineSel", { fg = colors.white, bg = colors.darkblue })
-	highlight(0, "Visual", { fg = colors.none, bg = colors.darkred })
-	highlight(0, "VisualNOS", { link = "Visual" })
-	highlight(0, "NonText", { fg = colors.darkgrey, bg = colors.none })
-	highlight(0, "MsgArea", { fg = colors.fg, bg = colors.none })
-	highlight(0, "ModeMsg", { link = "MsgArea" })
-	highlight(0, "MoreMsg", { link = "MsgArea" })
-	highlight(0, "MatchParen", { fg = colors.heavyyellow, bg = colors.darkred })
-	highlight(0, "MatchWordCur", { fg = colors.none, bg = colors.none, underline = true })
-	highlight(0, "MatchParenCur", { link = "MatchWordCur" })
-	highlight(0, "SpecialKey", { fg = colors.heavyyellow, bg = colors.none })
-	highlight(0, "SpellBad", { fg = colors.darkred, bg = colors.none, undercurl = true })
-	highlight(0, "SpellRare", { fg = colors.yellow, bg = colors.none, undercurl = true })
-	highlight(0, "SpellCap", { fg = colors.yellow, bg = colors.none, underline = true })
-	highlight(0, "SpellLocal", { fg = colors.orange, bg = colors.none, underline = true })
-	highlight(0, "Substitute", { fg = colors.none, bg = colors.darkred })
-	highlight(0, "QuickFixLine", { fg = colors.none, bg = colors.darkred })
-	highlight(0, "WildMenu", { fg = colors.bg, bg = colors.fg })
-	highlight(0, "Whitespace", { fg = colors.bg, bg = colors.none })
-	highlight(0, "WinBar", { fg = colors.white, bg = colors.bg })
-	highlight(0, "WinBarNC", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "CursorLineNr", { fg = colors.lightgrey, bg = colors.bg })
+	highlight(0, "CursorColumn", { link = "CursorLine" })
 
-	highlight(0, "diffAdded", { fg = colors.darkgreen, bg = colors.none })
-	highlight(0, "diffRemoved", { fg = colors.darkred, bg = colors.none })
-	highlight(0, "diffChanged", { fg = colors.yellow, bg = colors.none })
-	highlight(0, "diffOldFile", { link = "diffRemoved" })
-	highlight(0, "diffNewFile", { link = "diffAdded" })
-	highlight(0, "diffFile", { fg = colors.darkred, bg = colors.none, bold = true })
+	highlight(0, "Directory", { fg = colors.heavyyellow, bg = colors.none })
+
+	highlight(0, "DiffAdd", { fg = colors.darkgreen })
+	highlight(0, "DiffChange", { fg = colors.yellow })
+	highlight(0, "DiffDelete", { fg = colors.red })
+	highlight(0, "DiffText", { fg = colors.red, italic = true })
+	highlight(0, "diffAdded", { link = "DiffAdd" })
+	highlight(0, "diffRemoved", { link = "DiffDelete" })
+	highlight(0, "diffChanged", { link = "DiffChange" })
+	highlight(0, "diffOldFile", { link = "DiffDelete" })
+	highlight(0, "diffNewFile", { link = "DiffAdd" })
+	highlight(0, "diffFile", { fg = colors.red, bg = colors.none, bold = true })
 	highlight(0, "diffLine", { link = "diffFile" })
 	highlight(0, "diffIndexLine", { fg = colors.orange, bg = colors.none })
 
-	highlight(0, "healthError", { fg = colors.red, bg = colors.none })
-	highlight(0, "healthSuccess", { fg = colors.green, bg = colors.none })
-	highlight(0, "healthWarning", { fg = colors.yellow, bg = colors.none })
+	highlight(0, "healthError", { fg = colors.red })
+	highlight(0, "healthSuccess", { fg = colors.green })
+	highlight(0, "healthWarning", { fg = colors.yellow })
+
+	highlight(0, "NonText", { fg = colors.bg, bg = colors.bg })
+	highlight(0, "EndOfBuffer", { link = "NonText" })
+
+	highlight(0, "VertSplit", { fg = colors.fg, bg = colors.bg })
+
+	highlight(0, "ErrorMsg", { fg = colors.red })
+	highlight(0, "WarningMsg", { fg = colors.heavyyellow })
+
+	highlight(0, "Folded", { fg = colors.darkgrey, bg = colors.none, italic = true })
+	highlight(0, "FoldColumn", { bg = colors.bg_completion_sel })
+	highlight(0, "SignColumn", { fg = colors.fg, bg = colors.bg })
+
+	highlight(0, "IncSearch", { fg = colors.black, bg = colors.yellow })
+	highlight(0, "Substitute", { link = "IncSearch" })
+
+	highlight(0, "LineNr", { fg = colors.lowgrey, bg = colors.bg })
+	highlight(0, "LineNrAbove", { fg = colors.lowgrey, bg = colors.bg })
+	highlight(0, "LineNrBelow", { link = "LineNrAbove" })
+
+	highlight(0, "MatchParen", { fg = colors.heavyyellow, bg = colors.darkred })
+
+	highlight(0, "MsgArea", { fg = colors.white })
+	highlight(0, "ModeMsg", { link = "MsgArea" })
+	highlight(0, "MoreMsg", { link = "MsgArea" })
+
+	highlight(0, "Normal", { fg = colors.fg, bg = colors.bg })
+	highlight(0, "NormalNC", { link = "Normal" })
+	highlight(0, "NormalFloat", { fg = colors.fg, bg = colors.bg_alt })
+	highlight(0, "FloatBorder", { link = "NormalFloat" })
+
+	highlight(0, "Pmenu", { fg = colors.fg, bg = colors.bg_completion })
+	highlight(0, "PmenuSbar", { bg = colors.bg_completion })
+	highlight(0, "PmenuSel", { fg = colors.white, bg = colors.bg_completion_sel })
+	highlight(0, "PmenuThumb", { bg = colors.lightgrey })
+
+	highlight(0, "Question", { fg = colors.yellow })
+
+	highlight(0, "QuickFixLine", { fg = colors.none, bg = colors.darkred })
+
+	highlight(0, "Search", { fg = colors.black, bg = colors.yellow })
+	highlight(0, "SpecialKey", { fg = colors.heavyyellow, bg = colors.none })
+
+	highlight(0, "SpellBad", { fg = colors.darkred, undercurl = true })
+	highlight(0, "SpellRare", { fg = colors.yellow, undercurl = true })
+	highlight(0, "SpellCap", { fg = colors.yellow, underline = true })
+	highlight(0, "SpellLocal", { fg = colors.orange, underline = true })
+
+	highlight(0, "StatusLine", { fg = colors.none, bg = colors.bg })
+	highlight(0, "StatusLineNC", { fg = colors.none, bg = colors.black })
+
+	highlight(0, "TabLine", { fg = colors.lightgrey, bg = colors.bg })
+	highlight(0, "TabLineFill", { fg = colors.none, bg = colors.bg })
+	highlight(0, "TabLineSel", { fg = colors.white, bg = colors.darkblue })
+
+	highlight(0, "Title", { fg = colors.heavyyellow, underline = true, bold = true })
+
+	highlight(0, "Visual", { fg = colors.none, bg = colors.darkred })
+	highlight(0, "VisualNOS", { link = "Visual" })
+
+	highlight(0, "Whitespace", { fg = colors.bg, bg = colors.none })
+
+	highlight(0, "WildMenu", { fg = colors.bg, bg = colors.fg })
+
+	highlight(0, "WinBar", { fg = colors.white, bg = colors.bg })
+	highlight(0, "WinBarNC", { fg = colors.fg, bg = colors.bg })
 end
 
 function theme.loadTerminal()
@@ -128,7 +154,7 @@ function theme.loadTerminal()
 	vim.g.terminal_color_6 = colors.darkgreen
 	vim.g.terminal_color_7 = colors.lightgrey
 	vim.g.terminal_color_8 = colors.heavyyellow
-	vim.g.terminal_color_9 = colors.shinyblue
+	vim.g.terminal_color_9 = colors.red
 	vim.g.terminal_color_10 = colors.midblue
 	vim.g.terminal_color_11 = colors.orange
 	vim.g.terminal_color_12 = colors.red
@@ -141,22 +167,50 @@ function theme.loadTerminal()
 end
 
 function theme.loadTreeSitter()
-	highlight(0, "@constructor", { fg = colors.yellow })
-	highlight(0, "@field", { link = "Field" })
-	highlight(0, "@variable", { link = "Variable" })
-	highlight(0, "@property", { fg = colors.fg })
-	highlight(0, "@parameter", { fg = colors.shinyblue, italic = true })
-	highlight(0, "@function", { fg = colors.yellow })
-	highlight(0, "@function.call", { link = "@function" })
-	highlight(0, "@function.builtin", { link = "@function" })
-	highlight(0, "@function.macro", { link = "@function" })
+	-- Semantic tokens
+	highlight(0, "@lsp.type.class", { link = "Structure" })
+	highlight(0, "@lsp.type.comment", { link = "Comment" })
+	highlight(0, "@lsp.type.enum", { link = "Structure" })
+	highlight(0, "@lsp.type.enumMember", { link = "Constant" })
+	highlight(0, "@lsp.type.function", { link = "Function" })
+	highlight(0, "@lsp.type.interface", { link = "Structure" })
+	highlight(0, "@lsp.type.macro", { link = "Macro" })
+	highlight(0, "@lsp.type.method", { link = "Function" })
+	highlight(0, "@lsp.type.namespace", { link = "Structure" })
+	highlight(0, "@lsp.type.parameter", { fg = colors.shinyblue, italic = true })
+	highlight(0, "@lsp.type.property", { link = "Constant" })
+	highlight(0, "@lsp.type.struct", { link = "Structure" })
+	highlight(0, "@lsp.type.type", { link = "Type" })
+	highlight(0, "@lsp.type.typeParameter", { link = "Type" })
+	highlight(0, "@lsp.type.variable", { link = "Constant" })
+
+	-- Misc
+	highlight(0, "@comment", { link = "@lsp.type.comment" })
+	highlight(0, "@error", { link = "Error" })
+
+	-- Punctuation
+	highlight(0, "@punctuation.delimiter", { link = "Delimiter" })
+	highlight(0, "@punctuation.bracket", { fg = colors.fg })
+	highlight(0, "@punctuation.special", { fg = colors.darkgrey })
+
+	highlight(0, "@constructor", { link = "@lsp.type.class" })
+	highlight(0, "@field", { link = "@lsp.type.property" })
+	highlight(0, "@variable", { link = "@lsp.type.variable" })
+	highlight(0, "@property", { link = "@lsp.type.property" })
+	highlight(0, "@parameter", { link = "@lsp.type.parameter" })
+	highlight(0, "@function", { link = "@lsp.type.function" })
+	highlight(0, "@function.call", { link = "@lsp.type.function" })
+	highlight(0, "@function.builtin", { link = "@lsp.type.function" })
+	highlight(0, "@function.macro", { link = "@lsp.type.function" })
 	highlight(0, "@constant", { link = "Constant" })
 	highlight(0, "@constant.builtin", { link = "Constant" })
 	highlight(0, "@constant.macro", { link = "Constant" })
-	highlight(0, "@parameter.reference", { link = "@parameter" })
-	highlight(0, "@punctuation.bracket", { fg = colors.fg })
+	highlight(0, "@parameter.reference", { link = "@lsp.type.parameter" })
 	highlight(0, "@exception", { link = "Exception" })
-	highlight(0, "@comment", { link = "Comment" })
+
+	-- Typescript
+	highlight(0, "@type.qualifier.typescript", { link = "Statement" })
+	highlight(0, "@constant.builtin.typescript", { link = "Boolean" })
 end
 
 function theme.loadLSP()
@@ -171,26 +225,29 @@ function theme.loadLSP()
 	highlight(0, "DiagnosticUnderlineInfo", { sp = colors.shinyblue, undercurl = true })
 	highlight(0, "DiagnosticUnderlineHint", { sp = colors.white, undercurl = true })
 
-	highlight(0, "LspDiagnosticsError", { fg = colors.red })
-	highlight(0, "LspDiagnosticsWarning", { fg = colors.yellow })
-	highlight(0, "LspDiagnosticsInformation", { fg = colors.shinyblue })
-	highlight(0, "LspDiagnosticsHint", { fg = colors.white })
+	highlight(0, "LspDiagnosticsError", { link = "DiagnosticError" })
+	highlight(0, "LspDiagnosticsWarning", { link = "DiagnosticWarn" })
+	highlight(0, "LspDiagnosticsInformation", { link = "DiagnosticInfo" })
+	highlight(0, "LspDiagnosticsHint", { link = "DiagnosticHint" })
+
+	highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, bg = colors.fg_alt, italic = true })
 end
 
 function theme.loadPlugins()
 	-- Telescope
-	highlight(0, "TelescopeNormal", { fg = colors.fg })
+	-- Sets the highlight for selected items within the picker.
+	highlight(0, "TelescopeSelection", { fg = colors.white })
+	highlight(0, "TelescopeSelectionCaret", { link = "TelescopeSelection" })
+	highlight(0, "TelescopeMultiSelection", { link = "TelescopeSelection" })
+	highlight(0, "TelescopeMultiIcon", { link = "TelescopeSelectionCaret" })
+
+	highlight(0, "TelescopeTitle", { fg = colors.white })
+
+	highlight(0, "TelescopeBorder", { fg = colors.fg })
+
 	highlight(0, "TelescopePrompt", { link = "TelescopeNormal" })
-	highlight(0, "TelescopePromptBorder", { fg = colors.fg })
-	highlight(0, "TelescopeResultsBorder", { link = "TelescopePromptBorder" })
-	highlight(0, "TelescopePreviewBorder", { link = "TelescopePromptBorder" })
-	highlight(0, "TelescopeSelectionCaret", { fg = colors.white })
 	highlight(0, "TelescopePromptPrefix", { link = "TelescopeSelectionCaret" })
-	highlight(0, "TelescopeSelection", { link = "TelescopeSelectionCaret" })
-	highlight(0, "TelescopeMultiSelection", { link = "TelescopeSelectionCaret" })
 	highlight(0, "TelescopeMatching", { fg = colors.yellow })
-	highlight(0, "TelescopePromptCounter", { fg = colors.fg })
-	highlight(0, "TelescopePreviewHyphen", { link = "TelescopePromptCounter" })
 
 	-- nvim-cmp
 	highlight(0, "CmpItemKind", { fg = colors.heavyyellow })
