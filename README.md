@@ -49,11 +49,17 @@ use {
 * [Which-key](https://github.com/folke/which-key.nvim)
 
 ## 🚀 Usage
-```lua
-local status, abyss = pcall(require, 'abyss')
-if not status then return end
 
-abyss.setup()
+> Vim Script
+
+```vim
+colorscheme abyss
+```
+
+> Lua
+
+```lua
+vim.cmd.colorscheme 'abyss'
 ```
 
 ## 📸 Screenshots
