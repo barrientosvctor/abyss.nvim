@@ -1,6 +1,10 @@
 return {
-	bg = "#000c18",     -- background
+	bg = "#000c18", -- background
+	bg_alt = "#000C38",
+	bg_completion = "#262641",
+	bg_completion_sel = "#08286B",
 	fg = "#6688cc",     -- foreground
+	fg_alt = "#283D60",
 	darkgreen = "#22aa44", -- strings
 	green = "#44cb46",  -- success text color
 	darkblue = "#082050", -- active cursor line background
