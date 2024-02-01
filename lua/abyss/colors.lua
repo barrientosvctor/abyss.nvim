@@ -20,6 +20,10 @@ return {
 	orange = "#FF9900",
 	yellow = "#ddbb88", -- functions color
 	heavyyellow = "#FFEEBB",
+	bufferline = {
+		separator_bg = "#000b16",
+		separator_fg = "#00060d"
+	},
 
 	-- Extras
 	black = "#010101",
