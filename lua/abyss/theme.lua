@@ -359,12 +359,19 @@ function theme.loadPlugins()
 	highlight(0, "DashboardFooter", { fg = colors.fg, italic = true })
 
 	-- Bufferline.nvim
-	highlight(0, "BufferLineBufferSelected", { fg = colors.white, italic = true, bold = true })
-	highlight(0, "BufferLineSeparator", { fg = colors.bufferline.separator_fg, bg = colors.bufferline.separator_bg })
+	highlight(0, "BufferLineFill", { bg = colors.ui.bufferline.separator_fg })
+	highlight(0, "BufferLineBufferSelected",
+		{ bg = colors.ui.bufferline.tab_bg, fg = colors.white, italic = true, bold = true })
+	highlight(0, "BufferLineSeparator",
+		{ fg = colors.ui.bufferline.separator_fg, bg = colors.ui.bufferline.separator_bg })
 	highlight(0, "BufferLineSeparatorSelected", { link = "BufferLineSeparator" })
 	highlight(0, "BufferLineSeparatorVisible", { link = "BufferLineSeparator" })
 
+	highlight(0, "BufferLineTab", { bg = colors.ui.bufferline.tab_bg, fg = colors.midblue })
 	highlight(0, "BufferLineTabSelected", { link = "BufferLineBufferSelected" })
+	highlight(0, "BufferLineTabClose", { bg = colors.ui.bufferline.separator_fg, fg = colors.lightgrey })
+	highlight(0, "BufferLineTabSeparator", { link = "BufferLineSeparator" })
+	highlight(0, "BufferLineTabSeparatorSelected", { link = "BufferLineSeparator" })
 end
 
 return theme
