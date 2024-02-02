@@ -20,9 +20,12 @@ return {
 	orange = "#FF9900",
 	yellow = "#ddbb88", -- functions color
 	heavyyellow = "#FFEEBB",
-	bufferline = {
-		separator_bg = "#000b16",
-		separator_fg = "#00060d"
+	ui = {
+		bufferline = {
+			separator_bg = "#000b16",
+			separator_fg = "#00060d",
+			tab_bg = "#000C18"
+		},
 	},
 
 	-- Extras
