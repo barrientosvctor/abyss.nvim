@@ -372,6 +372,12 @@ function theme.loadPlugins()
 	highlight(0, "BufferLineTabClose", { bg = colors.ui.bufferline.separator_fg, fg = colors.lightgrey })
 	highlight(0, "BufferLineTabSeparator", { link = "BufferLineSeparator" })
 	highlight(0, "BufferLineTabSeparatorSelected", { link = "BufferLineSeparator" })
+
+	highlight(0, "BufferLineErrorSelected",
+		{ bg = colors.ui.bufferline.tab_bg, fg = colors.red, italic = true, bold = true, sp = colors.darkred })
+	highlight(0, "BufferLineError", { fg = colors.darkred, bg = colors.ui.bufferline.tab_bg, })
+	highlight(0, "BufferLineErrorDiagnostic", { link = "BufferLineError" })
+	highlight(0, "BufferLineErrorDiagnosticSelected", { link = "BufferLineErrorSelected" })
 end
 
 return theme
