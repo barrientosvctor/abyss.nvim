@@ -357,6 +357,27 @@ function theme.loadPlugins()
 	highlight(0, "DashboardHeader", { fg = colors.darkgreen })
 	highlight(0, "DashboardCenter", { fg = colors.heavyyellow })
 	highlight(0, "DashboardFooter", { fg = colors.fg, italic = true })
+
+	-- Bufferline.nvim
+	highlight(0, "BufferLineFill", { bg = colors.ui.bufferline.separator_fg })
+	highlight(0, "BufferLineBufferSelected",
+		{ bg = colors.ui.bufferline.tab_bg, fg = colors.white, italic = true, bold = true })
+	highlight(0, "BufferLineSeparator",
+		{ fg = colors.ui.bufferline.separator_fg, bg = colors.ui.bufferline.separator_bg })
+	highlight(0, "BufferLineSeparatorSelected", { link = "BufferLineSeparator" })
+	highlight(0, "BufferLineSeparatorVisible", { link = "BufferLineSeparator" })
+
+	highlight(0, "BufferLineTab", { bg = colors.ui.bufferline.tab_bg, fg = colors.midblue })
+	highlight(0, "BufferLineTabSelected", { link = "BufferLineBufferSelected" })
+	highlight(0, "BufferLineTabClose", { bg = colors.ui.bufferline.separator_fg, fg = colors.lightgrey })
+	highlight(0, "BufferLineTabSeparator", { link = "BufferLineSeparator" })
+	highlight(0, "BufferLineTabSeparatorSelected", { link = "BufferLineSeparator" })
+
+	highlight(0, "BufferLineErrorSelected",
+		{ bg = colors.ui.bufferline.tab_bg, fg = colors.red, italic = true, bold = true, sp = colors.darkred })
+	highlight(0, "BufferLineError", { fg = colors.darkred, bg = colors.ui.bufferline.tab_bg, })
+	highlight(0, "BufferLineErrorDiagnostic", { link = "BufferLineError" })
+	highlight(0, "BufferLineErrorDiagnosticSelected", { link = "BufferLineErrorSelected" })
 end
 
 return theme
