@@ -10,7 +10,7 @@ https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac
 
 You can use any package manager you like, in these examples I'm using [Packer.nvim](https://github.com/wbthomason/packer.nvim) and [Lazy.nvim](https://github.com/folke/lazy.nvim)
 
-> Packer.nvim
+### Packer.nvim
 
 ```lua
 use {
@@ -24,12 +24,13 @@ use {
 }
 ```
 
-> Lazy.nvim
+### Lazy.nvim
 
 ```lua
 {
     'barrientosvctor/abyss.nvim',
     lazy = false,
+    priority = 1000,
     opts = {}
 }
 ```
@@ -74,3 +75,49 @@ require('lualine').setup {
     }
 }
 ```
+
+## 📝 Notes
+
+- If you have Bufferline.nvim installed in your dotfiles, bufferline should be loaded after setting up abyss.nvim or it will highlight incorrectly. I'll provide you examples about this using [Packer.nvim](https://github.com/wbthomason/packer.nvim) and [Lazy.nvim](https://github.com/folke/lazy.nvim)
+
+<details>
+<summary>Click to see Lazy.nvim example</summary>
+
+- Abyss.nvim config
+
+```lua
+{
+    'barrientosvctor/abyss.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {}
+}
+```
+
+- Bufferline config
+
+```lua
+{
+    'akinsho/bufferline.nvim',
+    lazy = true,
+    event = "UIEnter",
+    -- ...rest of your config
+}
+```
+
+</details>
+
+<details>
+<summary>Click to see Packer.nvim example</summary>
+
+- Bufferline config
+
+```lua
+use {
+    'akinsho/bufferline.nvim',
+    after = 'abyss.nvim',
+    -- ...rest of your config
+}
+```
+
+</details>
