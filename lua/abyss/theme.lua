@@ -8,7 +8,9 @@ local highlight = vim.api.nvim_set_hl
 -- All treesitter captures: https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights
 -- All treesitter captures linked by default to standard group names: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
-function theme.loadSyntax()
+---Applies colors to colorscheme highlight groups.
+function theme.load_colorscheme()
+    -- Syntax --
     highlight(0, "Comment", { fg = colors.midblue, italic = true })
 
     highlight(0, "Constant", { fg = colors.fg })
@@ -45,9 +47,8 @@ function theme.loadSyntax()
 
     highlight(0, "markdownURL", { fg = colors.darkgreen, underline = true })
     highlight(0, "markdownCodeBlock", { fg = colors.yellow, italic = true })
-end
 
-function theme.loadEditor()
+    -- Editor --
     highlight(0, "ColorColumn", { fg = colors.none, bg = colors.darkred })
     highlight(0, "Conceal", { fg = colors.fg, bg = colors.none })
 
@@ -142,31 +143,8 @@ function theme.loadEditor()
 
     highlight(0, "WinBar", { fg = colors.white, bg = colors.bg })
     highlight(0, "WinBarNC", { fg = colors.fg, bg = colors.bg })
-end
 
-function theme.loadTerminal()
-    vim.g.terminal_color_0 = colors.bg
-    vim.g.terminal_color_1 = colors.red
-    vim.g.terminal_color_2 = colors.darkgreen
-    vim.g.terminal_color_3 = colors.green
-    vim.g.terminal_color_4 = colors.darkblue
-    vim.g.terminal_color_5 = colors.purple
-    vim.g.terminal_color_6 = colors.darkgreen
-    vim.g.terminal_color_7 = colors.lightgrey
-    vim.g.terminal_color_8 = colors.heavyyellow
-    vim.g.terminal_color_9 = colors.red
-    vim.g.terminal_color_10 = colors.midblue
-    vim.g.terminal_color_11 = colors.orange
-    vim.g.terminal_color_12 = colors.red
-    vim.g.terminal_color_13 = colors.darkred
-    vim.g.terminal_color_14 = colors.orange
-    vim.g.terminal_color_15 = colors.yellow
-
-    highlight(0, "TermCursor", { fg = colors.none, bg = colors.white })
-    highlight(0, "TermCursorNC", { fg = colors.none, bg = colors.fg })
-end
-
-function theme.loadTreeSitter()
+    -- Treesitter --
     -- Semantic tokens
     highlight(0, "@lsp.type.class", { link = "Structure" })
     highlight(0, "@lsp.type.comment", { link = "Comment" })
@@ -211,9 +189,8 @@ function theme.loadTreeSitter()
     -- Typescript
     highlight(0, "@type.qualifier.typescript", { link = "Statement" })
     highlight(0, "@constant.builtin.typescript", { link = "Boolean" })
-end
 
-function theme.loadLSP()
+    -- LSP --
     highlight(0, "DiagnosticError", { fg = colors.red })
     highlight(0, "DiagnosticWarn", { fg = colors.heavyyellow })
     highlight(0, "DiagnosticInfo", { fg = colors.shinyblue })
@@ -231,9 +208,8 @@ function theme.loadLSP()
     highlight(0, "LspDiagnosticsHint", { link = "DiagnosticHint" })
 
     highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, bg = colors.fg_alt, italic = true })
-end
 
-function theme.loadPlugins()
+    -- Plugins --
     -- Telescope
     -- Sets the highlight for selected items within the picker.
     highlight(0, "TelescopeSelection", { fg = colors.white })
@@ -378,6 +354,29 @@ function theme.loadPlugins()
     highlight(0, "BufferLineError", { fg = colors.darkred, bg = colors.ui.bufferline.tab_bg, })
     highlight(0, "BufferLineErrorDiagnostic", { link = "BufferLineError" })
     highlight(0, "BufferLineErrorDiagnosticSelected", { link = "BufferLineErrorSelected" })
+end
+
+---Load the terminal colors.
+function theme.load_terminal()
+    vim.g.terminal_color_0 = colors.bg
+    vim.g.terminal_color_1 = colors.red
+    vim.g.terminal_color_2 = colors.darkgreen
+    vim.g.terminal_color_3 = colors.green
+    vim.g.terminal_color_4 = colors.darkblue
+    vim.g.terminal_color_5 = colors.purple
+    vim.g.terminal_color_6 = colors.darkgreen
+    vim.g.terminal_color_7 = colors.lightgrey
+    vim.g.terminal_color_8 = colors.heavyyellow
+    vim.g.terminal_color_9 = colors.red
+    vim.g.terminal_color_10 = colors.midblue
+    vim.g.terminal_color_11 = colors.orange
+    vim.g.terminal_color_12 = colors.red
+    vim.g.terminal_color_13 = colors.darkred
+    vim.g.terminal_color_14 = colors.orange
+    vim.g.terminal_color_15 = colors.yellow
+
+    highlight(0, "TermCursor", { fg = colors.none, bg = colors.white })
+    highlight(0, "TermCursorNC", { fg = colors.none, bg = colors.fg })
 end
 
 return theme
