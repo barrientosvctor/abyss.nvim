@@ -1,6 +1,7 @@
 local util = {}
-local abyss = require("abyss.theme")
+local theme = require("abyss.theme")
 
+---Performs the necessary processes to correctly load the colorscheme.
 function util.load()
     vim.api.nvim_command("hi clear")
 
@@ -11,12 +12,8 @@ function util.load()
     vim.o.termguicolors = true
     vim.g.colors_name = "abyss"
 
-    abyss.loadSyntax()
-    abyss.loadEditor()
-    abyss.loadTerminal()
-    abyss.loadTreeSitter()
-    abyss.loadLSP()
-    abyss.loadPlugins()
+    theme.load_colorscheme()
+    theme.load_terminal()
 end
 
 return util
