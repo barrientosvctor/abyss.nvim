@@ -35,6 +35,20 @@ use {
 }
 ```
 
+## 💻 Setup
+
+Abyss.nvim has options to customize your colorscheme instance according to your preferences.
+
+These are the available options for the colorscheme:
+
+```lua
+require('abyss').setup({
+    italic_comments = true, -- Toggle italic comments
+    italic = false, -- Toggle italic for function names, keywords, strings and booleans
+    bold = false -- Toggle bold for function names, keywords and booleans
+})
+```
+
 ## 🔌 Plugins supported
 * [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
