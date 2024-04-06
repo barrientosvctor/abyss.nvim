@@ -18,13 +18,13 @@ function theme.load_colorscheme(user_opts)
     highlight(0, "String", { fg = colors.darkgreen, italic = user_opts.italic })
     highlight(0, "Character", { link = "String" })
     highlight(0, "Number", { fg = colors.pink })
-    highlight(0, "Boolean", { fg = colors.pink, italic = user_opts.italic })
+    highlight(0, "Boolean", { fg = colors.pink, italic = user_opts.italic, bold = user_opts.bold })
     highlight(0, "Float", { link = "Number" })
 
     highlight(0, "Identifier", { fg = colors.fg })
     highlight(0, "Function", { fg = colors.yellow, bold = user_opts.bold, italic = user_opts.italic })
 
-    highlight(0, "Statement", { fg = colors.darkgrey, italic = user_opts.italic  })
+    highlight(0, "Statement", { fg = colors.darkgrey, italic = user_opts.italic, bold = user_opts.bold  })
 
     highlight(0, "PreProc", { fg = colors.darkgrey })
 
