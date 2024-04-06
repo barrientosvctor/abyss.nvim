@@ -9,21 +9,22 @@ local highlight = vim.api.nvim_set_hl
 -- All treesitter captures linked by default to standard group names: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
 ---Applies colors to colorscheme highlight groups.
-function theme.load_colorscheme()
+---@param user_opts AbyssOptions
+function theme.load_colorscheme(user_opts)
     -- Syntax --
-    highlight(0, "Comment", { fg = colors.midblue, italic = true })
+    highlight(0, "Comment", { fg = colors.midblue, italic = user_opts.italic_comments })
 
     highlight(0, "Constant", { fg = colors.fg })
-    highlight(0, "String", { fg = colors.darkgreen })
+    highlight(0, "String", { fg = colors.darkgreen, italic = user_opts.italic })
     highlight(0, "Character", { link = "String" })
     highlight(0, "Number", { fg = colors.pink })
-    highlight(0, "Boolean", { fg = colors.pink })
+    highlight(0, "Boolean", { fg = colors.pink, italic = user_opts.italic })
     highlight(0, "Float", { link = "Number" })
 
     highlight(0, "Identifier", { fg = colors.fg })
-    highlight(0, "Function", { fg = colors.yellow })
+    highlight(0, "Function", { fg = colors.yellow, bold = user_opts.bold, italic = user_opts.italic })
 
-    highlight(0, "Statement", { fg = colors.darkgrey })
+    highlight(0, "Statement", { fg = colors.darkgrey, italic = user_opts.italic  })
 
     highlight(0, "PreProc", { fg = colors.darkgrey })
 
@@ -46,7 +47,7 @@ function theme.load_colorscheme()
     highlight(0, "Todo", { fg = colors.heavyyellow, bg = colors.darkred, bold = true })
 
     highlight(0, "markdownURL", { fg = colors.darkgreen, underline = true })
-    highlight(0, "markdownCodeBlock", { fg = colors.yellow, italic = true })
+    highlight(0, "markdownCodeBlock", { fg = colors.yellow, italic = user_opts.italic })
 
     -- Editor --
     highlight(0, "ColorColumn", { fg = colors.none, bg = colors.darkred })
@@ -207,7 +208,7 @@ function theme.load_colorscheme()
     highlight(0, "LspDiagnosticsInformation", { link = "DiagnosticInfo" })
     highlight(0, "LspDiagnosticsHint", { link = "DiagnosticHint" })
 
-    highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, bg = colors.fg_alt, italic = true })
+    highlight(0, "LspSignatureActiveParameter", { fg = colors.orange, bg = colors.fg_alt, italic = user_opts.italic, bold = user_opts.bold })
 
     -- Plugins --
     -- Telescope

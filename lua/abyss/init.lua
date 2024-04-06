@@ -13,7 +13,7 @@ function M.setup(opts)
     end
 
     config.set_options(opts)
-    util.load()
+    util.load(config.options)
 end
 
 return M
