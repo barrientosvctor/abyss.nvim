@@ -6,3 +6,6 @@ check:
 
 fmt:
 	$(STYLUA_PKG) $(BASE_STYLUA_FLAGS) .
+
+lint:
+	luacheck lua
