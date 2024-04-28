@@ -45,7 +45,8 @@ These are the available options for the colorscheme:
 require('abyss').setup({
     italic_comments = true, -- Toggle italic comments
     italic = false, -- Toggle italic for function names, keywords, strings and booleans
-    bold = false -- Toggle bold for function names, keywords and booleans
+    bold = false, -- Toggle bold for function names, keywords and booleans
+    transparent_background = false, -- Toggle transparency on neovim background
 })
 ```
 

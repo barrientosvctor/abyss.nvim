@@ -6,3 +6,5 @@
 --Enables italic on colorscheme.
 ---@field bold boolean?
 --Enables bold on colorscheme.
+---@field transparent_background boolean?
+--Enables transparent background on colorscheme.

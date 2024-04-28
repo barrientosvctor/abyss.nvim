@@ -3,6 +3,7 @@ local M = {
     italic_comments = true,
     italic = false,
     bold = false,
+    transparent_background = false,
   },
 }
 
