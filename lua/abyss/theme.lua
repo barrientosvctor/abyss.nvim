@@ -79,7 +79,10 @@ function theme.load_colorscheme(user_opts)
   highlight(0, "healthSuccess", { fg = colors.green })
   highlight(0, "healthWarning", { fg = colors.yellow })
 
-  highlight(0, "NonText", { fg = colors.bg, bg = colors.bg })
+  highlight(0, "NonText", {
+    fg = user_opts.transparent_background and colors.none or colors.bg,
+    bg = user_opts.transparent_background and colors.none or colors.bg,
+  })
   highlight(0, "EndOfBuffer", { link = "NonText" })
 
   highlight(0, "VertSplit", { fg = colors.fg, bg = colors.bg })
@@ -89,13 +92,13 @@ function theme.load_colorscheme(user_opts)
 
   highlight(0, "Folded", { fg = colors.darkgrey, bg = colors.none, italic = true })
   highlight(0, "FoldColumn", { bg = colors.bg_completion_sel })
-  highlight(0, "SignColumn", { fg = colors.fg, bg = colors.bg })
+  highlight(0, "SignColumn", { fg = colors.fg, bg = user_opts.transparent_background and colors.none or colors.bg })
 
   highlight(0, "IncSearch", { fg = colors.black, bg = colors.yellow })
   highlight(0, "Substitute", { link = "IncSearch" })
 
-  highlight(0, "LineNr", { fg = colors.lowgrey, bg = colors.bg })
-  highlight(0, "LineNrAbove", { fg = colors.lowgrey, bg = colors.bg })
+  highlight(0, "LineNr", { fg = colors.lowgrey, bg = user_opts.transparent_background and colors.none or colors.bg })
+  highlight(0, "LineNrAbove", { link = "LineNr" })
   highlight(0, "LineNrBelow", { link = "LineNrAbove" })
 
   highlight(0, "MatchParen", { fg = colors.heavyyellow, bg = colors.darkred })
@@ -104,7 +107,7 @@ function theme.load_colorscheme(user_opts)
   highlight(0, "ModeMsg", { link = "MsgArea" })
   highlight(0, "MoreMsg", { link = "MsgArea" })
 
-  highlight(0, "Normal", { fg = colors.fg, bg = colors.bg })
+  highlight(0, "Normal", { fg = colors.fg, bg = user_opts.transparent_background and colors.none or colors.bg })
   highlight(0, "NormalNC", { link = "Normal" })
   highlight(0, "NormalFloat", { fg = colors.fg, bg = colors.bg_alt })
   highlight(0, "FloatBorder", { link = "NormalFloat" })
