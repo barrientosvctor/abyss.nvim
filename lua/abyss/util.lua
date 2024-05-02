@@ -13,6 +13,14 @@ function util.load(user_opts)
 
   theme.load_colorscheme(user_opts)
   theme.load_terminal()
+
+  if type(user_opts.overrides) == "table" then
+    for key, opts in pairs(user_opts.overrides) do
+      vim.api.nvim_set_hl(0, key, opts)
+    end
+  elseif type(user_opts.overrides) == "function" then
+    user_opts.overrides()
+  end
 end
 
 return util

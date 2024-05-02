@@ -4,6 +4,7 @@ local M = {
     italic = false,
     bold = false,
     transparent_background = false,
+    overrides = {},
   },
 }
 

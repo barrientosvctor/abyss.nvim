@@ -8,3 +8,23 @@
 --Enables bold on colorscheme.
 ---@field transparent_background boolean?
 --Enables transparent background on colorscheme.
+---@field overrides table<string, Highlight>|function?
+--Override the default colorscheme highlight to a any else.
+
+---@class Highlight
+--The highlight group parameters
+---@field bg string?
+---@field fg string?
+---@field sp string?
+---@field blend integer?
+---@field bold boolean?
+---@field standout boolean?
+---@field underline boolean?
+---@field undercurl boolean?
+---@field underdouble boolean?
+---@field underdotted boolean?
+---@field underdashed boolean?
+---@field strikethrough boolean?
+---@field italic boolean?
+---@field reverse boolean?
+---@field nocombine boolean?
