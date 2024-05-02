@@ -1,22 +1,17 @@
 ---@class AbyssOptions
 --The colorscheme options
----@field italic_comments boolean?
---Enables italic comments on colorscheme.
----@field italic boolean?
---Enables italic on colorscheme.
----@field bold boolean?
---Enables bold on colorscheme.
----@field transparent_background boolean?
---Enables transparent background on colorscheme.
----@field overrides table<string, Highlight>|function?
---Override the default colorscheme highlight to a any else.
+---@field italic_comments boolean? Enables italic comments on colorscheme.
+---@field italic boolean? Enables italic on colorscheme.
+---@field bold boolean? Enables bold on colorscheme.
+---@field transparent_background boolean? Enables transparent background on colorscheme.
+---@field overrides table<string, Highlight>|function? Override the default colorscheme highlight to a any else.
 
 ---@class Highlight
 --The highlight group parameters
----@field bg string?
----@field fg string?
----@field sp string?
----@field blend integer?
+---@field bg string? color name or "#RRGGBB"
+---@field fg string? color name or "#RRGGBB"
+---@field sp string? color name or "#RRGGBB"
+---@field blend integer? integer between 0 and 100
 ---@field bold boolean?
 ---@field standout boolean?
 ---@field underline boolean?
