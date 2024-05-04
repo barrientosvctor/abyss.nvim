@@ -1,10 +1,7 @@
 ---@class AbyssOptions
 --The colorscheme options
----@field italic_comments boolean?
---Enables italic comments on colorscheme.
----@field italic boolean?
---Enables italic on colorscheme.
----@field bold boolean?
---Enables bold on colorscheme.
----@field transparent_background boolean?
---Enables transparent background on colorscheme.
+---@field italic_comments boolean? Enables italic comments on colorscheme.
+---@field italic boolean? Enables italic on colorscheme.
+---@field bold boolean? Enables bold on colorscheme.
+---@field transparent_background boolean? Enables transparent background on colorscheme.
+---@field overrides table<string, table<string, unknown>> | nil? Override the default colorscheme highlight to a any else. The highlight properties can be found here: https://neovim.io/doc/user/api.html#nvim_set_hl()

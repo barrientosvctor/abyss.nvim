@@ -47,6 +47,25 @@ require('abyss').setup({
     italic = false, -- Toggle italic for function names, keywords, strings and booleans
     bold = false, -- Toggle bold for function names, keywords and booleans
     transparent_background = false, -- Toggle transparency on neovim background
+    overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
+})
+```
+
+### Overriding highlights
+
+You can be able to use all of [nvim_set_hl()](https://neovim.io/doc/user/api.html#nvim_set_hl())
+function properties to override the colorscheme colors.
+
+```lua
+local c = require('abyss.colors')
+
+require('abyss').setup({
+    overrides = {
+        String = { fg = c.heavyyellow, bold = true },
+        -- or:
+        ['String'] = { fg = "#ffeebb", bold = true },
+        -- ...rest of highlight overrides
+    }
 })
 ```
 
