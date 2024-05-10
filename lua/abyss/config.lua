@@ -1,3 +1,4 @@
+local api = require("abyss.lib.api")
 local M = {
   default_options = {
     italic_comments = true,
@@ -14,7 +15,7 @@ M.options = M.default_options
 ---@param opts AbyssOptions
 function M.set_options(opts)
   opts = opts or {}
-  M.options = vim.tbl_deep_extend("keep", opts, M.default_options)
+  M.options = api.tbl_deep_extend("keep", opts, M.default_options)
 end
 
 return M
