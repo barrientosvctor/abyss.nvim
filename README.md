@@ -232,4 +232,38 @@ use {
 
 ## 🤗 Acknowledgements
 
-- [nightfox](https://github.com/EdenEast/nightfox.nvim) (codebase for vim support)
+- [nightfox](https://github.com/EdenEast/nightfox.nvim) -> codebase for vim support
+
+## 👥 Contributing
+
+Any issue or pull request is welcome. Make sure to follow the
+[Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+on pull requests and commits.
+
+### Syntax highlight groups
+
+If you want to contribute about wrong syntax highlighting on colorscheme. This
+section will help you to determine what highlight group is being applied to a
+specific piece of syntax. It'll output the highlight group for the value under
+the cursor.
+
+#### Treesitter highlighting
+
+Neovim has included a command with these characteristics. Just type: `:Inspect`.
+
+#### Vim highlighting
+
+Add this function to your vimrc:
+
+```vim
+function! SynStack()
+  for i1 in synstack(line("."), col("."))
+    let i2 = synIDtrans(i1)
+    let n1 = synIDattr(i1, "name")
+    let n2 = synIDattr(i2, "name")
+    echo n1 "->" n2
+  endfor
+endfunction
+
+map <F2> <cmd>call SynStack()<cr>
+```
