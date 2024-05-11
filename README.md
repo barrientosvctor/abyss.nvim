@@ -47,6 +47,7 @@ require('abyss').setup({
     italic = false, -- Toggle italic for function names, keywords, strings and booleans
     bold = false, -- Toggle bold for function names, keywords and booleans
     transparent_background = false, -- Toggle transparency on neovim background
+    treesitter = true -- Enable treesitter highlighting. No need to configuration. Default value: (Neovim = true), (Vim = false)
     overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
 })
 ```

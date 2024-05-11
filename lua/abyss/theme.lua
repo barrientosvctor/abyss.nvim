@@ -1,4 +1,4 @@
-local theme = {}
+local M = {}
 local colors = require("abyss.colors")
 
 -- All syntax groups: https://neovim.io/doc/user/syntax.html#group-name
@@ -9,7 +9,7 @@ local colors = require("abyss.colors")
 
 ---Applies colors to colorscheme highlight groups.
 ---@param user_opts AbyssOptions
-function theme.get(user_opts)
+function M.get(user_opts)
     return {
   -- Syntax --
   Comment = { fg = colors.midblue, italic = user_opts.italic_comments },
@@ -316,7 +316,7 @@ function theme.get(user_opts)
     }
 end
 
-function theme.get_treesitter()
+function M.get_treesitter()
     return {
         -- Treesitter --
         -- Semantic tokens
@@ -367,7 +367,7 @@ function theme.get_treesitter()
 end
 
 ---Load the terminal colors.
-function theme.load_terminal_colors()
+function M.load_terminal_colors()
   vim.g.terminal_color_0 = colors.bg
   vim.g.terminal_color_1 = colors.red
   vim.g.terminal_color_2 = colors.darkgreen
@@ -386,4 +386,4 @@ function theme.load_terminal_colors()
   vim.g.terminal_color_15 = colors.yellow
 end
 
-return theme
+return M

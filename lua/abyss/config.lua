@@ -5,6 +5,7 @@ local M = {
     italic = false,
     bold = false,
     transparent_background = false,
+    treesitter = not api.is_vim,
     overrides = nil,
   },
 }
