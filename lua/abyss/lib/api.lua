@@ -82,4 +82,15 @@ function M.notify(msg, level, opts)
     return vim.notify(msg, level, opts)
 end
 
+---Highlight a group, like :Highlight command
+---@param group string
+---@param opts table
+function M.highlight(group, opts)
+    if M.is_vim then
+        vim_lib.highlight_group(group, opts)
+    else
+        vim.api.nvim_set_hl(0, group, opts)
+    end
+end
+
 return M
