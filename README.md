@@ -1,16 +1,27 @@
 # abyss.nvim
-Neovim colorscheme inspired by Abyss theme in Visual Studio Code.
+(Neo)vim colorscheme inspired by Abyss theme in Visual Studio Code.
 
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
 ## ⚡️ Requeriments
-* [Neovim](https://github.com/neovim/neovim) >= **0.8.0**
+* [Neovim](https://github.com/neovim/neovim) >= **0.8.0** or [Vim 9](https://www.vim.org/) with lua >= **5.1**.
 
 ## 📦 Installation
 
-You can use any package manager you like, in these examples I'm using [Packer.nvim](https://github.com/wbthomason/packer.nvim) and [Lazy.nvim](https://github.com/folke/lazy.nvim)
+You can use any package manager you like.
 
-### Packer.nvim
+**I highly recommend updating abyss.nvim when a release/tag comes out, since it is possible that there are development commits before that that can cause unexpected errors when using the colorscheme. To do this, make sure to specify a tag in your preferred package manager (if it supports it) before downloading the colorscheme.**
+
+<table>
+<tr>
+<td> <b>Package manager</b> </td> <td> <b>Installation</b> </td>
+</tr>
+
+<!-- Packer.nvim -->
+</tr>
+<tr>
+<td> <a href="https://github.com/wbthomason/packer.nvim">packer.nvim</a> </td>
+<td>
 
 ```lua
 use {
@@ -24,7 +35,14 @@ use {
 }
 ```
 
-### Lazy.nvim
+</td>
+</tr>
+
+<!-- Lazy.nvim -->
+</tr>
+<tr>
+<td> <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a> </td>
+<td>
 
 ```lua
 {
@@ -34,6 +52,51 @@ use {
     opts = {}
 }
 ```
+
+</td>
+</tr>
+
+<!-- Vim-plug -->
+</tr>
+<tr>
+<td> <a href="https://github.com/junegunn/vim-plug">Vim-plug</a> </td>
+<td>
+
+```vim
+Plug 'barrientosvctor/abyss.nvim'
+```
+
+</td>
+</tr>
+
+<!-- Vundle.vim -->
+</tr>
+<tr>
+<td> <a href="https://github.com/VundleVim/Vundle.vim">Vundle.vim</a> </td>
+<td>
+
+```vim
+Plugin 'barrientosvctor/abyss.nvim'
+```
+
+</td>
+</tr>
+
+<!-- Vim pack -->
+</tr>
+<tr>
+<td> Vim's built-in package manager </td>
+<td>
+
+```shell
+mkdir -p ~/.vim/pack/colors/start
+cd ~/.vim/pack/colors/start
+git clone https://github.com/barrientosvctor/abyss.nvim.git
+```
+
+</td>
+</tr>
+</table>
 
 ## 💻 Setup
 
@@ -50,6 +113,16 @@ require('abyss').setup({
     treesitter = true -- Enable treesitter highlighting. No need to configuration. Default value: (Neovim = true), (Vim = false)
     overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
 })
+```
+
+### Vim Script with Lua
+
+```vim
+lua << EOF
+require("abyss").setup {
+    " your setup options
+}
+EOF
 ```
 
 ### Overriding highlights
@@ -156,3 +229,7 @@ use {
 ```
 
 </details>
+
+## 🤗 Acknowledgements
+
+- [nightfox](https://github.com/EdenEast/nightfox.nvim) (codebase for vim support)
