@@ -1,5 +1,5 @@
 STYLUA_PKG = stylua
-BASE_STYLUA_FLAGS = --config-path .stylua.toml --no-editorconfig --glob "**/*.lua"
+BASE_STYLUA_FLAGS = --config-path .stylua.toml --glob "**/*.lua"
 
 check:
 	$(STYLUA_PKG) $(BASE_STYLUA_FLAGS) --check .
