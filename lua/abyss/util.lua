@@ -1,37 +1,34 @@
-local util = {}
+local M = {}
 local theme = require("abyss.theme")
+local api = require("abyss.lib.api")
+local lib_util = require("abyss.lib.util")
 
 ---Performs the necessary processes to correctly load the colorscheme.
 ---@param user_opts AbyssOptions
-function util.load(user_opts)
-  vim.api.nvim_command("hi clear")
+function M.load(user_opts)
+  api.command("hi clear")
 
-  if vim.fn.exists("syntax_on") then vim.api.nvim_command("syntax reset") end
+  if vim.fn.exists("syntax_on") then api.command("syntax reset") end
 
-  vim.o.termguicolors = true
+    api.command("set termguicolors")
+
   vim.g.colors_name = "abyss"
 
-  theme.load_colorscheme(user_opts)
-  theme.load_terminal()
+    local groups = theme.get(user_opts)
+
+    for key, value in pairs(groups) do
+        api.highlight(key, value)
+    end
 
     if (type(user_opts.overrides) ~= "nil" and type(user_opts.overrides) == "table") then
-        if util.table_length(user_opts.overrides) == 0 then return end
+        if lib_util.table_length(user_opts.overrides) == 0 then return end
 
         for key, opts in pairs(user_opts.overrides) do
-            vim.api.nvim_set_hl(0, key, opts)
+            api.highlight(key, opts)
         end
     end
 
+  theme.load_terminal_colors()
 end
 
----Return the length of the table passed by parameter.
----@param tbl table
-function util.table_length(tbl)
-    local count = 0
-    for _ in pairs(tbl) do
-        count = count + 1
-    end
-    return count
-end
-
-return util
+return M
