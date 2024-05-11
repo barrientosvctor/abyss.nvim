@@ -2,6 +2,7 @@
 -- https://github.com/neovim/neovim/blob/master/runtime/lua/vim/shared.lua
 -- https://github.com/EdenEast/nightfox.nvim/blob/main/lua/nightfox/lib/vim/init.lua
 
+local lib_util = require("abyss.lib.util")
 local M = {}
 
 ---Splits an input and return it in a new table. Guided by a separator.
@@ -97,6 +98,60 @@ function M.tbl_extend(behavior, deep_extend, ...)
     end
   end
   return ret
+end
+
+---@param link string?
+---@return boolean
+local function should_link(link)
+    return link and string.len(link) == 0 or link ~= nil
+end
+
+---Lists the arguments of a highlight, either gui or cterm/term
+---@param opts table
+---@return table
+local function highlight_arguments(opts)
+    -- Source: https://neovim.io/doc/user/api.html#nvim_set_hl() and `:help :highlight`
+    local possible_arguments = {"bold", "standout", "underline", "undercurl", "underdouble", "underdotted", "underdashed", "strikethrough", "italic"}
+    local arguments = {}
+
+    for i=1, lib_util.table_length(possible_arguments), 1 do
+        if opts[possible_arguments[i]] then
+            table.insert(arguments, possible_arguments[i])
+        end
+    end
+
+    return arguments
+end
+
+---Joins the arguments for gui or cterm/term properties
+---@param tbl table
+---@return string
+local function join_arguments(tbl)
+    return lib_util.table_length(tbl) == 0 and "NONE" or table.concat(tbl, ",")
+end
+
+---Highlight a highlight group. Like :highlight
+---@param group string
+---@param opts table
+function M.highlight_group(group, opts)
+    if should_link(opts.link) then
+        vim.command(string.format([[
+        highlight! link %s %s
+        ]], group, opts.link))
+    else
+        local args = join_arguments(highlight_arguments(opts))
+    vim.command(string.format([[
+    highlight %s guibg=%s guifg=%s guisp=%s gui=%s cterm=%s term=%s
+    ]],
+        group,
+        opts.bg or "NONE",
+        opts.fg or "NONE",
+        opts.sp or "NONE",
+            args,
+            args,
+            args
+        ))
+    end
 end
 
 return M
