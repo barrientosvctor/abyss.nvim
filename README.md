@@ -125,7 +125,7 @@ require("abyss").setup {
 EOF
 ```
 
-### Overriding highlights
+### Overwriting highlights
 
 You can be able to use all of [nvim_set_hl()](https://neovim.io/doc/user/api.html#nvim_set_hl())
 function properties to override the colorscheme colors.
