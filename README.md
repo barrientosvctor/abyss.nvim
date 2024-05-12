@@ -230,15 +230,30 @@ use {
 
 </details>
 
-## 🤗 Acknowledgements
-
-- [nightfox](https://github.com/EdenEast/nightfox.nvim) -> codebase for vim support
-
 ## 👥 Contributing
 
-Any issue or pull request is welcome. Make sure to follow the
-[Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
-on pull requests and commits.
+Any issue or pull request is welcome. In this section, I will guide you to make
+your first contribution.
+
+- Before these instructions, it's recommended to before create an issue about
+your change to talk about it.
+
+- All branches must be based from `develop` branch. So, you need to
+create a new branch based on this one.
+
+```shell
+$ git switch develop
+$ git checkout -b branch-name
+```
+
+- Make sure to pull the latest commits from `develop` branch to your branch
+before make a commit.
+
+- All pull requests must go from your branch to `develop` branch.
+
+### How should you write your commits?
+
+Refer to [release-please-action](https://github.com/googleapis/release-please-action?tab=readme-ov-file#how-should-i-write-my-commits) section.
 
 ### Syntax highlight groups
 
@@ -267,3 +282,7 @@ endfunction
 
 map <F2> <cmd>call SynStack()<cr>
 ```
+
+## 🤗 Acknowledgements
+
+- [nightfox](https://github.com/EdenEast/nightfox.nvim) -> codebase for vim support
