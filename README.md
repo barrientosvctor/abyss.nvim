@@ -1,5 +1,7 @@
 # abyss.nvim
-(Neo)vim colorscheme inspired by Abyss theme in Visual Studio Code.
+Unofficial port for (Neo)Vim inspired by the Abyss theme from Visual Studio Code.
+
+**This is the latest version of the old [abyss.vim](https://github.com/barrientosvctor/abyss.vim), now supporting Vim.**
 
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
@@ -255,6 +257,9 @@ before make a commit.
 
 Your pull request should pass all code reviews (if there is) to
 merge it to `develop` . These code reviews are GitHub workflows.
+
+Also make sure you don't include any `CHANGELOG.md` in your pull request so you
+don't have conflicts with the original file in the `main` branch.
 
 ### How should you write your commits?
 
