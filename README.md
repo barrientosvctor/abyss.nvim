@@ -251,6 +251,11 @@ before make a commit.
 
 - All pull requests must go from your branch to `develop` branch.
 
+### Merging the pull request
+
+Your pull request should pass all code reviews (if there is) to
+merge it to `develop` . These code reviews are GitHub workflows.
+
 ### How should you write your commits?
 
 Refer to [release-please-action](https://github.com/googleapis/release-please-action?tab=readme-ov-file#how-should-i-write-my-commits) section.
