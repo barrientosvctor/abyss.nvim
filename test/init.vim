@@ -1,12 +1,12 @@
 try
-	call plug#begin()
-	Plug expand('<sfile>')[0:-16]
-	call plug#end()
+  call plug#begin()
+  Plug expand('<sfile>')[0:-16]
+  call plug#end()
 
-	lua require("abyss").setup {}
+  lua require("abyss").setup {}
 catch
-	echo v:exception
-	1cq
+  echo v:exception
+  1cq
 finally
-	0cq
+  0cq
 endtry
