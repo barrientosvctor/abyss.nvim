@@ -4,11 +4,17 @@ run-name: Neovim checks
 
 on:
   pull_request:
-    paths-ignore: "*.md"
+    paths:
+      - "lua/*"
+      - "test/*"
+      - "colors/*"
     branches: ["main", "develop"]
   push:
-    paths-ignore: "*.md"
-    branches: ["main"]
+    paths:
+      - "lua/*"
+      - "test/*"
+      - "colors/*"
+    branches: main
 
 jobs:
   ubuntu:
