@@ -87,7 +87,7 @@ function M.get(user_opts)
 
     VertSplit = { fg = colors.fg, bg = colors.bg },
 
-    highlight = { fg = colors.red },
+    ErrorMsg = { fg = colors.red },
     WarningMsg = { fg = colors.heavyyellow },
 
     Folded = { fg = colors.darkgrey, bg = colors.none, italic = true },
