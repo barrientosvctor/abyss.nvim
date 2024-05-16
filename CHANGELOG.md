@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.0...v2.0.1) (2024-05-16)
+
+
+### Bug Fixes
+
+* **theme:** display ErrorMsg highlight colors ([6b4b426](https://github.com/barrientosvctor/abyss.nvim/commit/6b4b4262eec559fb275b26347a685fe3b882e7ed))
+
 ## [2.0.0](https://github.com/barrientosvctor/abyss.nvim/compare/v1.5.0...v2.0.0) (2024-05-13)
 
 
