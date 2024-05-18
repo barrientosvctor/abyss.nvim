@@ -362,6 +362,7 @@ function M.get_treesitter()
     ["@variable"] = { link = "@lsp.type.variable" },
     ["@property"] = { link = "@lsp.type.property" },
     ["@parameter"] = { link = "@lsp.type.parameter" },
+    ["@variable.parameter"] = { link = "@lsp.type.parameter" },
     ["@function"] = { link = "@lsp.type.function" },
     ["@function.call"] = { link = "@lsp.type.function" },
     ["@function.builtin"] = { link = "@lsp.type.function" },
