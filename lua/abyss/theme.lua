@@ -27,6 +27,7 @@ function M.get(user_opts)
     Statement = { fg = colors.darkgrey, italic = user_opts.italic, bold = user_opts.bold },
 
     PreProc = { fg = colors.darkgrey },
+    Operator = { fg = colors.darkgrey },
 
     Type = { fg = colors.purple, italic = true },
     StorageClass = { fg = colors.darkgrey },
@@ -349,6 +350,7 @@ function M.get_treesitter()
     -- Misc
     ["@comment"] = { link = "@lsp.type.comment" },
     ["@error"] = { link = "Error" },
+    ["@operator"] = { link = "Operator" },
 
     -- Punctuation
     ["@punctuation.delimiter"] = { link = "Delimiter" },
@@ -360,6 +362,7 @@ function M.get_treesitter()
     ["@variable"] = { link = "@lsp.type.variable" },
     ["@property"] = { link = "@lsp.type.property" },
     ["@parameter"] = { link = "@lsp.type.parameter" },
+    ["@variable.parameter"] = { link = "@lsp.type.parameter" },
     ["@function"] = { link = "@lsp.type.function" },
     ["@function.call"] = { link = "@lsp.type.function" },
     ["@function.builtin"] = { link = "@lsp.type.function" },
