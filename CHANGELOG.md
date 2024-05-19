@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.2](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.1...v2.0.2) (2024-05-19)
+
+
+### Bug Fixes
+
+* operator highlighting ([fea4237](https://github.com/barrientosvctor/abyss.nvim/commit/fea423706cce405e0274b1103ac0800cf17d932e))
+* **treesitter:** builtin type highlighting ([e09b15b](https://github.com/barrientosvctor/abyss.nvim/commit/e09b15bbef41613bb04e2d71dbb55ac5d9407cfb))
+* **treesitter:** function parameter with no color ([c5eb174](https://github.com/barrientosvctor/abyss.nvim/commit/c5eb174c2a950c3e4036e78ef7c516a3cfa61936))
+
 ## [2.0.1](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.0...v2.0.1) (2024-05-16)
 
 
