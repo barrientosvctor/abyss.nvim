@@ -372,6 +372,7 @@ function M.get_treesitter()
     ["@constant.macro"] = { link = "Constant" },
     ["@parameter.reference"] = { link = "@lsp.type.parameter" },
     ["@exception"] = { link = "Exception" },
+    ["@type.builtin"] = { link = "@lsp.type.type" },
 
     -- Typescript
     ["@type.qualifier.typescript"] = { link = "Statement" },
