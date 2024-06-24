@@ -360,6 +360,7 @@ function M.get_treesitter()
     ["@constructor"] = { link = "@lsp.type.class" },
     ["@field"] = { link = "@lsp.type.property" },
     ["@variable"] = { link = "@lsp.type.variable" },
+    ["@variable.builtin"] = { link = "@lsp.type.variable" },
     ["@property"] = { link = "@lsp.type.property" },
     ["@parameter"] = { link = "@lsp.type.parameter" },
     ["@variable.parameter"] = { link = "@lsp.type.parameter" },

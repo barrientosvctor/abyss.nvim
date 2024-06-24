@@ -27,7 +27,7 @@ function M.load(user_opts)
   if
     type(user_opts.overrides) ~= "nil"
     and type(user_opts.overrides) == "table"
-    and lib_util.table_length(user_opts.overrides) == 0
+    and lib_util.table_length(user_opts.overrides) > 0
   then
     for key, opts in pairs(user_opts.overrides) do
       api.highlight(key, opts)
