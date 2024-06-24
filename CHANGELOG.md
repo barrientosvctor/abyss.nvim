@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.3](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.2...v2.0.3) (2024-06-24)
+
+
+### Bug Fixes
+
+* **treesitter:** builtin variable highlighting ([c376336](https://github.com/barrientosvctor/abyss.nvim/commit/c37633662deceb432d67ab91568211fcc9a5063e))
+* **util:** overrides verification ([#26](https://github.com/barrientosvctor/abyss.nvim/issues/26)) ([8234b90](https://github.com/barrientosvctor/abyss.nvim/commit/8234b90af0724f420cd50586663e4da9edbe3fb4))
+
 ## [2.0.2](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.1...v2.0.2) (2024-05-19)
 
 
