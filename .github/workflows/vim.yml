@@ -5,11 +5,11 @@ run-name: Vim checks
 on:
   pull_request:
     paths-ignore:
-      - **.md
+      - "**.md"
     branches: ["main", "develop"]
   push:
     paths-ignore:
-      - **.md
+      - "**.md"
     branches: ["main", "develop"]
 
 jobs:
