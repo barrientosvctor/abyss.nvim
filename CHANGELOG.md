@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.1.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.3...v2.1.0) (2024-07-30)
+
+
+### Features
+
+* **airline:** add basic colors for airline theme ([#24](https://github.com/barrientosvctor/abyss.nvim/issues/24)) ([f0eb893](https://github.com/barrientosvctor/abyss.nvim/commit/f0eb893555fcd4c206be827c378439872d81ef1e))
+* **vim-airline:** add highlights for another sections ([#24](https://github.com/barrientosvctor/abyss.nvim/issues/24)) ([1e03fc7](https://github.com/barrientosvctor/abyss.nvim/commit/1e03fc71838863859df17226d9491426935f5b6f))
+* **vim-lightline:** add abyss theme for vim-lightline ([e74491c](https://github.com/barrientosvctor/abyss.nvim/commit/e74491c6c615244c04bcd441d1fa9a15fcf9d46c))
+
 ## [2.0.3](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.2...v2.0.3) (2024-06-24)
 
 
