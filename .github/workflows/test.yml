@@ -9,7 +9,7 @@ on:
   push:
     paths-ignore:
       - "**.md"
-    branches: ["main", "develop"]
+    branches: "main"
 
 jobs:
   build:
