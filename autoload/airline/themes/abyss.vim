@@ -9,7 +9,6 @@ let s:red = "#cb4444"
 let s:black_inactive = "#000000"
 let s:yellow = "#ddbb88"
 let s:darkyellow = "#808000"
-let s:red = "#cb4444"
 let s:darkred = "#800000"
 
 let s:Normal_a = [s:white, s:statusline_bg, 255, 17] " guifg, guibg, ctermfg, ctermbg
