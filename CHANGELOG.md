@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.1.0...v2.2.0) (2024-08-10)
+
+
+### Features
+
+* add some new treesitter capture names for v0.10 ([d4c9105](https://github.com/barrientosvctor/abyss.nvim/commit/d4c910500af8c14cc5fe1a9ae46d729b520f2b6a))
+
 ## [2.1.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.0.3...v2.1.0) (2024-07-30)
 
 
