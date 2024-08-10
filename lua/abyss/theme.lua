@@ -376,8 +376,14 @@ function M.get_treesitter()
     ["@type.builtin"] = { link = "@lsp.type.type" },
 
     -- Typescript
-    ["@type.qualifier.typescript"] = { link = "Statement" },
     ["@constant.builtin.typescript"] = { link = "Boolean" },
+
+    ["@preproc"] = { link = "PreProc" },
+    ["@include"] = { link = "PreProc" },
+
+    ["@repeat"] = { link = "Statement" },
+    ["@conditional"] = { link = "Statement" },
+    ["@type.qualifier"] = { link = "Statement" }
   }
 end
 
