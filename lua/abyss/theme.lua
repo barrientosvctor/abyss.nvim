@@ -130,7 +130,7 @@ function M.get(user_opts)
     SpellCap = { fg = colors.yellow, underline = true },
     SpellLocal = { fg = colors.orange, underline = true },
 
-    StatusLine = { fg = colors.none, bg = colors.bg },
+    StatusLine = { fg = colors.none, bg = colors.bg_alt },
     StatusLineNC = { fg = colors.none, bg = colors.black },
 
     TabLine = { fg = colors.lightgrey, bg = colors.bg },
