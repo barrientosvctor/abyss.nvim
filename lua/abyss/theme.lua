@@ -87,6 +87,7 @@ function M.get(user_opts)
     EndOfBuffer = { link = "NonText" },
 
     VertSplit = { fg = colors.fg, bg = colors.bg },
+    WinSeparator = { link = "VertSplit" },
 
     ErrorMsg = { fg = colors.red },
     WarningMsg = { fg = colors.heavyyellow },
