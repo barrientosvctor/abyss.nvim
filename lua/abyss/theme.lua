@@ -87,6 +87,7 @@ function M.get(user_opts)
     EndOfBuffer = { link = "NonText" },
 
     VertSplit = { fg = colors.fg, bg = colors.bg },
+    WinSeparator = { link = "VertSplit" },
 
     ErrorMsg = { fg = colors.red },
     WarningMsg = { fg = colors.heavyyellow },
@@ -130,7 +131,7 @@ function M.get(user_opts)
     SpellCap = { fg = colors.yellow, underline = true },
     SpellLocal = { fg = colors.orange, underline = true },
 
-    StatusLine = { fg = colors.none, bg = colors.bg },
+    StatusLine = { fg = colors.none, bg = colors.bg_alt },
     StatusLineNC = { fg = colors.none, bg = colors.black },
 
     TabLine = { fg = colors.lightgrey, bg = colors.bg },
@@ -175,6 +176,7 @@ function M.get(user_opts)
       italic = user_opts.italic,
       bold = user_opts.bold,
     },
+    LspInlayHint = { link = "Comment" },
 
     -- Plugins --
     -- Telescope
@@ -383,7 +385,7 @@ function M.get_treesitter()
 
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
-    ["@type.qualifier"] = { link = "Statement" }
+    ["@type.qualifier"] = { link = "Statement" },
   }
 end
 

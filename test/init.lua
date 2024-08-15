@@ -1,6 +1,6 @@
 local status, error = pcall(function()
   local root = vim.fn.fnamemodify("", ":p:h")
-  for _, name in ipairs { "config", "data", "state", "cache" } do
+  for _, name in ipairs({ "config", "data", "state", "cache" }) do
     vim.env[("XDG_%s_HOME"):format(name:upper())] = root .. "/" .. name
   end
 
@@ -9,17 +9,17 @@ local status, error = pcall(function()
 
   local lazypath = root .. "/plugins/lazy.nvim"
   if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system { "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath }
+    vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
   end
   vim.opt.runtimepath:prepend(lazypath)
 
   require("lazy").setup({
     { "barrientosvctor/abyss.nvim", dev = true },
-    }, {
-      root = lazy_root,
-      dev = {
-        path = lazy_dev_path,
-      },
+  }, {
+    root = lazy_root,
+    dev = {
+      path = lazy_dev_path,
+    },
   })
 
   require("abyss").setup({})
