@@ -176,6 +176,7 @@ function M.get(user_opts)
       italic = user_opts.italic,
       bold = user_opts.bold,
     },
+    LspInlayHint = { link = "Comment" },
 
     -- Plugins --
     -- Telescope
