@@ -384,7 +384,7 @@ function M.get_treesitter()
 
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
-    ["@type.qualifier"] = { link = "Statement" }
+    ["@type.qualifier"] = { link = "Statement" },
   }
 end
 
