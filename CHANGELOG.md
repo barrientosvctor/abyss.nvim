@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.3.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.2.0...v2.3.0) (2024-08-15)
+
+
+### Features
+
+* **highlights:** add WinSeparator ([141346e](https://github.com/barrientosvctor/abyss.nvim/commit/141346eed5ae01af0c688c93f96f67e561e7a070))
+
+
+### Bug Fixes
+
+* StatusLine according to new style ([d45e0a0](https://github.com/barrientosvctor/abyss.nvim/commit/d45e0a0f26209d1942f2684dcda9421a38d7e0d6))
+* **theme:** inlay hints not working ([#35](https://github.com/barrientosvctor/abyss.nvim/issues/35)) ([5afde18](https://github.com/barrientosvctor/abyss.nvim/commit/5afde18ccf5df4a001ee492705af5c4027f64702))
+
 ## [2.2.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.1.0...v2.2.0) (2024-08-10)
 
 
