@@ -145,7 +145,7 @@ function M.get(user_opts)
 
     Whitespace = { fg = colors.bg, bg = colors.none },
 
-    WildMenu = { fg = colors.bg, bg = colors.fg },
+    WildMenu = { link = "PmenuSel" },
 
     WinBar = { fg = colors.white, bg = colors.bg },
     WinBarNC = { fg = colors.fg, bg = colors.bg },
