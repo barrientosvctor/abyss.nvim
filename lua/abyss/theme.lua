@@ -132,7 +132,9 @@ function M.get(user_opts)
     SpellLocal = { fg = colors.orange, underline = true },
 
     StatusLine = { fg = colors.none, bg = colors.bg_alt },
+    StatusLineTerm = { link = "StatusLine" },
     StatusLineNC = { fg = colors.none, bg = colors.black },
+    StatusLineTermNC = { link = "StatusLineNC" },
 
     TabLine = { fg = colors.lightgrey, bg = colors.bg },
     TabLineFill = { fg = colors.none, bg = colors.bg },
@@ -145,7 +147,7 @@ function M.get(user_opts)
 
     Whitespace = { fg = colors.bg, bg = colors.none },
 
-    WildMenu = { fg = colors.bg, bg = colors.fg },
+    WildMenu = { link = "PmenuSel" },
 
     WinBar = { fg = colors.white, bg = colors.bg },
     WinBarNC = { fg = colors.fg, bg = colors.bg },
