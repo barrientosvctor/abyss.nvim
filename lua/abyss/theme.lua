@@ -132,7 +132,9 @@ function M.get(user_opts)
     SpellLocal = { fg = colors.orange, underline = true },
 
     StatusLine = { fg = colors.none, bg = colors.bg_alt },
+    StatusLineTerm = { link = "StatusLine" },
     StatusLineNC = { fg = colors.none, bg = colors.black },
+    StatusLineTermNC = { link = "StatusLineNC" },
 
     TabLine = { fg = colors.lightgrey, bg = colors.bg },
     TabLineFill = { fg = colors.none, bg = colors.bg },
