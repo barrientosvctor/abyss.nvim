@@ -145,7 +145,7 @@ function M.get(user_opts)
     Visual = { fg = colors.none, bg = colors.darkred },
     VisualNOS = { link = "Visual" },
 
-    Whitespace = { fg = colors.bg, bg = colors.none },
+    Whitespace = { fg = colors.midblue },
 
     WildMenu = { link = "PmenuSel" },
 
