@@ -140,7 +140,7 @@ function M.get(user_opts)
     TabLineFill = { fg = colors.none, bg = colors.bg },
     TabLineSel = { fg = colors.white, bg = colors.darkblue },
 
-    Title = { fg = colors.heavyyellow, underline = true, bold = true },
+    Title = { fg = colors.heavyyellow, bold = true },
 
     Visual = { fg = colors.none, bg = colors.darkred },
     VisualNOS = { link = "Visual" },
