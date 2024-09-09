@@ -90,7 +90,7 @@ function M.get(user_opts)
     WinSeparator = { link = "VertSplit" },
 
     ErrorMsg = { fg = colors.red },
-    WarningMsg = { fg = colors.heavyyellow },
+    WarningMsg = { fg = colors.yellow },
 
     Folded = { fg = colors.darkgrey, bg = colors.none, italic = true },
     FoldColumn = { bg = colors.bg_completion_sel },
