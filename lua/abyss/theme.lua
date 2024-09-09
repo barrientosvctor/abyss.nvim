@@ -61,7 +61,7 @@ function M.get(user_opts)
     CursorLineNr = { fg = colors.lightgrey, bg = colors.bg },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { fg = colors.heavyyellow, bg = colors.none },
+    Directory = { fg = colors.heavyyellow, bg = colors.none, bold = true },
 
     DiffAdd = { fg = colors.darkgreen },
     DiffChange = { fg = colors.yellow },
