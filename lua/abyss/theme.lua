@@ -157,10 +157,11 @@ function M.get(user_opts)
 
     -- LSP --
     DiagnosticError = { fg = colors.red },
-    DiagnosticWarn = { fg = colors.heavyyellow },
+    DiagnosticWarn = { fg = colors.yellow },
     DiagnosticInfo = { fg = colors.shinyblue },
     DiagnosticHint = { fg = colors.white },
     DiagnosticTruncateLine = { fg = colors.fg },
+    DiagnosticOk = { fg = colors.green },
 
     DiagnosticUnderlineError = { sp = colors.red, undercurl = true },
     DiagnosticUnderlineWarn = { sp = colors.heavyyellow, undercurl = true },
