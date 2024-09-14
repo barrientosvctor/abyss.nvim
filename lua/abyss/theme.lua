@@ -396,6 +396,7 @@ function M.get_treesitter()
 
     -- HTML
     ["@tag"] = { link = "Statement" },
+    ["@tag.builtin"] = { link = "@tag" },
     ["@tag.delimiter"] = { link = "Delimiter" },
     ["@tag.attribute"] = { link = "Function" },
   }
