@@ -76,6 +76,11 @@ function M.get(user_opts)
     diffLine = { link = "diffFile" },
     diffIndexLine = { fg = colors.orange, bg = colors.none },
 
+    -- Neovim v0.10 diff highlights
+    Added = { link = "DiffAdd" },
+    Changed = { link = "DiffChange" },
+    Removed = { link = "DiffDelete" },
+
     healthError = { fg = colors.red },
     healthSuccess = { fg = colors.green },
     healthWarning = { fg = colors.yellow },
@@ -332,7 +337,7 @@ function M.get(user_opts)
 
     htmlTag = { link = "Delimiter" },
     htmlEndTag = { link = "Delimiter" },
-    htmlArg = { link = "Function" }
+    htmlArg = { link = "Function" },
   }
 end
 
