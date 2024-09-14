@@ -329,6 +329,10 @@ function M.get(user_opts)
     BufferLineError = { fg = colors.darkred, bg = colors.ui.bufferline.tab_bg },
     BufferLineErrorDiagnostic = { link = "BufferLineError" },
     BufferLineErrorDiagnosticSelected = { link = "BufferLineErrorSelected" },
+
+    htmlTag = { link = "Delimiter" },
+    htmlEndTag = { link = "Delimiter" },
+    htmlArg = { link = "Function" }
   }
 end
 
@@ -389,6 +393,11 @@ function M.get_treesitter()
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
     ["@type.qualifier"] = { link = "Statement" },
+
+    -- HTML
+    ["@tag"] = { link = "Statement" },
+    ["@tag.delimiter"] = { link = "Delimiter" },
+    ["@tag.attribute"] = { link = "Function" },
   }
 end
 
