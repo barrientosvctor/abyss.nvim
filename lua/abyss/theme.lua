@@ -61,7 +61,7 @@ function M.get(user_opts)
     CursorLineNr = { fg = colors.lightgrey, bg = colors.bg },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { fg = colors.heavyyellow, bg = colors.none },
+    Directory = { fg = colors.yellow, bg = colors.none, bold = true },
 
     DiffAdd = { fg = colors.darkgreen },
     DiffChange = { fg = colors.yellow },
@@ -75,6 +75,11 @@ function M.get(user_opts)
     diffFile = { fg = colors.red, bg = colors.none, bold = true },
     diffLine = { link = "diffFile" },
     diffIndexLine = { fg = colors.orange, bg = colors.none },
+
+    -- Neovim v0.10 diff highlights
+    Added = { link = "DiffAdd" },
+    Changed = { link = "DiffChange" },
+    Removed = { link = "DiffDelete" },
 
     healthError = { fg = colors.red },
     healthSuccess = { fg = colors.green },
@@ -90,7 +95,7 @@ function M.get(user_opts)
     WinSeparator = { link = "VertSplit" },
 
     ErrorMsg = { fg = colors.red },
-    WarningMsg = { fg = colors.heavyyellow },
+    WarningMsg = { fg = colors.yellow },
 
     Folded = { fg = colors.darkgrey, bg = colors.none, italic = true },
     FoldColumn = { bg = colors.bg_completion_sel },
@@ -140,7 +145,7 @@ function M.get(user_opts)
     TabLineFill = { fg = colors.none, bg = colors.bg },
     TabLineSel = { fg = colors.white, bg = colors.darkblue },
 
-    Title = { fg = colors.heavyyellow, underline = true, bold = true },
+    Title = { fg = colors.white, bold = true },
 
     Visual = { fg = colors.none, bg = colors.darkred },
     VisualNOS = { link = "Visual" },
@@ -157,10 +162,11 @@ function M.get(user_opts)
 
     -- LSP --
     DiagnosticError = { fg = colors.red },
-    DiagnosticWarn = { fg = colors.heavyyellow },
+    DiagnosticWarn = { fg = colors.yellow },
     DiagnosticInfo = { fg = colors.shinyblue },
     DiagnosticHint = { fg = colors.white },
     DiagnosticTruncateLine = { fg = colors.fg },
+    DiagnosticOk = { fg = colors.green },
 
     DiagnosticUnderlineError = { sp = colors.red, undercurl = true },
     DiagnosticUnderlineWarn = { sp = colors.heavyyellow, undercurl = true },
@@ -188,7 +194,7 @@ function M.get(user_opts)
     TelescopeMultiSelection = { link = "TelescopeSelection" },
     TelescopeMultiIcon = { link = "TelescopeSelectionCaret" },
 
-    TelescopeTitle = { fg = colors.white },
+    TelescopeTitle = { link = "Title" },
 
     TelescopeBorder = { fg = colors.fg },
 
@@ -328,6 +334,10 @@ function M.get(user_opts)
     BufferLineError = { fg = colors.darkred, bg = colors.ui.bufferline.tab_bg },
     BufferLineErrorDiagnostic = { link = "BufferLineError" },
     BufferLineErrorDiagnosticSelected = { link = "BufferLineErrorSelected" },
+
+    htmlTag = { link = "Delimiter" },
+    htmlEndTag = { link = "Delimiter" },
+    htmlArg = { link = "Function" },
   }
 end
 
@@ -388,6 +398,12 @@ function M.get_treesitter()
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
     ["@type.qualifier"] = { link = "Statement" },
+
+    -- HTML
+    ["@tag"] = { link = "Statement" },
+    ["@tag.builtin"] = { link = "@tag" },
+    ["@tag.delimiter"] = { link = "Delimiter" },
+    ["@tag.attribute"] = { link = "Function" },
   }
 end
 
