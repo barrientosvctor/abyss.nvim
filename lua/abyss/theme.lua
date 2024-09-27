@@ -61,7 +61,7 @@ function M.get(user_opts)
     CursorLineNr = { fg = colors.lightgrey, bg = colors.bg },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { fg = colors.heavyyellow, bg = colors.none, bold = true },
+    Directory = { fg = colors.yellow, bg = colors.none, bold = true },
 
     DiffAdd = { fg = colors.darkgreen },
     DiffChange = { fg = colors.yellow },
@@ -145,7 +145,7 @@ function M.get(user_opts)
     TabLineFill = { fg = colors.none, bg = colors.bg },
     TabLineSel = { fg = colors.white, bg = colors.darkblue },
 
-    Title = { fg = colors.heavyyellow, bold = true },
+    Title = { fg = colors.white, bold = true },
 
     Visual = { fg = colors.none, bg = colors.darkred },
     VisualNOS = { link = "Visual" },
@@ -194,7 +194,7 @@ function M.get(user_opts)
     TelescopeMultiSelection = { link = "TelescopeSelection" },
     TelescopeMultiIcon = { link = "TelescopeSelectionCaret" },
 
-    TelescopeTitle = { fg = colors.white },
+    TelescopeTitle = { link = "Title" },
 
     TelescopeBorder = { fg = colors.fg },
 
