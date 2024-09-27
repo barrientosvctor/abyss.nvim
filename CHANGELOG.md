@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.4.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.3.0...v2.4.0) (2024-09-27)
+
+
+### Features
+
+* **diff:** add nvim v0.10 diff highlight groups ([8e31338](https://github.com/barrientosvctor/abyss.nvim/commit/8e3133870f169769c7e543cc289afcf08379c92e))
+* **highlight:** add terminal StatusLine ([ae684ad](https://github.com/barrientosvctor/abyss.nvim/commit/ae684adf3457e07ab9253feb983f8b3f8d9fdb03))
+* **highlights:** add html highlight colors ([701b8d2](https://github.com/barrientosvctor/abyss.nvim/commit/701b8d23363da9141b461482e87b4622160c7a7f))
+
+
+### Bug Fixes
+
+* **highlight:** diagnostics groups ([56797c3](https://github.com/barrientosvctor/abyss.nvim/commit/56797c32d4f7d86a7a63cad24f4224b2174acca8))
+* **highlight:** Directory highlight color ([c082e00](https://github.com/barrientosvctor/abyss.nvim/commit/c082e00ab92769465ced87698c6f4f7407c1d310))
+* **highlights:** Title and Directory ([9c543b9](https://github.com/barrientosvctor/abyss.nvim/commit/9c543b9aa340c1545365116302315a0756d209a5))
+* **highlight:** Title highlight group ([5abf4ca](https://github.com/barrientosvctor/abyss.nvim/commit/5abf4cab87f925a7392ad48f0b49615f41ebce1e))
+* **highlight:** warning messages color ([8a9be35](https://github.com/barrientosvctor/abyss.nvim/commit/8a9be35d1854c3f292cde1b4361f84a780c94e54))
+* **highlight:** Whitespace color ([b029d2b](https://github.com/barrientosvctor/abyss.nvim/commit/b029d2bc79163a1801a70dd4d83b2ae6c1ebec56))
+* **highlight:** wrong colors of WildMenu ([9886d13](https://github.com/barrientosvctor/abyss.nvim/commit/9886d13d4e63e8b753dd5ef0d6c18944edade49b))
+
 ## [2.3.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.2.0...v2.3.0) (2024-08-15)
 
 
