@@ -207,7 +207,7 @@ function M.get(user_opts)
     CmpItemAbbrMatch = { fg = colors.yellow, bold = true },
     CmpItemAbbrMatchFuzzy = { fg = colors.lightgrey, bold = true },
     CmpItemAbbr = { fg = colors.lighgrey },
-    CmpItemMenu = { fg = colors.lightgrey },
+    CmpItemMenu = { fg = colors.midblue, italic = true },
     CmpItemKindText = { fg = colors.darkgreen },
     CmpItemKindMethod = { fg = colors.yellow },
     CmpItemKindFunction = { link = "CmpItemKindMethod" },
