@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.4.1](https://github.com/barrientosvctor/abyss.nvim/compare/v2.4.0...v2.4.1) (2024-11-05)
+
+
+### Bug Fixes
+
+* CmpItemMenu highlight colors ([00a4854](https://github.com/barrientosvctor/abyss.nvim/commit/00a4854a5dfa3a8fd7b5029ef2ade322d73a4bab))
+* nvim tree highlights ([ad6f5e3](https://github.com/barrientosvctor/abyss.nvim/commit/ad6f5e3a52f4ed11b117abb29ed877cd528c49f3))
+* SpecialKey highlight ([bbc1c71](https://github.com/barrientosvctor/abyss.nvim/commit/bbc1c719f2049bd12cd0d70cc9e9a64dc6644140))
+
 ## [2.4.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.3.0...v2.4.0) (2024-09-27)
 
 
