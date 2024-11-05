@@ -129,7 +129,7 @@ function M.get(user_opts)
     QuickFixLine = { fg = colors.none, bg = colors.darkred },
 
     Search = { fg = colors.black, bg = colors.yellow },
-    SpecialKey = { fg = colors.heavyyellow, bg = colors.none },
+    SpecialKey = { fg = colors.midblue, bg = colors.none },
 
     SpellBad = { fg = colors.darkred, undercurl = true },
     SpellRare = { fg = colors.yellow, undercurl = true },
@@ -207,7 +207,7 @@ function M.get(user_opts)
     CmpItemAbbrMatch = { fg = colors.yellow, bold = true },
     CmpItemAbbrMatchFuzzy = { fg = colors.lightgrey, bold = true },
     CmpItemAbbr = { fg = colors.lighgrey },
-    CmpItemMenu = { fg = colors.lightgrey },
+    CmpItemMenu = { fg = colors.midblue, italic = true },
     CmpItemKindText = { fg = colors.darkgreen },
     CmpItemKindMethod = { fg = colors.yellow },
     CmpItemKindFunction = { link = "CmpItemKindMethod" },
@@ -268,14 +268,12 @@ function M.get(user_opts)
     TargetWord = { fg = colors.red },
 
     -- nvim-tree
-    NvimTreeRootFolder = { fg = colors.heavyyellow, bold = true },
     NvimTreeGitDirty = { fg = colors.orange },
     NvimTreeGitNew = { fg = colors.green },
     NvimTreeImageFile = { fg = colors.pink },
     NvimTreeExecFile = { fg = colors.fg },
-    NvimTreeSpecialFile = { fg = colors.yellow, underline = true },
-    NvimTreeFolderName = { fg = colors.fg },
-    NvimTreeEmptyFolderName = { fg = colors.fg },
+    NvimTreeSpecialFile = { fg = colors.yellow, underline = true, italic = true },
+    NvimTreeEmptyFolderName = { fg = colors.darkgrey, bold = true },
     NvimTreeFolderIcon = { fg = colors.shinyblue },
     NvimTreeIndentMarker = { fg = colors.white },
 
