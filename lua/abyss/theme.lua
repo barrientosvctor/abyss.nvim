@@ -268,14 +268,12 @@ function M.get(user_opts)
     TargetWord = { fg = colors.red },
 
     -- nvim-tree
-    NvimTreeRootFolder = { fg = colors.heavyyellow, bold = true },
     NvimTreeGitDirty = { fg = colors.orange },
     NvimTreeGitNew = { fg = colors.green },
     NvimTreeImageFile = { fg = colors.pink },
     NvimTreeExecFile = { fg = colors.fg },
-    NvimTreeSpecialFile = { fg = colors.yellow, underline = true },
-    NvimTreeFolderName = { fg = colors.fg },
-    NvimTreeEmptyFolderName = { fg = colors.fg },
+    NvimTreeSpecialFile = { fg = colors.yellow, underline = true, italic = true },
+    NvimTreeEmptyFolderName = { fg = colors.darkgrey, bold = true },
     NvimTreeFolderIcon = { fg = colors.shinyblue },
     NvimTreeIndentMarker = { fg = colors.white },
 
