@@ -129,7 +129,7 @@ function M.get(user_opts)
     QuickFixLine = { fg = colors.none, bg = colors.darkred },
 
     Search = { fg = colors.black, bg = colors.yellow },
-    SpecialKey = { fg = colors.heavyyellow, bg = colors.none },
+    SpecialKey = { fg = colors.midblue, bg = colors.none },
 
     SpellBad = { fg = colors.darkred, undercurl = true },
     SpellRare = { fg = colors.yellow, undercurl = true },
