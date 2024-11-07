@@ -268,10 +268,6 @@ function M.get(user_opts)
     TargetWord = { fg = colors.red },
 
     -- nvim-tree
-    NvimTreeNormal = {
-      bg = "#001429",
-      fg = "#ff0000",
-    },
     NvimTreeGitDirty = { fg = colors.orange },
     NvimTreeGitNew = { fg = colors.green },
     NvimTreeImageFile = { fg = colors.pink },
