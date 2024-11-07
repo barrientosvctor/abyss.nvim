@@ -35,7 +35,7 @@ function M.get(user_opts)
 
     Special = { fg = colors.yellow },
     SpecialChar = { fg = colors.pink },
-    Delimiter = { fg = colors.fg },
+    Delimiter = { fg = colors.bg_alt },
     SpecialComment = { fg = colors.purple },
     Debug = { fg = colors.darkgrey },
 
