@@ -269,8 +269,8 @@ function M.get(user_opts)
 
     -- nvim-tree
     NvimTreeNormal = {
-      fg = "#001429",
-      bg = "#001429"
+      bg = "#001429",
+      fg = "#ff0000",
     },
     NvimTreeGitDirty = { fg = colors.orange },
     NvimTreeGitNew = { fg = colors.green },
