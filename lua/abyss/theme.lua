@@ -35,7 +35,7 @@ function M.get(user_opts)
 
     Special = { fg = colors.yellow },
     SpecialChar = { fg = colors.pink },
-    Delimiter = { fg = colors.bg_alt },
+    Delimiter = { fg = colors.fg },
     SpecialComment = { fg = colors.purple },
     Debug = { fg = colors.darkgrey },
 
@@ -91,7 +91,7 @@ function M.get(user_opts)
     },
     EndOfBuffer = { link = "NonText" },
 
-    VertSplit = { fg = colors.fg, bg = colors.bg },
+    VertSplit = { fg = colors.bg_alt, bg = colors.bg },
     WinSeparator = { link = "VertSplit" },
 
     ErrorMsg = { fg = colors.red },
