@@ -26,6 +26,10 @@ return {
       separator_fg = "#00060d",
       tab_bg = "#000C18",
     },
+    NvimTreeNormal = {
+      fg = "#001429",
+      bg = "#001429"
+    }
   },
 
   -- Extras
