@@ -58,7 +58,7 @@ function M.get(user_opts)
     lCursor = { link = "Cursor" },
     CursorIM = { fg = colors.lowgrey, bg = colors.darkred, reverse = true },
     CursorLine = { fg = colors.none, bg = colors.darkblue },
-    CursorLineNr = { fg = colors.lightgrey, bg = colors.darkblue },
+    CursorLineNr = { fg = colors.lightgrey, bg = colors.darkblue, bold = true },
     CursorColumn = { link = "CursorLine" },
 
     Directory = { fg = colors.yellow, bg = colors.none, bold = true },
