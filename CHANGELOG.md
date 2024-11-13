@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.5.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.4.0...v2.5.0) (2024-11-13)
+
+
+### Features
+
+* **theme:** add bold to CursorLineNr highlight ([33f12f4](https://github.com/barrientosvctor/abyss.nvim/commit/33f12f44a79c9275bf96ee58ff953a7dab8a66d8))
+
+
+### Bug Fixes
+
+* CmpItemMenu highlight colors ([00a4854](https://github.com/barrientosvctor/abyss.nvim/commit/00a4854a5dfa3a8fd7b5029ef2ade322d73a4bab))
+* **highlights:** CursorLineNr colors ([141f09b](https://github.com/barrientosvctor/abyss.nvim/commit/141f09baa6bd07145102a0b5f38b64e524dfb85f))
+* nvim tree highlights ([ad6f5e3](https://github.com/barrientosvctor/abyss.nvim/commit/ad6f5e3a52f4ed11b117abb29ed877cd528c49f3))
+* SpecialKey highlight ([bbc1c71](https://github.com/barrientosvctor/abyss.nvim/commit/bbc1c719f2049bd12cd0d70cc9e9a64dc6644140))
+
 ## [2.4.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.3.0...v2.4.0) (2024-09-27)
 
 
