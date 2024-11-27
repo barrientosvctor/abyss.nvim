@@ -101,8 +101,9 @@ function M.get(user_opts)
     FoldColumn = { bg = colors.bg_completion_sel },
     SignColumn = { fg = colors.fg, bg = user_opts.transparent_background and colors.none or colors.bg },
 
-    IncSearch = { fg = colors.black, bg = colors.yellow },
-    Substitute = { link = "IncSearch" },
+    CurSearch = { fg = colors.black, bg = colors.heavyyellow, bold = true, underline = true },
+    IncSearch = { link = "CurSearch" },
+    Substitute = { link = "Search" },
 
     LineNr = { fg = colors.lowgrey, bg = user_opts.transparent_background and colors.none or colors.bg },
     LineNrAbove = { link = "LineNr" },
