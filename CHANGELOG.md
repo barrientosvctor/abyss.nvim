@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.1](https://github.com/barrientosvctor/abyss.nvim/compare/v2.5.0...v2.5.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* **theme:** search and replace highlight groups ([3e56d7c](https://github.com/barrientosvctor/abyss.nvim/commit/3e56d7c8c807b8a74dcdd799794ed22f355c6a69))
+
 ## [2.5.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.4.0...v2.5.0) (2024-11-13)
 
 
