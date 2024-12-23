@@ -17,6 +17,7 @@ describe("Abyss.nvim", function()
       italic = false,
       bold = true,
       transparent_background = true,
+      palette = "abyss",
       treesitter = not vim.fn.has("nvim") ~= 1,
       overrides = nil,
     }
