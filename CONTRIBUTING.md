@@ -35,6 +35,8 @@ name.
 - Create a new file for Lualine, Vim-airline/Lightline themes of their variant.
 - Create a new file on `lua/abyss/palettes/*.lua` (The name of the palette will
 be used for naming the colorscheme in use `vim.g.colors_name`).
+- Add and test your new variant against the test cases for variants in its file:
+`test/abyss/palette_spec.lua`
 
 ## Merging the pull request
 
