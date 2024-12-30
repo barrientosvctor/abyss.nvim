@@ -9,26 +9,22 @@ local palette = {
   darkteal = "#005d55", -- strings
   cerulean = "#49D2E2",
   darkblue = "#082050", -- active cursor line background
-  lilac = "#d991d4", -- all JSDoc
+  lilac = "#c6b5dc", -- all JSDoc
   darkpink = "#FA3C95", -- functions color
   lightpink = "#FAD2DD",
-  rose = "#C74767",
   shinypurple = "#d00afc", -- numbers, booleans etc.
-  darkred = "#470b1b",
-  coral = "#FF7F50",
-  aurorayellow = "#d9bb62",
-  red = "#ff002f", -- error text color
 
+  lightgrey = "#80A2B7", -- active cursor line
   lowgrey = "#406385", -- inactive cursor line numbers
+  darkgrey = "#225588", -- statements and symbols
   midblue = "#384887",
   shinyblue = "#1f45db", -- parameters color
+  darkred = "#470b1b",
   white = "#FFFFFF",
   black = "#000000",
 
-  -- TO DELETE --
-  lightgrey = "#80A2B7", -- active cursor line
-  darkgrey = "#225588", -- statements and symbols
-  orange = "#ff7f50",
+  red = "#3E0F23", -- error text color
+  orange = "#ed5f07",
 }
 
 ---@type Spec
@@ -57,31 +53,31 @@ local spec = {
   },
   syntax = {
     identifier = palette.fg1,
-    structure = palette.coral,
-    statement = palette.cerulean,
+    structure = palette.orange,
+    statement = palette.darkgrey,
     constant = palette.fg0,
-    special = palette.lime,
+    special = palette.darkgrey,
     comment = palette.midblue,
     string = palette.darkteal,
     regex = palette.shinypurple,
     type = palette.lilac,
     number = palette.shinypurple,
-    func = palette.rose,
+    func = palette.cerulean,
     bracket = palette.fg0,
     parameter = palette.shinyblue,
   },
   diff = {
     added = palette.lime,
-    changed = palette.coral,
-    deleted = palette.red,
+    changed = palette.darkpink,
+    deleted = palette.darkred,
     text = palette.darkpink,
   },
   diagnostics = {
-    error = palette.red,
+    error = palette.darkred,
     ok = palette.lime,
     hint = palette.shinyblue,
     info = palette.white,
-    warn = palette.aurorayellow,
+    warn = palette.darkpink,
   },
   terminal = {
     -- REPLACE WITH THE "MYSTIC NIGHT" TERMINAL colors??
@@ -96,10 +92,10 @@ local spec = {
     color8 = palette.lightpink,
     color9 = palette.red,
     color10 = palette.midblue,
-    color11 = palette.coral, --was orange
+    color11 = palette.orange, --was orange
     color12 = palette.red,
     color13 = palette.darkred,
-    color14 = palette.coral, --was orange
+    color14 = palette.orange, --was orange
     color15 = palette.darkpink,
   },
 }
