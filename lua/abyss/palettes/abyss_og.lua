@@ -68,6 +68,7 @@ local spec = {
     changed = palette.yellow,
     deleted = palette.red,
     text = palette.red,
+    untracked = palette.orange,
   },
   diagnostics = {
     error = palette.red,
@@ -75,6 +76,11 @@ local spec = {
     hint = palette.shinyblue,
     info = palette.white,
     warn = palette.yellow,
+  },
+  dirtree = {
+    rootname = palette.white,
+    dirname = palette.heavyyellow,
+    curline = palette.heavyyellow,
   },
   terminal = {
     color0 = palette.bg0,

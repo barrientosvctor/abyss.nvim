@@ -6,25 +6,29 @@ local palette = {
   fg0 = "#8751d6", -- Foreground
   fg1 = "#3D276F",
   lime = "#8AED07", -- success text color
+  midteal = "#2082a6",
   darkteal = "#005d55", -- strings
   cerulean = "#49D2E2",
-  darkblue = "#082050", -- active cursor line background
-  lilac = "#c6b5dc", -- all JSDoc
+  darkpurple = "#5504b8", -- active cursor line background
+  lilac = "#d991d4", -- all JSDoc
   darkpink = "#FA3C95", -- functions color
   lightpink = "#FAD2DD",
+  coral = "#C74767",
   shinypurple = "#d00afc", -- numbers, booleans etc.
+  orange = "#FF7F50",
+  aurorayellow = "#d9bb62",
+  red = "#ff002f", -- error text color
 
-  lightgrey = "#80A2B7", -- active cursor line
   lowgrey = "#406385", -- inactive cursor line numbers
-  darkgrey = "#225588", -- statements and symbols
   midblue = "#384887",
   shinyblue = "#1f45db", -- parameters color
-  darkred = "#470b1b",
-  white = "#FFFFFF",
+  white = "#A3D7DA",
   black = "#000000",
 
-  red = "#3E0F23", -- error text color
-  orange = "#ed5f07",
+  -- TO DELETE --
+  darkred = "#470b1b",
+  lightgrey = "#80A2B7", -- active cursor line
+  darkgrey = "#225588", -- statements and symbols
 }
 
 ---@type Spec
@@ -43,8 +47,8 @@ local spec = {
   },
   editor = {
     cursor = palette.lightpink,
-    cursorline = palette.darkblue,
-    cursor_selection = palette.darkred,
+    cursorline = palette.midteal,
+    cursor_selection = palette.darkpurple,
     title = palette.white,
     match = palette.darkpink,
     match_selected = palette.lightpink,
@@ -54,30 +58,36 @@ local spec = {
   syntax = {
     identifier = palette.fg1,
     structure = palette.orange,
-    statement = palette.darkgrey,
+    statement = palette.cerulean,
     constant = palette.fg0,
-    special = palette.darkgrey,
+    special = palette.lime,
     comment = palette.midblue,
     string = palette.darkteal,
     regex = palette.shinypurple,
     type = palette.lilac,
     number = palette.shinypurple,
-    func = palette.cerulean,
+    func = palette.coral,
     bracket = palette.fg0,
     parameter = palette.shinyblue,
   },
   diff = {
     added = palette.lime,
-    changed = palette.darkpink,
-    deleted = palette.darkred,
+    changed = palette.coral,
+    deleted = palette.red,
     text = palette.darkpink,
+    untracked = palette.shinypurple,
   },
   diagnostics = {
-    error = palette.darkred,
+    error = palette.red,
     ok = palette.lime,
-    hint = palette.shinyblue,
+    hint = palette.lightpink,
     info = palette.white,
-    warn = palette.darkpink,
+    warn = palette.aurorayellow,
+  },
+  dirtree = {
+    rootname = palette.white,
+    dirname = palette.darkteal,
+    curline = palette.cerulean,
   },
   terminal = {
     -- REPLACE WITH THE "MYSTIC NIGHT" TERMINAL colors??
