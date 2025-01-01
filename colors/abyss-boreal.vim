@@ -1,1 +1,1 @@
-lua require("abyss").setup {}
+lua require("abyss").setup { palette = "abyss-boreal" }
