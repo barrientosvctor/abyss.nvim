@@ -1,34 +1,27 @@
 local palette = {
-  bg0 = "#0d072b", -- Background
-  bg1 = "#282049", -- Cursorline background
+  bg0 = "#000c18", -- Background
+  bg1 = "#000C38", -- Cursorline background
   bg00 = "#262641",
-  bg01 = "#08286b",
-  fg0 = "#8751d6", -- Foreground
-  fg1 = "#3D276F",
-  lime = "#8AED07", -- success text color
-  midteal = "#2082a6",
-  darkteal = "#005d55", -- strings
-  cerulean = "#49D2E2",
-  darkpurple = "#5504b8", -- active cursor line background
-  lilac = "#d991d4", -- all JSDoc
-  darkpink = "#FA3C95", -- functions color
-  lightpink = "#FAD2DD",
-  coral = "#C74767",
-  shinypurple = "#d00afc", -- numbers, booleans etc.
-  orange = "#FF7F50",
-  aurorayellow = "#d9bb62",
-  red = "#ff002f", -- error text color
-
-  lowgrey = "#406385", -- inactive cursor line numbers
-  midblue = "#384887",
-  shinyblue = "#1f45db", -- parameters color
-  white = "#A3D7DA",
-  black = "#000000",
-
-  -- TO DELETE --
-  darkred = "#470b1b",
+  bg01 = "#08286B",
+  fg0 = "#6688cc", -- Foreground
+  fg1 = "#283D60",
+  darkgreen = "#22aa44", -- strings
+  green = "#44cb46", -- success text color
+  darkblue = "#082050", -- active cursor line background
+  purple = "#9966b8", -- all JSDoc
+  pink = "#f280d0", -- numbers, booleans etc.
   lightgrey = "#80A2B7", -- active cursor line
+  lowgrey = "#406385", -- inactive cursor line numbers
   darkgrey = "#225588", -- statements and symbols
+  midblue = "#384887",
+  shinyblue = "#2277ff", -- parameters color
+  red = "#cb4444", -- error text color
+  darkred = "#770811",
+  orange = "#FF9900",
+  yellow = "#ddbb88", -- functions color
+  heavyyellow = "#FFEEBB",
+  white = "#FFFFFF",
+  black = "#000000",
 }
 
 ---@type Spec
@@ -46,67 +39,66 @@ local spec = {
     fg01 = palette.white,
   },
   editor = {
-    cursor = palette.lightpink,
-    cursorline = palette.midteal,
-    cursor_selection = palette.darkpurple,
+    cursor = palette.heavyyellow,
+    cursorline = palette.darkblue,
+    cursor_selection = palette.darkred,
     title = palette.white,
-    match = palette.darkpink,
-    match_selected = palette.lightpink,
+    match = palette.yellow,
+    match_selected = palette.heavyyellow,
     nontext = palette.darkgrey,
     linenr = palette.lowgrey,
   },
   syntax = {
     identifier = palette.fg1,
-    structure = palette.orange,
-    statement = palette.cerulean,
+    structure = palette.heavyyellow,
+    statement = palette.darkgrey,
     constant = palette.fg0,
-    special = palette.lime,
+    special = palette.darkgrey,
     comment = palette.midblue,
-    string = palette.darkteal,
-    regex = palette.shinypurple,
-    type = palette.lilac,
-    number = palette.shinypurple,
-    func = palette.coral,
+    string = palette.darkgreen,
+    regex = palette.pink,
+    type = palette.purple,
+    number = palette.pink,
+    func = palette.yellow,
     bracket = palette.fg0,
     parameter = palette.shinyblue,
   },
   diff = {
-    added = palette.lime,
-    changed = palette.coral,
+    added = palette.green,
+    changed = palette.yellow,
     deleted = palette.red,
-    text = palette.darkpink,
-    untracked = palette.shinypurple,
+    text = palette.red,
+    untracked = palette.orange,
   },
   diagnostics = {
     error = palette.red,
-    ok = palette.lime,
-    hint = palette.lightpink,
+    ok = palette.green,
+    hint = palette.shinyblue,
     info = palette.white,
-    warn = palette.aurorayellow,
+    warn = palette.yellow,
   },
   dirtree = {
     rootname = palette.white,
-    dirname = palette.darkteal,
-    curline = palette.cerulean,
+    dirname = palette.heavyyellow,
+    curline = palette.heavyyellow,
   },
   terminal = {
-    -- REPLACE WITH THE "MYSTIC NIGHT" TERMINAL colors??
     color0 = palette.bg0,
     color1 = palette.red,
-    color2 = palette.darkteal,
-    color3 = palette.lime,
+    color2 = palette.darkgreen,
+    color3 = palette.green,
     color4 = palette.darkblue,
-    color5 = palette.lilac,
-    color6 = palette.darkteal,
+    color5 = palette.purple,
+    color6 = palette.darkgreen,
     color7 = palette.lightgrey,
-    color8 = palette.lightpink,
+    color8 = palette.heavyyellow,
     color9 = palette.red,
     color10 = palette.midblue,
-    color11 = palette.orange, --was orange
+    color11 = palette.orange,
     color12 = palette.red,
     color13 = palette.darkred,
-    color14 = palette.orange, --was orange
-    color15 = palette.darkpink,
+    color14 = palette.orange,
+    color15 = palette.yellow,
   },
 }
 
