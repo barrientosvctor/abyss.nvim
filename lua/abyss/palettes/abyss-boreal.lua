@@ -1,5 +1,5 @@
 local palette = {
-  bg0 = "#0d072b", -- Background
+  bg0 = "#060024", -- Background
   bg1 = "#282049", -- Cursorline background
   bg00 = "#262641",
   bg01 = "#08286b",
