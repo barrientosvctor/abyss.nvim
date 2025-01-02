@@ -1,15 +1,15 @@
 let g:airline#themes#abyss#palette = {}
 
-let s:statusline_bg = "#000C38"
-let s:darkgreen = "#22aa44"
-let s:white = "#ffffff"
-let s:fg = "#6688cc"
-let s:shinyblue = "#2277ff"
-let s:red = "#cb4444"
-let s:black_inactive = "#000000"
-let s:yellow = "#ddbb88"
+let s:statusline_bg = "#406385"
+let s:darkgreen = "#005d55"
+let s:white = "#A3D7DA"
+let s:fg = "#8c63c9"
+let s:shinyblue = "#1f45db"
+let s:red = "#ff002f"
+let s:black_inactive = "#202020"
+let s:yellow = "#d9bb62"
 let s:darkyellow = "#808000"
-let s:darkred = "#800000"
+let s:darkred = "#470b1b"
 
 let s:Normal_a = [s:white, s:statusline_bg, 255, 17] " guifg, guibg, ctermfg, ctermbg
 let s:Normal_b = [s:fg, s:statusline_bg, 245, 17] " guifg, guibg, ctermfg, ctermbg
