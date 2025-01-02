@@ -5,6 +5,16 @@ Unofficial port for (Neo)Vim inspired by the Abyss theme from Visual Studio Code
 
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
+##  Themes
+
+### Abyss
+
+* TODO - ADD SCREENSHOT OF ORIGINAL ABYSS THEME
+
+### Abyss Boreal
+
+* TODO - ADD SCREENSHOT OF ABYSS-BOREAL THEME
+
 ## ⚡️ Requeriments
 * [Neovim](https://github.com/neovim/neovim) >= **0.8.0** or [Vim 9](https://www.vim.org/) with lua >= **5.1**.
 
@@ -162,6 +172,7 @@ require('abyss').setup({
 * [nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [Dashboard](https://github.com/glepnir/dashboard-nvim)
 * [Which-key](https://github.com/folke/which-key.nvim)
+* [Aerial](https://github.com/stevearc/aerial.nvim)
 
 ## 🚀 Usage
 
