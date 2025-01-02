@@ -1,10 +1,10 @@
-let s:statusline_bg = "#000C38"
-let s:darkgreen = "#22aa44"
-let s:white = "#ffffff"
-let s:fg = "#6688cc"
+let s:statusline_bg = "#406385"
+let s:darkgreen = "#005d55"
+let s:white = "#A3D7DA"
+let s:fg = "#8c63c9"
 let s:shinyblue = "#2277ff"
-let s:red = "#cb4444"
-let s:black_inactive = "#000000"
+let s:red = "#ff002f"
+let s:black_inactive = "#202020"
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 let s:p.normal.left = [ [ s:white, s:statusline_bg, 255, 17, "bold" ] ]
