@@ -25,6 +25,24 @@ local palette = {
   white = "#A3D7DA",
   black = "#202020",
   darkgrey = "#225588", -- statements and symbols
+
+  -- Terminal --
+  color0 = '#121212',
+  color1 = '#A52AFF',
+  color2 = '#7129FF',
+  color3 = '#3D2AFF',
+  color4 = '#2B4FFF',
+  color5 = '#881798',
+  color6 = '#28B9FF',
+  color7 = '#F1F1F1',
+  color8 = '#666666',
+  color9 = '#BA5AFF',
+	color10 = '#905AFF',
+	color11 = '#4D4FFF',
+  color12 = '#5C78FF',
+  color13 = '#B4009E',
+  color14 = '#5AC8FF',
+  color15 = '#FFFFFF',
 }
 
 ---@type Spec
@@ -87,22 +105,22 @@ local spec = {
   },
   terminal = {
     -- REPLACE WITH THE "MYSTIC NIGHT" TERMINAL colors??
-    color0 = palette.bg0,
-    color1 = palette.red,
-    color2 = palette.darkteal,
-    color3 = palette.lime,
-    color4 = palette.darkblue,
-    color5 = palette.lilac,
-    color6 = palette.darkteal,
-    color7 = palette.darkgrey,
-    color8 = palette.lightpink,
-    color9 = palette.red,
-    color10 = palette.midblue,
-    color11 = palette.orange, --was orange
-    color12 = palette.red,
-    color13 = palette.darkred,
-    color14 = palette.orange, --was orange
-    color15 = palette.darkpink,
+    color0 = palette.color0,
+    color1 = palette.color1,
+    color2 = palette.color2,
+    color3 = palette.color3,
+    color4 = palette.color4,
+    color5 = palette.color5,
+    color6 = palette.color6,
+    color7 = palette.color7,
+    color8 = palette.color8,
+    color9 = palette.color9,
+    color10 = palette.color10,
+    color11 = palette.color11, --was orange
+    color12 = palette.color12,
+    color13 = palette.color13,
+    color14 = palette.color14, --was orange
+    color15 = palette.color15,
   },
   lualine = {
     basebg_b = palette.lowgrey,
