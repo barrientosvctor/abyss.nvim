@@ -3,7 +3,7 @@ local palette = {
   bg1 = "#282049", -- Cursorline background
   bg00 = "#262641",
   bg01 = "#08286b",
-  fg0 = "#8751d6", -- Foreground
+  fg0 = "#8c63c9", -- Foreground
   fg1 = "#3D276F",
   lime = "#8AED07", -- success text color
   midteal = "#2082a6",
@@ -18,16 +18,12 @@ local palette = {
   orange = "#FF7F50",
   aurorayellow = "#d9bb62",
   red = "#ff002f", -- error text color
-
+  darkred = "#470b1b",
   lowgrey = "#406385", -- inactive cursor line numbers
   midblue = "#384887",
   shinyblue = "#1f45db", -- parameters color
   white = "#A3D7DA",
   black = "#202020",
-
-  -- TO DELETE --
-  darkred = "#470b1b",
-  lightgrey = "#80A2B7", -- active cursor line
   darkgrey = "#225588", -- statements and symbols
 }
 
@@ -48,7 +44,7 @@ local spec = {
   editor = {
     cursor = palette.lightpink,
     cursorline = palette.midteal,
-    cursor_selection = palette.darkpurple,
+    cursor_selection = palette.darkred,
     title = palette.white,
     match = palette.darkpink,
     match_selected = palette.lightpink,
@@ -98,7 +94,7 @@ local spec = {
     color4 = palette.darkblue,
     color5 = palette.lilac,
     color6 = palette.darkteal,
-    color7 = palette.lightgrey,
+    color7 = palette.darkgrey,
     color8 = palette.lightpink,
     color9 = palette.red,
     color10 = palette.midblue,
@@ -120,7 +116,7 @@ local spec = {
     visualbg_a = palette.coral,
 
     replacefg = palette.black,
-    replacebg_a = palette.lightgrey,
+    replacebg_a = palette.darkred,
 
     insertfg = palette.white,
     insertbg_a  = palette.darkpurple,
