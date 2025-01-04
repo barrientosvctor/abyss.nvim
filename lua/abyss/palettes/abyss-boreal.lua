@@ -12,7 +12,7 @@ local palette = {
   darkpurple = "#5504b8", -- active cursor line background
   lilac = "#d991d4", -- all JSDoc
   darkpink = "#FA3C95", -- functions color
-  lightpink = "#FAD2DD",
+  lightpink = "#fcacc1",
   coral = "#C74767",
   shinypurple = "#d00afc", -- numbers, booleans etc.
   orange = "#FF7F50",
@@ -60,7 +60,7 @@ local spec = {
     fg01 = palette.white,
   },
   editor = {
-    cursor = palette.lightpink,
+    cursor = palette.white,
     cursorline = palette.midteal,
     cursor_selection = palette.darkred,
     title = palette.white,
