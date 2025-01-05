@@ -1,4 +1,13 @@
-local colors = require("abyss.colors")
+local colors = {
+  fg = "#6688cc",
+  bg_alt = "#000C38",
+  white = "#FFFFFF",
+  red = "#cb4444",
+  darkgreen = "#22aa44",
+  purple = "#9966b8",
+  yellow = "#ddbb88",
+  midblue = "#384887"
+}
 
 return {
   normal = {
