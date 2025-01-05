@@ -61,7 +61,7 @@ local spec = {
   },
   editor = {
     cursor = palette.white,
-    cursorline = palette.midteal,
+    cursorline = palette.bg1,
     cursor_selection = palette.darkred,
     title = palette.white,
     match = palette.darkpink,
