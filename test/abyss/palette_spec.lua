@@ -164,7 +164,7 @@ describe("Palettes of abyss", function()
   end)
 end)
 
-describe("Palettes of abyss-boreak", function()
+describe("Palettes of abyss-boreal", function()
   it("has all spec properties.", function()
     check_properties(abyssboreal)
   end)
