@@ -32,4 +32,4 @@ let s:p.tabline.right = [ [ s:red, s:statusline_bg, 9, 17 ] ]
 let s:p.tabline.middle = [ [ s:white, s:statusline_bg, 255, 17 ] ]
 let s:p.tabline.tabsel = [ [ s:statusline_bg, s:white, 17, 255 ] ]
 
-let g:lightline#colorscheme#abyss#palette = lightline#colorscheme#fill(s:p)
+let g:lightline#colorscheme#abyss_boreal#palette = lightline#colorscheme#fill(s:p)
