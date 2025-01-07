@@ -10,13 +10,14 @@ https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac
 ### Abyss
 Original Abyss theme inspired by VS Code
 
-<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_python.png" width="75%">
-<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_go.png" width="75%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_python.png" width="85%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_go.png" width="85%">
 
 ### Abyss Boreal
 A cool toned theme inspired by the Northern Lights and Minnesota North Woods
 
-* TODO - ADD SCREENSHOT OF ABYSS-BOREAL THEME
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyssboreal_python.png" width="85%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyssboreal_go.png" width="85%">
 
 ## ⚡️ Requeriments
 * [Neovim](https://github.com/neovim/neovim) >= **0.8.0** or [Vim 9](https://www.vim.org/) with lua >= **5.1**.
