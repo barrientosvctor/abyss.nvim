@@ -288,7 +288,11 @@ function M.get(user_opts, spec)
     ["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" },
 
     -- neo-tree
-    NeoTreeRootName = { link = "Title" },
+    NeoTreeRootName = { fg = spec.dirtree.rootname },
+    NeoTreeDirectoryName = { fg = spec.dirtree.dirname },
+    NeoTreeDirectoryIcon = { fg = spec.dirtree.dirname },
+    NeoTreeGitUntracked = { fg = spec.diff.untracked, italic = true },
+    NeoTreeCursorLine = { fg = spec.dirtree.curline, bg = none, underline = true },
 
     -- notify
     NotifyERROR = { fg = spec.diagnostics.error },
@@ -311,6 +315,9 @@ function M.get(user_opts, spec)
     htmlTag = { link = "Delimiter" },
     htmlEndTag = { link = "Delimiter" },
     htmlArg = { link = "Function" },
+
+    -- aerial
+    AerialLine = { fg = spec.dirtree.curline, bg = none, underline = true },
   }
 end
 
