@@ -1,3 +1,4 @@
+local api = require("abyss.lib.api")
 local M = {}
 
 -- All syntax groups: https://neovim.io/doc/user/syntax.html#group-name
@@ -11,7 +12,7 @@ local M = {}
 ---@param spec Spec
 function M.get(user_opts, spec)
   local none = "NONE"
-  return {
+  local groups = {
     -- Syntax --
     Comment = { fg = spec.syntax.comment, italic = user_opts.italic_comments },
 
@@ -162,156 +163,162 @@ function M.get(user_opts, spec)
     TermCursor = { link = "Cursor" },
     TermCursorNC = { fg = spec.base.fg2, bg = spec.base.bg2 },
 
-    -- LSP --
-    DiagnosticError = { fg = spec.diagnostics.error },
-    DiagnosticWarn = { fg = spec.diagnostics.warn },
-    DiagnosticInfo = { fg = spec.diagnostics.info },
-    DiagnosticHint = { fg = spec.diagnostics.hint },
-    DiagnosticOk = { fg = spec.diagnostics.ok },
+    -- Vim/Neovim syntax --
+    htmlTag = { link = "Delimiter" },
+    htmlEndTag = { link = "Delimiter" },
+    htmlArg = { link = "Function" },
 
-    DiagnosticUnderlineError = { sp = spec.diagnostics.error, undercurl = true },
-    DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true },
-    DiagnosticUnderlineInfo = { sp = spec.diagnostics.info, underline = true },
-    DiagnosticUnderlineHint = { sp = spec.diagnostics.hint, underline = true },
-
-    LspDiagnosticsError = { link = "DiagnosticError" },
-    LspDiagnosticsWarning = { link = "DiagnosticWarn" },
-    LspDiagnosticsInformation = { link = "DiagnosticInfo" },
-    LspDiagnosticsHint = { link = "DiagnosticHint" },
-
-    LspSignatureActiveParameter = {
-      fg = spec.base.fg01,
-      bg = spec.base.bg01,
-      italic = user_opts.italic,
-      bold = user_opts.bold,
-    },
-    LspInlayHint = { link = "NonText" },
-
-    -- Plugins --
-    -- Telescope
-    -- Sets the highlight for selected items within the picker.
-    TelescopeSelection = { link = "Title" },
-    TelescopeSelectionCaret = { link = "TelescopeSelection" },
-    TelescopeMultiSelection = { link = "TelescopeSelection" },
-    TelescopeMultiIcon = { link = "TelescopeSelectionCaret" },
-
-    TelescopeTitle = { link = "Title" },
-
-    TelescopeBorder = { fg = spec.base.fg1 },
-
-    TelescopePrompt = { link = "TelescopeNormal" },
-    TelescopePromptPrefix = { link = "TelescopeSelectionCaret" },
-    TelescopeMatching = { fg = spec.editor.match },
-
-    -- nvim-cmp
-    CmpItemAbbrMatch = { fg = spec.editor.match, bold = true },
-    CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
-    CmpItemAbbr = { fg = spec.base.fg0 },
-    CmpItemMenu = { link = "Comment" },
-    CmpItemKindText = { link = "String" },
-    CmpItemKindMethod = { link = "Function" },
-    CmpItemKindFunction = { link = "Function" },
-    CmpItemKindConstructor = { link = "Structure" },
-    CmpItemKindField = { link = "Constant" },
-    CmpItemKindVariable = { link = "Constant" },
-    CmpItemKindClass = { link = "Structure" },
-    CmpItemKindInterface = { link = "Structure" },
-    CmpItemKindModule = { link = "Structure" },
-    CmpItemKindProperty = { link = "Constant" },
-    CmpItemKindUnit = { link = "Constant" },
-    CmpItemKindValue = { link = "CmpItemKindText" },
-    CmpItemKindEnum = { link = "Constant" },
-    CmpItemKindKeyword = { link = "Statement" },
-    CmpItemKindSnippet = { fg = spec.base.fg1 },
-    CmpItemKindColor = { link = "CmpItemKindProperty" },
-    CmpItemKindReference = { link = "CmpItemKindMethod" },
-    CmpItemKindFolder = { link = "Structure" },
-    CmpItemKindEnumMember = { link = "Constant" },
-    CmpItemKindConstant = { link = "Constant" },
-    CmpItemKindStruct = { link = "Structure" },
-    CmpItemKindEvent = { link = "CmpItemKindMethod" },
-    CmpItemKindOperator = { link = "Operator" },
-    CmpItemKindTypeParameter = { fg = spec.syntax.parameter },
-
-    -- gitsigns
-    GitSignsAddLn = { link = "DiffAdd" },
-    GitSignsAddNr = { link = "GitSignsAddLn" },
-    GitSignsChangeLn = { link = "DiffChange" },
-    GitSignsChangeNr = { link = "GitSignsChangeLn" },
-    GitSignsDeleteLn = { link = "DiffChange" },
-    GitSignsDeleteNr = { link = "GitSignsDeleteLn" },
-
+    -- Vim-compatible plugins --
     -- git gutter
     GitGutterAdd = { link = "DiffAdd" },
     GitGutterChange = { link = "DiffChange" },
     GitGutterDelete = { link = "DiffDelete" },
     GitGutterChangeDelete = { link = "GitGutterDelete" },
+  }
+
+  if api.is_nvim then
+    -- LSP --
+    groups.DiagnosticError = { fg = spec.diagnostics.error }
+    groups.DiagnosticWarn = { fg = spec.diagnostics.warn }
+    groups.DiagnosticInfo = { fg = spec.diagnostics.info }
+    groups.DiagnosticHint = { fg = spec.diagnostics.hint }
+    groups.DiagnosticOk = { fg = spec.diagnostics.ok }
+
+    groups.DiagnosticUnderlineError = { sp = spec.diagnostics.error, undercurl = true }
+    groups.DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true }
+    groups.DiagnosticUnderlineInfo = { sp = spec.diagnostics.info, underline = true }
+    groups.DiagnosticUnderlineHint = { sp = spec.diagnostics.hint, underline = true }
+
+    groups.LspDiagnosticsError = { link = "DiagnosticError" }
+    groups.LspDiagnosticsWarning = { link = "DiagnosticWarn" }
+    groups.LspDiagnosticsInformation = { link = "DiagnosticInfo" }
+    groups.LspDiagnosticsHint = { link = "DiagnosticHint" }
+
+    groups.LspSignatureActiveParameter = {
+      fg = spec.base.fg01,
+      bg = spec.base.bg01,
+      italic = user_opts.italic,
+      bold = user_opts.bold,
+    }
+    groups.LspInlayHint = { link = "NonText" }
+
+    -- Neovim-compatible plugins --
+    -- Telescope
+    -- Sets the highlight for selected items within the picker.
+    groups.TelescopeSelection = { link = "Title" }
+    groups.TelescopeSelectionCaret = { link = "TelescopeSelection" }
+    groups.TelescopeMultiSelection = { link = "TelescopeSelection" }
+    groups.TelescopeMultiIcon = { link = "TelescopeSelectionCaret" }
+
+    groups.TelescopeTitle = { link = "Title" }
+
+    groups.TelescopeBorder = { fg = spec.base.fg1 }
+
+    groups.TelescopePrompt = { link = "TelescopeNormal" }
+    groups.TelescopePromptPrefix = { link = "TelescopeSelectionCaret" }
+    groups.TelescopeMatching = { fg = spec.editor.match }
+
+    -- nvim-cmp
+    groups.CmpItemAbbrMatch = { fg = spec.editor.match, bold = true }
+    groups.CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }
+    groups.CmpItemAbbr = { fg = spec.base.fg0 }
+    groups.CmpItemMenu = { link = "Comment" }
+    groups.CmpItemKindText = { link = "String" }
+    groups.CmpItemKindMethod = { link = "Function" }
+    groups.CmpItemKindFunction = { link = "Function" }
+    groups.CmpItemKindConstructor = { link = "Structure" }
+    groups.CmpItemKindField = { link = "Constant" }
+    groups.CmpItemKindVariable = { link = "Constant" }
+    groups.CmpItemKindClass = { link = "Structure" }
+    groups.CmpItemKindInterface = { link = "Structure" }
+    groups.CmpItemKindModule = { link = "Structure" }
+    groups.CmpItemKindProperty = { link = "Constant" }
+    groups.CmpItemKindUnit = { link = "Constant" }
+    groups.CmpItemKindValue = { link = "CmpItemKindText" }
+    groups.CmpItemKindEnum = { link = "Constant" }
+    groups.CmpItemKindKeyword = { link = "Statement" }
+    groups.CmpItemKindSnippet = { fg = spec.base.fg1 }
+    groups.CmpItemKindColor = { link = "CmpItemKindProperty" }
+    groups.CmpItemKindReference = { link = "CmpItemKindMethod" }
+    groups.CmpItemKindFolder = { link = "Structure" }
+    groups.CmpItemKindEnumMember = { link = "Constant" }
+    groups.CmpItemKindConstant = { link = "Constant" }
+    groups.CmpItemKindStruct = { link = "Structure" }
+    groups.CmpItemKindEvent = { link = "CmpItemKindMethod" }
+    groups.CmpItemKindOperator = { link = "Operator" }
+    groups.CmpItemKindTypeParameter = { fg = spec.syntax.parameter }
+
+    -- gitsigns
+    groups.GitSignsAddLn = { link = "DiffAdd" }
+    groups.GitSignsAddNr = { link = "GitSignsAddLn" }
+    groups.GitSignsChangeLn = { link = "DiffChange" }
+    groups.GitSignsChangeNr = { link = "GitSignsChangeLn" }
+    groups.GitSignsDeleteLn = { link = "DiffChange" }
+    groups.GitSignsDeleteNr = { link = "GitSignsDeleteLn" }
 
     -- lspsaga
-    LspFloatWinNormal = { bg = spec.base.bg0 },
-    LspFloatWinBorder = { fg = spec.base.fg0 },
-    LspSagaBorderTitle = { link = "Title" },
-    LspSagaHoverBorder = { fg = spec.diagnostics.info },
-    LspSagaRenameBorder = { fg = spec.diagnostics.warn },
-    LspSagaDefPreviewBorder = { fg = spec.diagnostics.info },
-    LspSagaCodeActionBorder = { fg = spec.diagnostics.hint },
-    LspSagaFinderSelection = { fg = spec.diagnostics.info },
-    LspSagaCodeActionTitle = { link = "Title" },
-    LspSagaCodeActionContent = { fg = spec.base.fg0 },
-    LspSagaSignatureHelpBorder = { fg = spec.diagnostics.info },
-    ReferencesCount = { fg = spec.base.fg0 },
-    DefinitionCount = { fg = spec.base.fg0 },
-    DefinitionIcon = { fg = spec.diagnostics.info },
-    ReferencesIcon = { fg = spec.diagnostics.warn },
-    TargetWord = { fg = spec.editor.match },
+    groups.LspFloatWinNormal = { bg = spec.base.bg0 }
+    groups.LspFloatWinBorder = { fg = spec.base.fg0 }
+    groups.LspSagaBorderTitle = { link = "Title" }
+    groups.LspSagaHoverBorder = { fg = spec.diagnostics.info }
+    groups.LspSagaRenameBorder = { fg = spec.diagnostics.warn }
+    groups.LspSagaDefPreviewBorder = { fg = spec.diagnostics.info }
+    groups.LspSagaCodeActionBorder = { fg = spec.diagnostics.hint }
+    groups.LspSagaFinderSelection = { fg = spec.diagnostics.info }
+    groups.LspSagaCodeActionTitle = { link = "Title" }
+    groups.LspSagaCodeActionContent = { fg = spec.base.fg0 }
+    groups.LspSagaSignatureHelpBorder = { fg = spec.diagnostics.info }
+    groups.ReferencesCount = { fg = spec.base.fg0 }
+    groups.DefinitionCount = { fg = spec.base.fg0 }
+    groups.DefinitionIcon = { fg = spec.diagnostics.info }
+    groups.ReferencesIcon = { fg = spec.diagnostics.warn }
+    groups.TargetWord = { fg = spec.editor.match }
 
     -- nvim-tree
-    NvimTreeGitNew = { link = "DiffAdd" },
-    NvimTreeGitDeletedIcon = { link = "DiffDelete" },
-    NvimTreeGitRenamedIcon = { link = "DiffChange" },
-    NvimTreeGitStagedIcon = { link = "diffFile" },
-    NvimTreeGitMergeIcon = { link = "diffFile" },
-    NvimTreeIndentMarker = { link = "NonText" },
+    groups.NvimTreeGitNew = { link = "DiffAdd" }
+    groups.NvimTreeGitDeletedIcon = { link = "DiffDelete" }
+    groups.NvimTreeGitRenamedIcon = { link = "DiffChange" }
+    groups.NvimTreeGitStagedIcon = { link = "diffFile" }
+    groups.NvimTreeGitMergeIcon = { link = "diffFile" }
+    groups.NvimTreeIndentMarker = { link = "NonText" }
 
     -- packer
-    packerString = { link = "String" },
-    packerHash = { link = "Special" },
-    packerRelDate = { fg = spec.diagnostics.info, bold = true, underline = true },
-    packerSuccess = { fg = spec.diagnostics.ok, bg = none, bold = true },
-    packerStatusSuccess = { link = "PackerSuccess" },
+    groups.packerString = { link = "String" }
+    groups.packerHash = { link = "Special" }
+    groups.packerRelDate = { fg = spec.diagnostics.info, bold = true, underline = true }
+    groups.packerSuccess = { fg = spec.diagnostics.ok, bg = none, bold = true }
+    groups.packerStatusSuccess = { link = "PackerSuccess" }
 
     -- indent blankline
-    IndentBlanklineChar = { link = "NonText" },
-    IndentBlanklineContextChar = { fg = spec.base.fg01 },
-    ["@ibl.indent.char.1"] = { link = "NonText" },
-    ["@ibl.scope.char.1"] = { fg = spec.base.fg01 },
-    ["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" },
+    groups.IndentBlanklineChar = { link = "NonText" }
+    groups.IndentBlanklineContextChar = { fg = spec.base.fg01 }
+    groups["@ibl.indent.char.1"] = { link = "String" }
+    groups["@ibl.scope.char.1"] = { fg = spec.base.fg01 }
+    groups["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" }
 
     -- neo-tree
-    NeoTreeRootName = { link = "Title" },
+    groups.NeoTreeRootName = { link = "Title" }
 
     -- notify
-    NotifyERROR = { fg = spec.diagnostics.error },
-    NotifyWARN = { fg = spec.diagnostics.warn },
-    NotifyINFO = { fg = spec.diagnostics.info },
-    NotifyDEBUG = { fg = spec.diagnostics.hint },
-    NotifyTRACE = { link = "NotifyINFO" },
-    NotifyERRORTitle = { link = "NotifyERROR" },
-    NotifyWARNTitle = { link = "NotifyWARN" },
-    NotifyINFOTitle = { link = "NotifyINFO" },
-    NotifyDEBUGTitle = { link = "NotifyDEBUG" },
-    NotifyTRACETitle = { link = "NotifyTRACE" },
+    groups.NotifyERROR = { fg = spec.diagnostics.error }
+    groups.NotifyWARN = { fg = spec.diagnostics.warn }
+    groups.NotifyINFO = { fg = spec.diagnostics.info }
+    groups.NotifyDEBUG = { fg = spec.diagnostics.hint }
+    groups.NotifyTRACE = { link = "NotifyINFO" }
+    groups.NotifyERRORTitle = { link = "NotifyERROR" }
+    groups.NotifyWARNTitle = { link = "NotifyWARN" }
+    groups.NotifyINFOTitle = { link = "NotifyINFO" }
+    groups.NotifyDEBUGTitle = { link = "NotifyDEBUG" }
+    groups.NotifyTRACETitle = { link = "NotifyTRACE" }
 
     -- dashboard
-    DashboardShortCut = { link = "Comment" },
-    DashboardHeader = { link = "Title" },
-    DashboardCenter = { link = "Special" },
-    DashboardFooter = { link = "Comment" },
+    groups.DashboardShortCut = { link = "Comment" }
+    groups.DashboardHeader = { link = "Title" }
+    groups.DashboardCenter = { link = "Special" }
+    groups.DashboardFooter = { link = "Comment" }
+  end
 
-    htmlTag = { link = "Delimiter" },
-    htmlEndTag = { link = "Delimiter" },
-    htmlArg = { link = "Function" },
-  }
+  return groups
 end
 
 ---Treesitter highlights.
