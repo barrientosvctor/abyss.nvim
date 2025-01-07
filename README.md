@@ -10,8 +10,8 @@ https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac
 ### Abyss
 Original Abyss theme inspired by VS Code
 
-<img src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_python.png" width="75%">
-<img src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_go.png" width="75%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_python.png" width="75%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_go.png" width="75%">
 
 ### Abyss Boreal
 A cool toned theme inspired by the Northern Lights and Minnesota North Woods
