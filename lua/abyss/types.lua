@@ -14,7 +14,9 @@
 ---@field syntax AbyssSyntax
 ---@field diff AbyssDiff
 ---@field diagnostics AbyssDiagnostics
+---@field dirtree AbyssDirtree
 ---@field terminal AbyssTerminal
+---@field lualine AbyssLualine
 
 ---@class AbyssBase
 ---@field bg0 string Background
@@ -58,6 +60,7 @@
 ---@field changed string
 ---@field deleted string
 ---@field text string
+---@field untracked string
 
 ---@class AbyssDiagnostics
 ---@field error string
@@ -65,6 +68,11 @@
 ---@field info string
 ---@field hint string
 ---@field ok string
+
+---@class AbyssDirtree
+---@field rootname string
+---@field dirname string
+---@field curline string
 
 ---@class AbyssTerminal
 ---@field color0 string
@@ -83,3 +91,19 @@
 ---@field color13 string
 ---@field color14 string
 ---@field color15 string
+
+---@class AbyssLualine
+---@field normalfg string
+---@field normalbg_a string
+---@field visualfg string
+---@field visualbg_a string
+---@field replacefg string
+---@field replacebg_a string
+---@field insertfg string
+---@field insertbg_a string
+---@field commandfg string
+---@field commandbg_a string
+---@field terminalfg string
+---@field terminalbg_a string
+---@field inactivefg string
+---@field inactivebg_a string
