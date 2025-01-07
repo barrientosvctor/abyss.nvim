@@ -1,6 +1,7 @@
 local palettes = require("abyss.palettes")
 local utils = require("lua.abyss.lib.util")
 local abyss = palettes.get_spec_from_palette("abyss")
+local abyssboreal = palettes.get_spec_from_palette("abyss-boreal")
 
 ---Checks if the spec has all its properties.
 ---@param spec Spec
@@ -160,5 +161,19 @@ describe("Palettes of abyss", function()
 
   it("has properties with expected length.", function()
     check_properties_length(abyss)
+  end)
+end)
+
+describe("Palettes of abyss-boreal", function()
+  it("has all spec properties.", function()
+    check_properties(abyssboreal)
+  end)
+
+  it("has the expected data type for property.", function()
+    check_typeof(abyssboreal)
+  end)
+
+  it("has properties with expected length.", function()
+    check_properties_length(abyssboreal)
   end)
 end)

@@ -297,7 +297,11 @@ function M.get(user_opts, spec)
     groups["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" }
 
     -- neo-tree
-    groups.NeoTreeRootName = { link = "Title" }
+    groups.NeoTreeRootName = { fg = spec.dirtree.rootname }
+    groups.NeoTreeDirectoryName = { fg = spec.dirtree.dirname }
+    groups.NeoTreeDirectoryIcon = { fg = spec.dirtree.dirname }
+    groups.NeoTreeGitUntracked = { fg = spec.diff.untracked, italic = true }
+    groups.NeoTreeCursorLine = { fg = spec.dirtree.curline, bg = none, underline = true }
 
     -- notify
     groups.NotifyERROR = { fg = spec.diagnostics.error }
@@ -316,8 +320,11 @@ function M.get(user_opts, spec)
     groups.DashboardHeader = { link = "Title" }
     groups.DashboardCenter = { link = "Special" }
     groups.DashboardFooter = { link = "Comment" }
+      
+    -- aerial
+    groups.AerialLine = { fg = spec.dirtree.curline, bg = none, underline = true }
   end
-
+    
   return groups
 end
 

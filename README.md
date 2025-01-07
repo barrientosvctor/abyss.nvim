@@ -5,6 +5,20 @@ Unofficial port for (Neo)Vim inspired by the Abyss theme from Visual Studio Code
 
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
+## 🎨 Themes
+
+### Abyss
+Original Abyss theme inspired by VS Code
+
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_python.png" width="85%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyss_go.png" width="85%">
+
+### Abyss Boreal
+A cool toned theme inspired by the Northern Lights and Minnesota North Woods
+
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyssboreal_python.png" width="85%">
+<img align="center" src="https://github.com/egotch/abyss.nvim/blob/feature/abyss-boreal-colorscheme/previews/abyssboreal_go.png" width="85%">
+
 ## ⚡️ Requeriments
 * [Neovim](https://github.com/neovim/neovim) >= **0.8.0** or [Vim 9](https://www.vim.org/) with lua >= **5.1**.
 
@@ -162,6 +176,7 @@ require('abyss').setup({
 * [nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [Dashboard](https://github.com/glepnir/dashboard-nvim)
 * [Which-key](https://github.com/folke/which-key.nvim)
+* [Aerial](https://github.com/stevearc/aerial.nvim)
 
 ## 🚀 Usage
 
