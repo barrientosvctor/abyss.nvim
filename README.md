@@ -5,13 +5,15 @@ Unofficial port for (Neo)Vim inspired by the Abyss theme from Visual Studio Code
 
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
-##  Themes
+## 🎨 Themes
 
 ### Abyss
+Original Abyss theme inspired by VS Code
 
 * TODO - ADD SCREENSHOT OF ORIGINAL ABYSS THEME
 
 ### Abyss Boreal
+A cool toned theme inspired by the Northern Lights and Minnesota North Woods
 
 * TODO - ADD SCREENSHOT OF ABYSS-BOREAL THEME
 
