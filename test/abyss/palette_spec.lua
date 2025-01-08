@@ -1,5 +1,5 @@
 local palettes = require("abyss.palettes")
-local test_utils = require("abyss.lib.util")
+local test_utils = require("test.abyss.util.init")
 local abyss = palettes.get_spec_from_palette("abyss")
 local abyssboreal = palettes.get_spec_from_palette("abyss-boreal")
 
