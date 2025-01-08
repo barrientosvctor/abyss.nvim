@@ -1,5 +1,5 @@
+local api = require("abyss.lib.api")
 local M = {}
-local colors = require("abyss.colors")
 
 -- All syntax groups: https://neovim.io/doc/user/syntax.html#group-name
 -- All highlight groups: https://neovim.io/doc/user/syntax.html#highlight-groups
@@ -9,338 +9,329 @@ local colors = require("abyss.colors")
 
 ---Applies colors to colorscheme highlight groups.
 ---@param user_opts AbyssOptions
-function M.get(user_opts)
-  return {
+---@param spec Spec
+function M.get(user_opts, spec)
+  local none = "NONE"
+  local groups = {
     -- Syntax --
-    Comment = { fg = colors.midblue, italic = user_opts.italic_comments },
+    Comment = { fg = spec.syntax.comment, italic = user_opts.italic_comments },
 
-    Constant = { fg = colors.fg },
-    String = { fg = colors.darkgreen, italic = user_opts.italic },
+    Constant = { fg = spec.syntax.constant },
+    String = { fg = spec.syntax.string, italic = user_opts.italic },
     Character = { link = "String" },
-    Number = { fg = colors.pink },
-    Boolean = { fg = colors.pink, italic = user_opts.italic, bold = user_opts.bold },
+    Number = { fg = spec.syntax.number },
+    Boolean = { fg = spec.syntax.number, italic = user_opts.italic, bold = user_opts.bold },
     Float = { link = "Number" },
 
-    Identifier = { fg = colors.fg },
-    Function = { fg = colors.yellow, bold = user_opts.bold, italic = user_opts.italic },
+    Identifier = { fg = spec.syntax.identifier },
+    Function = { fg = spec.syntax.func, bold = user_opts.bold, italic = user_opts.italic },
 
-    Statement = { fg = colors.darkgrey, italic = user_opts.italic, bold = user_opts.bold },
+    Statement = { fg = spec.syntax.statement, italic = user_opts.italic, bold = user_opts.bold },
 
-    PreProc = { fg = colors.darkgrey },
-    Operator = { fg = colors.darkgrey },
+    PreProc = { link = "Statement" },
+    Operator = { fg = spec.syntax.statement },
 
-    Type = { fg = colors.purple, italic = true },
-    StorageClass = { fg = colors.darkgrey },
-    Structure = { fg = colors.heavyyellow, underline = true },
+    Type = { fg = spec.syntax.type, italic = true },
+    StorageClass = { link = "Statement" }, -- Volatile keywords
+    Structure = { fg = spec.syntax.structure, underline = true },
 
-    Special = { fg = colors.yellow },
-    SpecialChar = { fg = colors.pink },
-    Delimiter = { fg = colors.fg },
-    SpecialComment = { fg = colors.purple },
-    Debug = { fg = colors.darkgrey },
+    Special = { fg = spec.syntax.special },
+    SpecialChar = { link = "Special" },
+    Delimiter = { fg = spec.syntax.bracket },
+    SpecialComment = { link = "Special" },
+    Debug = { link = "Special" },
 
     Underlined = { underline = true },
 
-    Ignore = { fg = colors.darkgrey },
+    Error = { fg = spec.diagnostics.error, bold = true, underline = true },
 
-    Error = { fg = colors.red, bold = true, underline = true },
+    Todo = { fg = spec.diagnostics.hint, bg = spec.base.bg1, bold = true },
 
-    Todo = { fg = colors.heavyyellow, bg = colors.darkred, bold = true },
-
-    markdownURL = { fg = colors.darkgreen, underline = true },
-    markdownCodeBlock = { fg = colors.yellow, italic = user_opts.italic },
+    markdownURL = { fg = spec.syntax.string, underline = true },
+    markdownCodeBlock = { fg = spec.syntax.special, italic = user_opts.italic },
 
     -- Editor --
-    ColorColumn = { fg = colors.none, bg = colors.darkred },
-    Conceal = { fg = colors.fg, bg = colors.none },
+    ColorColumn = { link = "CursorLine" },
+    Conceal = { fg = spec.base.fg0, bg = none },
 
-    Cursor = { fg = colors.midblue, bg = colors.darkred, reverse = true },
+    Cursor = { fg = spec.base.bg0, bg = spec.editor.cursor },
     lCursor = { link = "Cursor" },
-    CursorIM = { fg = colors.lowgrey, bg = colors.darkred, reverse = true },
-    CursorLine = { fg = colors.none, bg = colors.darkblue },
-    CursorLineNr = { fg = colors.lightgrey, bg = colors.darkblue, bold = true },
+    CursorIM = { link = "Cursor" },
+    CursorLine = { fg = none, bg = spec.editor.cursorline },
+    CursorLineNr = { fg = spec.base.fg01, bg = spec.editor.cursorline, bold = true },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { fg = colors.yellow, bg = colors.none, bold = true },
+    Directory = { link = "Function" },
 
-    DiffAdd = { fg = colors.darkgreen },
-    DiffChange = { fg = colors.yellow },
-    DiffDelete = { fg = colors.red },
-    DiffText = { fg = colors.red, italic = true },
+    DiffAdd = { fg = spec.diff.added },
+    DiffChange = { fg = spec.diff.changed },
+    DiffDelete = { fg = spec.diff.deleted },
+    DiffText = { fg = spec.diff.text },
     diffAdded = { link = "DiffAdd" },
     diffRemoved = { link = "DiffDelete" },
     diffChanged = { link = "DiffChange" },
     diffOldFile = { link = "DiffDelete" },
     diffNewFile = { link = "DiffAdd" },
-    diffFile = { fg = colors.red, bg = colors.none, bold = true },
+    diffFile = { fg = spec.diff.text, bg = none, bold = true },
     diffLine = { link = "diffFile" },
-    diffIndexLine = { fg = colors.orange, bg = colors.none },
+    diffIndexLine = { link = "diffLine" },
 
     -- Neovim v0.10 diff highlights
     Added = { link = "DiffAdd" },
     Changed = { link = "DiffChange" },
     Removed = { link = "DiffDelete" },
 
-    healthError = { fg = colors.red },
-    healthSuccess = { fg = colors.green },
-    healthWarning = { fg = colors.yellow },
+    healthError = { fg = spec.diagnostics.error },
+    healthSuccess = { fg = spec.diagnostics.ok },
+    healthWarning = { fg = spec.diagnostics.warn },
 
     NonText = {
-      fg = user_opts.transparent_background and colors.none or colors.bg,
-      bg = user_opts.transparent_background and colors.none or colors.bg,
+      fg = spec.editor.nontext,
     },
-    EndOfBuffer = { link = "NonText" },
+    EndOfBuffer = {
+      fg = user_opts.transparent_background and none or spec.base.bg0,
+      bg = user_opts.transparent_background and none or spec.base.bg0,
+    },
 
-    VertSplit = { fg = colors.fg, bg = colors.bg },
+    VertSplit = { fg = spec.base.fg0, bg = spec.base.bg0 },
     WinSeparator = { link = "VertSplit" },
 
-    ErrorMsg = { fg = colors.red },
-    WarningMsg = { fg = colors.yellow },
+    ErrorMsg = { fg = spec.diagnostics.error },
+    WarningMsg = { fg = spec.diagnostics.warn },
 
-    Folded = { fg = colors.darkgrey, bg = colors.none, italic = true },
-    FoldColumn = { bg = colors.bg_completion_sel },
-    SignColumn = { fg = colors.fg, bg = user_opts.transparent_background and colors.none or colors.bg },
+    Folded = { link = "Comment" },
+    FoldColumn = { link = "CursorColumn" },
+    SignColumn = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
 
-    CurSearch = { fg = colors.black, bg = colors.heavyyellow, bold = true, underline = true },
+    CurSearch = { fg = spec.base.bg0, bg = spec.editor.match_selected, bold = true, underline = true },
     IncSearch = { link = "CurSearch" },
     Substitute = { link = "Search" },
 
-    LineNr = { fg = colors.lowgrey, bg = user_opts.transparent_background and colors.none or colors.bg },
+    LineNr = { fg = spec.editor.linenr, bg = user_opts.transparent_background and none or spec.base.bg0 },
     LineNrAbove = { link = "LineNr" },
     LineNrBelow = { link = "LineNrAbove" },
 
-    MatchParen = { fg = colors.heavyyellow, bg = colors.darkred },
+    MatchParen = { link = "CurSearch" },
 
-    MsgArea = { fg = colors.white },
+    MsgArea = { fg = spec.diagnostics.info },
     ModeMsg = { link = "MsgArea" },
-    MoreMsg = { link = "MsgArea" },
+    MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
-    Normal = { fg = colors.fg, bg = user_opts.transparent_background and colors.none or colors.bg },
+    Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
     NormalNC = { link = "Normal" },
-    NormalFloat = { fg = colors.fg, bg = colors.bg_alt },
+    NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
     FloatBorder = { link = "NormalFloat" },
 
-    Pmenu = { fg = colors.fg, bg = colors.bg_completion },
-    PmenuSbar = { bg = colors.bg_completion },
-    PmenuSel = { fg = colors.white, bg = colors.bg_completion_sel },
-    PmenuThumb = { bg = colors.lightgrey },
+    Pmenu = { fg = spec.base.fg0, bg = spec.base.bg00 },
+    PmenuSbar = { bg = spec.base.bg00 },
+    PmenuSel = { fg = spec.base.fg01, bg = spec.base.bg01 },
+    PmenuThumb = { bg = spec.base.bg01 },
 
-    Question = { fg = colors.yellow },
+    Question = { link = "MoreMsg" },
 
-    QuickFixLine = { fg = colors.none, bg = colors.darkred },
+    QuickFixLine = { link = "CursorLine" },
 
-    Search = { fg = colors.black, bg = colors.yellow },
-    SpecialKey = { fg = colors.midblue, bg = colors.none },
+    Search = { fg = spec.base.bg0, bg = spec.editor.match },
+    SpecialKey = { link = "NonText" },
 
-    SpellBad = { fg = colors.darkred, undercurl = true },
-    SpellRare = { fg = colors.yellow, undercurl = true },
-    SpellCap = { fg = colors.yellow, underline = true },
-    SpellLocal = { fg = colors.orange, underline = true },
+    SpellBad = { fg = spec.diagnostics.error, undercurl = true },
+    SpellRare = { fg = spec.diagnostics.info, undercurl = true },
+    SpellCap = { fg = spec.diagnostics.warn, undercurl = true },
+    SpellLocal = { fg = spec.diagnostics.info, undercurl = true },
 
-    StatusLine = { fg = colors.none, bg = colors.bg_alt },
+    StatusLine = { fg = none, bg = spec.base.bg1 },
     StatusLineTerm = { link = "StatusLine" },
-    StatusLineNC = { fg = colors.none, bg = colors.black },
+    StatusLineNC = { fg = none, bg = spec.base.bg2 },
     StatusLineTermNC = { link = "StatusLineNC" },
 
-    TabLine = { fg = colors.lightgrey, bg = colors.bg },
-    TabLineFill = { fg = colors.none, bg = colors.bg },
-    TabLineSel = { fg = colors.white, bg = colors.darkblue },
+    TabLine = { fg = spec.base.fg1, bg = spec.base.bg0 },
+    TabLineFill = { fg = none, bg = spec.base.bg0 },
+    TabLineSel = { fg = spec.base.fg01, bg = spec.base.bg01 },
 
-    Title = { fg = colors.white, bold = true },
+    Title = { fg = spec.editor.title, bold = true },
 
-    Visual = { fg = colors.none, bg = colors.darkred },
+    Visual = { fg = none, bg = spec.editor.cursor_selection },
     VisualNOS = { link = "Visual" },
 
-    Whitespace = { fg = colors.midblue },
+    Whitespace = { link = "NonText" },
 
     WildMenu = { link = "PmenuSel" },
 
-    WinBar = { fg = colors.white, bg = colors.bg },
-    WinBarNC = { fg = colors.fg, bg = colors.bg },
+    WinBar = { link = "Title" },
+    WinBarNC = { link = "NormalNC" },
 
-    TermCursor = { fg = colors.none, bg = colors.white },
-    TermCursorNC = { fg = colors.none, bg = colors.fg },
+    TermCursor = { link = "Cursor" },
+    TermCursorNC = { fg = spec.base.fg2, bg = spec.base.bg2 },
 
-    -- LSP --
-    DiagnosticError = { fg = colors.red },
-    DiagnosticWarn = { fg = colors.yellow },
-    DiagnosticInfo = { fg = colors.shinyblue },
-    DiagnosticHint = { fg = colors.white },
-    DiagnosticTruncateLine = { fg = colors.fg },
-    DiagnosticOk = { fg = colors.green },
-
-    DiagnosticUnderlineError = { sp = colors.red, undercurl = true },
-    DiagnosticUnderlineWarn = { sp = colors.heavyyellow, undercurl = true },
-    DiagnosticUnderlineInfo = { sp = colors.shinyblue, undercurl = true },
-    DiagnosticUnderlineHint = { sp = colors.white, undercurl = true },
-
-    LspDiagnosticsError = { link = "DiagnosticError" },
-    LspDiagnosticsWarning = { link = "DiagnosticWarn" },
-    LspDiagnosticsInformation = { link = "DiagnosticInfo" },
-    LspDiagnosticsHint = { link = "DiagnosticHint" },
-
-    LspSignatureActiveParameter = {
-      fg = colors.orange,
-      bg = colors.fg_alt,
-      italic = user_opts.italic,
-      bold = user_opts.bold,
-    },
-    LspInlayHint = { link = "Comment" },
-
-    -- Plugins --
-    -- Telescope
-    -- Sets the highlight for selected items within the picker.
-    TelescopeSelection = { fg = colors.white },
-    TelescopeSelectionCaret = { link = "TelescopeSelection" },
-    TelescopeMultiSelection = { link = "TelescopeSelection" },
-    TelescopeMultiIcon = { link = "TelescopeSelectionCaret" },
-
-    TelescopeTitle = { link = "Title" },
-
-    TelescopeBorder = { fg = colors.fg },
-
-    TelescopePrompt = { link = "TelescopeNormal" },
-    TelescopePromptPrefix = { link = "TelescopeSelectionCaret" },
-    TelescopeMatching = { fg = colors.yellow },
-
-    -- nvim-cmp
-    CmpItemKind = { fg = colors.heavyyellow },
-    CmpItemAbbrMatch = { fg = colors.yellow, bold = true },
-    CmpItemAbbrMatchFuzzy = { fg = colors.lightgrey, bold = true },
-    CmpItemAbbr = { fg = colors.lighgrey },
-    CmpItemMenu = { fg = colors.midblue, italic = true },
-    CmpItemKindText = { fg = colors.darkgreen },
-    CmpItemKindMethod = { fg = colors.yellow },
-    CmpItemKindFunction = { link = "CmpItemKindMethod" },
-    CmpItemKindConstructor = { link = "CmpItemKindMethod" },
-    CmpItemKindField = { fg = colors.fg },
-    CmpItemKindVariable = { link = "CmpItemKindField" },
-    CmpItemKindClass = { fg = colors.heavyyellow },
-    CmpItemKindInterface = { link = "CmpItemKindClass" },
-    CmpItemKindModule = { link = "CmpItemKindField" },
-    CmpItemKindProperty = { fg = colors.shinyblue },
-    CmpItemKindUnit = { link = "CmpItemKindField" },
-    CmpItemKindValue = { link = "CmpItemKindText" },
-    CmpItemKindEnum = { link = "CmpItemKindField" },
-    CmpItemKindKeyword = { link = "CmpItemKindField" },
-    CmpItemKindSnippet = { fg = colors.orange },
-    CmpItemKindColor = { link = "CmpItemKindProperty" },
-    CmpItemKindFile = { fg = colors.red },
-    CmpItemKindReference = { link = "CmpItemKindMethod" },
-    CmpItemKindFolder = { fg = colors.darkred },
-    CmpItemKindEnumMember = { link = "CmpItemKindField" },
-    CmpItemKindConstant = { fg = colors.purple },
-    CmpItemKindStruct = { link = "CmpItemKindClass" },
-    CmpItemKindEvent = { link = "CmpItemKindMethod" },
-    CmpItemKindOperator = { fg = colors.pink },
-    CmpItemKindTypeParameter = { link = "CmpItemKindProperty" },
-
-    -- gitsigns
-    GitSignsAddLn = { fg = colors.darkgreen },
-    GitSignsAddNr = { fg = colors.darkgreen },
-    GitSignsChangeLn = { fg = colors.yellow },
-    GitSignsChangeNr = { fg = colors.yellow },
-    GitSignsDeleteLn = { fg = colors.darkred },
-    GitSignsDeleteNr = { fg = colors.darkred },
-    GitSignsCurrentLineBlame = { fg = colors.orange, bold = true },
-
-    -- git gutter
-    GitGutterAdd = { fg = colors.green },
-    GitGutterChange = { fg = colors.yellow },
-    GitGutterDelete = { fg = colors.red },
-    GitGutterChangeDelete = { fg = colors.red },
-
-    -- lspsaga
-    LspFloatWinNormal = { bg = colors.bg },
-    LspFloatWinBorder = { fg = colors.fg },
-    LspSagaBorderTitle = { fg = colors.yellow },
-    LspSagaHoverBorder = { fg = colors.yellow },
-    LspSagaRenameBorder = { fg = colors.orange },
-    LspSagaDefPreviewBorder = { fg = colors.yellow },
-    LspSagaCodeActionBorder = { fg = colors.red },
-    LspSagaFinderSelection = { fg = colors.heavyyellow },
-    LspSagaCodeActionTitle = { fg = colors.yellow },
-    LspSagaCodeActionContent = { fg = colors.fg },
-    LspSagaSignatureHelpBorder = { fg = colors.orange },
-    ReferencesCount = { fg = colors.white },
-    DefinitionCount = { fg = colors.fg },
-    DefinitionIcon = { fg = colors.shinyblue },
-    ReferencesIcon = { fg = colors.yellow },
-    TargetWord = { fg = colors.red },
-
-    -- nvim-tree
-    NvimTreeGitDirty = { fg = colors.orange },
-    NvimTreeGitNew = { fg = colors.green },
-    NvimTreeImageFile = { fg = colors.pink },
-    NvimTreeExecFile = { fg = colors.fg },
-    NvimTreeSpecialFile = { fg = colors.yellow, underline = true, italic = true },
-    NvimTreeEmptyFolderName = { fg = colors.darkgrey, bold = true },
-    NvimTreeFolderIcon = { fg = colors.shinyblue },
-    NvimTreeIndentMarker = { fg = colors.white },
-
-    -- packer
-    packerString = { fg = colors.darkgreen, bg = colors.none },
-    packerHash = { fg = colors.yellow, bg = colors.none, bold = true },
-    packerRelDate = { fg = colors.lightgrey, bold = true, underline = true },
-    packerSuccess = { fg = colors.green, bg = colors.none, bold = true },
-    packerStatusSuccess = { link = "PackerSuccess" },
-
-    -- indent blankline
-    IndentBlanklineChar = { fg = colors.lowgrey },
-    IndentBlanklineContextChar = { fg = colors.shinyblue },
-
-    -- neo-tree
-    NeoTreeRootName = { fg = colors.fg, bold = true },
-
-    -- notify
-    NotifyERROR = { fg = colors.red },
-    NotifyWARN = { fg = colors.yellow },
-    NotifyINFO = { fg = colors.fg },
-    NotifyDEBUG = { fg = colors.midblue },
-    NotifyTRACE = { fg = colors.lightgrey },
-    NotifyERRORTitle = { link = "NotifyERROR" },
-    NotifyWARNTitle = { link = "NotifyWARN" },
-    NotifyINFOTitle = { link = "NotifyINFO" },
-    NotifyDEBUGTitle = { link = "NotifyDEBUG" },
-    NotifyTRACETitle = { link = "NotifyTRACE" },
-
-    -- dashboard
-    DashboardShortCut = { fg = colors.orange },
-    DashboardHeader = { fg = colors.darkgreen },
-    DashboardCenter = { fg = colors.heavyyellow },
-    DashboardFooter = { fg = colors.fg, italic = true },
-
-    -- Bufferline.nvim
-    BufferLineFill = { bg = colors.ui.bufferline.separator_fg },
-    BufferLineBufferSelected = { bg = colors.ui.bufferline.tab_bg, fg = colors.white, italic = true, bold = true },
-    BufferLineSeparator = { fg = colors.ui.bufferline.separator_fg, bg = colors.ui.bufferline.separator_bg },
-    BufferLineSeparatorSelected = { link = "BufferLineSeparator" },
-    BufferLineSeparatorVisible = { link = "BufferLineSeparator" },
-
-    BufferLineTab = { bg = colors.ui.bufferline.tab_bg, fg = colors.midblue },
-    BufferLineTabSelected = { link = "BufferLineBufferSelected" },
-    BufferLineTabClose = { bg = colors.ui.bufferline.separator_fg, fg = colors.lightgrey },
-    BufferLineTabSeparator = { link = "BufferLineSeparator" },
-    BufferLineTabSeparatorSelected = { link = "BufferLineSeparator" },
-
-    BufferLineErrorSelected = {
-      bg = colors.ui.bufferline.tab_bg,
-      fg = colors.red,
-      italic = true,
-      bold = true,
-      sp = colors.darkred,
-    },
-    BufferLineError = { fg = colors.darkred, bg = colors.ui.bufferline.tab_bg },
-    BufferLineErrorDiagnostic = { link = "BufferLineError" },
-    BufferLineErrorDiagnosticSelected = { link = "BufferLineErrorSelected" },
-
+    -- Vim/Neovim syntax --
     htmlTag = { link = "Delimiter" },
     htmlEndTag = { link = "Delimiter" },
     htmlArg = { link = "Function" },
+
+    -- Vim-compatible plugins --
+    -- git gutter
+    GitGutterAdd = { link = "DiffAdd" },
+    GitGutterChange = { link = "DiffChange" },
+    GitGutterDelete = { link = "DiffDelete" },
+    GitGutterChangeDelete = { link = "GitGutterDelete" },
   }
+
+  if api.is_nvim then
+    -- LSP --
+    groups.DiagnosticError = { fg = spec.diagnostics.error }
+    groups.DiagnosticWarn = { fg = spec.diagnostics.warn }
+    groups.DiagnosticInfo = { fg = spec.diagnostics.info }
+    groups.DiagnosticHint = { fg = spec.diagnostics.hint }
+    groups.DiagnosticOk = { fg = spec.diagnostics.ok }
+
+    groups.DiagnosticUnderlineError = { sp = spec.diagnostics.error, undercurl = true }
+    groups.DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true }
+    groups.DiagnosticUnderlineInfo = { sp = spec.diagnostics.info, underline = true }
+    groups.DiagnosticUnderlineHint = { sp = spec.diagnostics.hint, underline = true }
+
+    groups.LspDiagnosticsError = { link = "DiagnosticError" }
+    groups.LspDiagnosticsWarning = { link = "DiagnosticWarn" }
+    groups.LspDiagnosticsInformation = { link = "DiagnosticInfo" }
+    groups.LspDiagnosticsHint = { link = "DiagnosticHint" }
+
+    groups.LspSignatureActiveParameter = {
+      fg = spec.base.fg01,
+      bg = spec.base.bg01,
+      italic = user_opts.italic,
+      bold = user_opts.bold,
+    }
+    groups.LspInlayHint = { link = "NonText" }
+
+    -- Neovim-compatible plugins --
+    -- Telescope
+    -- Sets the highlight for selected items within the picker.
+    groups.TelescopeSelection = { link = "Title" }
+    groups.TelescopeSelectionCaret = { link = "TelescopeSelection" }
+    groups.TelescopeMultiSelection = { link = "TelescopeSelection" }
+    groups.TelescopeMultiIcon = { link = "TelescopeSelectionCaret" }
+
+    groups.TelescopeTitle = { link = "Title" }
+
+    groups.TelescopeBorder = { fg = spec.base.fg1 }
+
+    groups.TelescopePrompt = { link = "TelescopeNormal" }
+    groups.TelescopePromptPrefix = { link = "TelescopeSelectionCaret" }
+    groups.TelescopeMatching = { fg = spec.editor.match }
+
+    -- nvim-cmp
+    groups.CmpItemAbbrMatch = { fg = spec.editor.match, bold = true }
+    groups.CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }
+    groups.CmpItemAbbr = { fg = spec.base.fg0 }
+    groups.CmpItemMenu = { link = "Comment" }
+    groups.CmpItemKindText = { link = "String" }
+    groups.CmpItemKindMethod = { link = "Function" }
+    groups.CmpItemKindFunction = { link = "Function" }
+    groups.CmpItemKindConstructor = { link = "Structure" }
+    groups.CmpItemKindField = { link = "Constant" }
+    groups.CmpItemKindVariable = { link = "Constant" }
+    groups.CmpItemKindClass = { link = "Structure" }
+    groups.CmpItemKindInterface = { link = "Structure" }
+    groups.CmpItemKindModule = { link = "Structure" }
+    groups.CmpItemKindProperty = { link = "Constant" }
+    groups.CmpItemKindUnit = { link = "Constant" }
+    groups.CmpItemKindValue = { link = "CmpItemKindText" }
+    groups.CmpItemKindEnum = { link = "Constant" }
+    groups.CmpItemKindKeyword = { link = "Statement" }
+    groups.CmpItemKindSnippet = { fg = spec.base.fg1 }
+    groups.CmpItemKindColor = { link = "CmpItemKindProperty" }
+    groups.CmpItemKindReference = { link = "CmpItemKindMethod" }
+    groups.CmpItemKindFolder = { link = "Structure" }
+    groups.CmpItemKindEnumMember = { link = "Constant" }
+    groups.CmpItemKindConstant = { link = "Constant" }
+    groups.CmpItemKindStruct = { link = "Structure" }
+    groups.CmpItemKindEvent = { link = "CmpItemKindMethod" }
+    groups.CmpItemKindOperator = { link = "Operator" }
+    groups.CmpItemKindTypeParameter = { fg = spec.syntax.parameter }
+
+    -- gitsigns
+    groups.GitSignsAddLn = { link = "DiffAdd" }
+    groups.GitSignsAddNr = { link = "GitSignsAddLn" }
+    groups.GitSignsChangeLn = { link = "DiffChange" }
+    groups.GitSignsChangeNr = { link = "GitSignsChangeLn" }
+    groups.GitSignsDeleteLn = { link = "DiffChange" }
+    groups.GitSignsDeleteNr = { link = "GitSignsDeleteLn" }
+
+    -- lspsaga
+    groups.LspFloatWinNormal = { bg = spec.base.bg0 }
+    groups.LspFloatWinBorder = { fg = spec.base.fg0 }
+    groups.LspSagaBorderTitle = { link = "Title" }
+    groups.LspSagaHoverBorder = { fg = spec.diagnostics.info }
+    groups.LspSagaRenameBorder = { fg = spec.diagnostics.warn }
+    groups.LspSagaDefPreviewBorder = { fg = spec.diagnostics.info }
+    groups.LspSagaCodeActionBorder = { fg = spec.diagnostics.hint }
+    groups.LspSagaFinderSelection = { fg = spec.diagnostics.info }
+    groups.LspSagaCodeActionTitle = { link = "Title" }
+    groups.LspSagaCodeActionContent = { fg = spec.base.fg0 }
+    groups.LspSagaSignatureHelpBorder = { fg = spec.diagnostics.info }
+    groups.ReferencesCount = { fg = spec.base.fg0 }
+    groups.DefinitionCount = { fg = spec.base.fg0 }
+    groups.DefinitionIcon = { fg = spec.diagnostics.info }
+    groups.ReferencesIcon = { fg = spec.diagnostics.warn }
+    groups.TargetWord = { fg = spec.editor.match }
+
+    -- nvim-tree
+    groups.NvimTreeGitNew = { link = "DiffAdd" }
+    groups.NvimTreeGitDeletedIcon = { link = "DiffDelete" }
+    groups.NvimTreeGitRenamedIcon = { link = "DiffChange" }
+    groups.NvimTreeGitStagedIcon = { link = "diffFile" }
+    groups.NvimTreeGitMergeIcon = { link = "diffFile" }
+    groups.NvimTreeIndentMarker = { link = "NonText" }
+
+    -- packer
+    groups.packerString = { link = "String" }
+    groups.packerHash = { link = "Special" }
+    groups.packerRelDate = { fg = spec.diagnostics.info, bold = true, underline = true }
+    groups.packerSuccess = { fg = spec.diagnostics.ok, bg = none, bold = true }
+    groups.packerStatusSuccess = { link = "PackerSuccess" }
+
+    -- indent blankline
+    groups.IndentBlanklineChar = { link = "NonText" }
+    groups.IndentBlanklineContextChar = { fg = spec.base.fg01 }
+    groups["@ibl.indent.char.1"] = { link = "String" }
+    groups["@ibl.scope.char.1"] = { fg = spec.base.fg01 }
+    groups["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" }
+
+    -- neo-tree
+    groups.NeoTreeRootName = { fg = spec.dirtree.rootname }
+    groups.NeoTreeDirectoryName = { fg = spec.dirtree.dirname }
+    groups.NeoTreeDirectoryIcon = { fg = spec.dirtree.dirname }
+    groups.NeoTreeGitUntracked = { fg = spec.diff.untracked, italic = true }
+    groups.NeoTreeCursorLine = { fg = spec.dirtree.curline, bg = none, underline = true }
+
+    -- notify
+    groups.NotifyERROR = { fg = spec.diagnostics.error }
+    groups.NotifyWARN = { fg = spec.diagnostics.warn }
+    groups.NotifyINFO = { fg = spec.diagnostics.info }
+    groups.NotifyDEBUG = { fg = spec.diagnostics.hint }
+    groups.NotifyTRACE = { link = "NotifyINFO" }
+    groups.NotifyERRORTitle = { link = "NotifyERROR" }
+    groups.NotifyWARNTitle = { link = "NotifyWARN" }
+    groups.NotifyINFOTitle = { link = "NotifyINFO" }
+    groups.NotifyDEBUGTitle = { link = "NotifyDEBUG" }
+    groups.NotifyTRACETitle = { link = "NotifyTRACE" }
+
+    -- dashboard
+    groups.DashboardShortCut = { link = "Comment" }
+    groups.DashboardHeader = { link = "Title" }
+    groups.DashboardCenter = { link = "Special" }
+    groups.DashboardFooter = { link = "Comment" }
+      
+    -- aerial
+    groups.AerialLine = { fg = spec.dirtree.curline, bg = none, underline = true }
+  end
+    
+  return groups
 end
 
-function M.get_treesitter()
+---Treesitter highlights.
+---@param spec Spec
+---@return table
+function M.get_treesitter(spec)
   return {
     -- Treesitter --
     -- Semantic tokens
@@ -353,7 +344,7 @@ function M.get_treesitter()
     ["@lsp.type.macro"] = { link = "Macro" },
     ["@lsp.type.method"] = { link = "Function" },
     ["@lsp.type.namespace"] = { link = "Structure" },
-    ["@lsp.type.parameter"] = { fg = colors.shinyblue, italic = true },
+    ["@lsp.type.parameter"] = { fg = spec.syntax.parameter, italic = true },
     ["@lsp.type.property"] = { link = "Constant" },
     ["@lsp.type.struct"] = { link = "Structure" },
     ["@lsp.type.type"] = { link = "Type" },
@@ -367,8 +358,8 @@ function M.get_treesitter()
 
     -- Punctuation
     ["@punctuation.delimiter"] = { link = "Delimiter" },
-    ["@punctuation.bracket"] = { fg = colors.fg },
-    ["@punctuation.special"] = { fg = colors.darkgrey },
+    ["@punctuation.bracket"] = { fg = spec.syntax.bracket },
+    ["@punctuation.special"] = { link = "SpecialChar" },
 
     ["@constructor"] = { link = "@lsp.type.class" },
     ["@field"] = { link = "@lsp.type.property" },
@@ -407,23 +398,24 @@ function M.get_treesitter()
 end
 
 ---Load the terminal colors.
-function M.load_terminal_colors()
-  vim.g.terminal_color_0 = colors.bg
-  vim.g.terminal_color_1 = colors.red
-  vim.g.terminal_color_2 = colors.darkgreen
-  vim.g.terminal_color_3 = colors.green
-  vim.g.terminal_color_4 = colors.darkblue
-  vim.g.terminal_color_5 = colors.purple
-  vim.g.terminal_color_6 = colors.darkgreen
-  vim.g.terminal_color_7 = colors.lightgrey
-  vim.g.terminal_color_8 = colors.heavyyellow
-  vim.g.terminal_color_9 = colors.red
-  vim.g.terminal_color_10 = colors.midblue
-  vim.g.terminal_color_11 = colors.orange
-  vim.g.terminal_color_12 = colors.red
-  vim.g.terminal_color_13 = colors.darkred
-  vim.g.terminal_color_14 = colors.orange
-  vim.g.terminal_color_15 = colors.yellow
+---@param spec Spec
+function M.load_terminal_colors(spec)
+  vim.g.terminal_color_0 = spec.terminal.color0
+  vim.g.terminal_color_1 = spec.terminal.color1
+  vim.g.terminal_color_2 = spec.terminal.color2
+  vim.g.terminal_color_3 = spec.terminal.color3
+  vim.g.terminal_color_4 = spec.terminal.color4
+  vim.g.terminal_color_5 = spec.terminal.color5
+  vim.g.terminal_color_6 = spec.terminal.color6
+  vim.g.terminal_color_7 = spec.terminal.color7
+  vim.g.terminal_color_8 = spec.terminal.color8
+  vim.g.terminal_color_9 = spec.terminal.color9
+  vim.g.terminal_color_10 = spec.terminal.color10
+  vim.g.terminal_color_11 = spec.terminal.color11
+  vim.g.terminal_color_12 = spec.terminal.color12
+  vim.g.terminal_color_13 = spec.terminal.color13
+  vim.g.terminal_color_14 = spec.terminal.color14
+  vim.g.terminal_color_15 = spec.terminal.color15
 end
 
 return M

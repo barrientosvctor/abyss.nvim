@@ -1,4 +1,4 @@
-local colors = require("abyss.palettes.abyss")
+local colors = require("abyss.palettes.abyss-boreal")
 
 return {
   normal = {

@@ -5,6 +5,20 @@ Unofficial port for (Neo)Vim inspired by the Abyss theme from Visual Studio Code
 
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
+## 🎨 Themes
+
+### Abyss
+Original Abyss theme inspired by VS Code
+
+<img align="center" src="https://github.com/barrientosvctor/abyss.nvim/blob/main/previews/abyss_python.png" width="85%">
+<img align="center" src="https://github.com/barrientosvctor/abyss.nvim/blob/main/previews/abyss_go.png" width="85%">
+
+### Abyss Boreal
+A cool toned theme inspired by the Northern Lights and Minnesota North Woods
+
+<img align="center" src="https://github.com/barrientosvctor/abyss.nvim/blob/main/previews/abyssboreal_python.png" width="85%">
+<img align="center" src="https://github.com/barrientosvctor/abyss.nvim/blob/main/previews/abyssboreal_go.png" width="85%">
+
 ## ⚡️ Requeriments
 * [Neovim](https://github.com/neovim/neovim) >= **0.8.0** or [Vim 9](https://www.vim.org/) with lua >= **5.1**.
 
@@ -113,6 +127,7 @@ require('abyss').setup({
     bold = false, -- Toggle bold for function names, keywords and booleans
     transparent_background = false, -- Toggle transparency on neovim background
     treesitter = true -- Enable treesitter highlighting. No need to configuration. Default value: (Neovim = true), (Vim = false)
+    palette = "abyss" -- Changes the Abyss palette. Available palettes's name on lua/abyss/palettes
     overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
 })
 ```
@@ -133,7 +148,7 @@ You can be able to use all of [nvim_set_hl()](https://neovim.io/doc/user/api.htm
 function properties to override the colorscheme colors.
 
 ```lua
-local c = require('abyss.colors')
+local c = require('abyss.palettes.abyss')
 
 require('abyss').setup({
     overrides = {
@@ -161,6 +176,7 @@ require('abyss').setup({
 * [nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [Dashboard](https://github.com/glepnir/dashboard-nvim)
 * [Which-key](https://github.com/folke/which-key.nvim)
+* [Aerial](https://github.com/stevearc/aerial.nvim)
 
 ## 🚀 Usage
 
@@ -176,14 +192,76 @@ colorscheme abyss
 vim.cmd.colorscheme 'abyss'
 ```
 
+### Lualine
+
 Abyss.nvim also includes a [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) theme, you can use it setting up into lualine setup options:
 
 ```lua
 require('lualine').setup {
     options = {
-        theme = 'abyss'
+        theme = 'abyss' -- Available themes: "abyss", "abyss-boreal"
     }
 }
+```
+
+### Vim Airline
+
+#### Abyss
+
+> Vim Script
+
+```vim
+let g:airline_theme = "abyss"
+```
+
+> Lua
+
+```lua
+vim.g.airline_theme = "abyss"
+```
+
+#### Abyss Boreal
+
+> Vim Script
+
+```vim
+let g:airline_theme = "abyss_boreal"
+```
+
+> Lua
+
+```lua
+vim.g.airline_theme = "abyss_boreal"
+```
+
+### Vim Lightline
+
+#### Abyss
+
+> Vim Script
+
+```vim
+let g:lightline = {'colorscheme': 'abyss'}
+```
+
+> Lua
+
+```lua
+vim.g.lightline = {colorscheme: 'abyss'}
+```
+
+#### Abyss Boreal
+
+> Vim Script
+
+```vim
+let g:lightline = {'colorscheme': 'abyss_boreal'}
+```
+
+> Lua
+
+```lua
+vim.g.lightline = {colorscheme: 'abyss_boreal'}
 ```
 
 ## 📝 Notes
@@ -231,67 +309,6 @@ use {
 ```
 
 </details>
-
-## 👥 Contributing
-
-Any issue or pull request is welcome. In this section, I will guide you to make
-your first contribution.
-
-- Before these instructions, it's recommended to before create an issue about
-your change to talk about it.
-
-- All branches must be based from `develop` branch. So, you need to
-create a new branch based on this one.
-
-```shell
-$ git switch develop
-$ git checkout -b branch-name
-```
-
-- Make sure to pull the latest commits from `develop` branch to your branch
-before make a commit.
-
-- All pull requests must go from your branch to `develop` branch.
-
-### Merging the pull request
-
-Your pull request should pass all code reviews (if there is) to
-merge it to `develop` . These code reviews are GitHub workflows.
-
-Also make sure you don't include any `CHANGELOG.md` in your pull request so you
-don't have conflicts with the original file in the `main` branch.
-
-### How should you write your commits?
-
-Refer to [release-please-action](https://github.com/googleapis/release-please-action?tab=readme-ov-file#how-should-i-write-my-commits) section.
-
-### Syntax highlight groups
-
-If you want to contribute about wrong syntax highlighting on colorscheme. This
-section will help you to determine what highlight group is being applied to a
-specific piece of syntax. It'll output the highlight group for the value under
-the cursor.
-
-#### Treesitter highlighting
-
-Neovim has included a command with these characteristics. Just type: `:Inspect`.
-
-#### Vim highlighting
-
-Add this function to your vimrc:
-
-```vim
-function! SynStack()
-  for i1 in synstack(line("."), col("."))
-    let i2 = synIDtrans(i1)
-    let n1 = synIDattr(i1, "name")
-    let n2 = synIDattr(i2, "name")
-    echo n1 "->" n2
-  endfor
-endfunction
-
-map <F2> <cmd>call SynStack()<cr>
-```
 
 ## 🤗 Acknowledgements
 

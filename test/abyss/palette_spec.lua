@@ -1,0 +1,21 @@
+local palettes = require("abyss.palettes")
+local test_utils = require("test.abyss.util.init")
+local abyss = palettes.get_spec_from_palette("abyss")
+local abyssboreal = palettes.get_spec_from_palette("abyss-boreal")
+
+describe("Palettes of abyss", function()
+  it("has all spec properties.", function()
+    test_utils.check_properties(abyss)
+    test_utils.check_properties(abyssboreal)
+  end)
+
+  it("has the expected data type for property.", function()
+    test_utils.check_typeof(abyss)
+    test_utils.check_typeof(abyssboreal)
+  end)
+
+  it("has properties with expected length.", function()
+    test_utils.check_properties_length(abyss)
+    test_utils.check_properties_length(abyssboreal)
+  end)
+end)

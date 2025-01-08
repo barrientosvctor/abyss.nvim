@@ -1,11 +1,13 @@
 local api = require("abyss.lib.api")
 local M = {
+  ---@type AbyssOptions
   default_options = {
     italic_comments = true,
     italic = false,
     bold = false,
     transparent_background = false,
     treesitter = not api.is_vim,
+    palette = "abyss",
     overrides = nil,
   },
 }
