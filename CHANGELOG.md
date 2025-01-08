@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.0](https://github.com/barrientosvctor/abyss.nvim/compare/v2.5.1...v2.6.0) (2025-01-08)
+
+
+### Features
+
+* **palettes:** add abyss boreal colorscheme ([7e77587](https://github.com/barrientosvctor/abyss.nvim/commit/7e77587503b52aa93ae909e761ca4f78de2fa9fd))
+* **theme:** add palettes ([429729a](https://github.com/barrientosvctor/abyss.nvim/commit/429729a4a53ff23836e32591ade77add89d1237c))
+
+
+### Bug Fixes
+
+* **lualine:** using undefined colors ([8ae954b](https://github.com/barrientosvctor/abyss.nvim/commit/8ae954b9eda8cd90de7805a3e3fa818d99304cc1))
+* missing spec props in abyss colorscheme ([71007e5](https://github.com/barrientosvctor/abyss.nvim/commit/71007e5f0cc72c18efe2a950e7ca49d7a630ec29))
+* **vim:** W18 Invalid character in group name ([27f4e88](https://github.com/barrientosvctor/abyss.nvim/commit/27f4e885e4ac0dcdfac9df932e74caf364628525)), closes [#51](https://github.com/barrientosvctor/abyss.nvim/issues/51)
+
 ## [2.5.1](https://github.com/barrientosvctor/abyss.nvim/compare/v2.5.0...v2.5.1) (2024-11-27)
 
 
