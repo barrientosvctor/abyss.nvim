@@ -148,7 +148,7 @@ You can be able to use all of [nvim_set_hl()](https://neovim.io/doc/user/api.htm
 function properties to override the colorscheme colors.
 
 ```lua
-local c = require('abyss.colors')
+local c = require('abyss.palettes.abyss')
 
 require('abyss').setup({
     overrides = {
@@ -192,14 +192,76 @@ colorscheme abyss
 vim.cmd.colorscheme 'abyss'
 ```
 
+### Lualine
+
 Abyss.nvim also includes a [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) theme, you can use it setting up into lualine setup options:
 
 ```lua
 require('lualine').setup {
     options = {
-        theme = 'abyss'
+        theme = 'abyss' -- Available themes: "abyss", "abyss-boreal"
     }
 }
+```
+
+### Vim Airline
+
+#### Abyss
+
+> Vim Script
+
+```vim
+let g:airline_theme = "abyss"
+```
+
+> Lua
+
+```lua
+vim.g.airline_theme = "abyss"
+```
+
+#### Abyss Boreal
+
+> Vim Script
+
+```vim
+let g:airline_theme = "abyss_boreal"
+```
+
+> Lua
+
+```lua
+vim.g.airline_theme = "abyss_boreal"
+```
+
+### Vim Lightline
+
+#### Abyss
+
+> Vim Script
+
+```vim
+let g:lightline = {'colorscheme': 'abyss'}
+```
+
+> Lua
+
+```lua
+vim.g.lightline = {colorscheme: 'abyss'}
+```
+
+#### Abyss Boreal
+
+> Vim Script
+
+```vim
+let g:lightline = {'colorscheme': 'abyss_boreal'}
+```
+
+> Lua
+
+```lua
+vim.g.lightline = {colorscheme: 'abyss_boreal'}
 ```
 
 ## 📝 Notes
