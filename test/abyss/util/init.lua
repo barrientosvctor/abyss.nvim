@@ -8,7 +8,7 @@ M.syntax_spec_length = 13
 M.terminal_spec_length = 16
 M.diagnostics_spec_length = 5
 M.dirtree_spec_length = 3
-M.lualine_spec_length = 14
+M.lualine_spec_length = 17
 
 ---Checks if the spec has all its properties.
 ---@param spec Spec

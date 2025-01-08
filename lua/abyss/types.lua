@@ -93,6 +93,9 @@
 ---@field color15 string
 
 ---@class AbyssLualine
+---@field basebg_b string
+---@field basebg_c string
+---@field base_fg string
 ---@field normalfg string
 ---@field normalbg_a string
 ---@field visualfg string
