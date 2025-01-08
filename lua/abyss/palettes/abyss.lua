@@ -1,29 +1,30 @@
 local palette = {
-  bg0 = "#000c18", -- Background
-  bg1 = "#000C38", -- Cursorline background
+  bg0 = "#000c18",
+  bg1 = "#000C38",
   bg00 = "#262641",
   bg01 = "#08286B",
-  fg0 = "#6688cc", -- Foreground
+  fg0 = "#6688cc",
   fg1 = "#283D60",
-  darkgreen = "#22aa44", -- strings
-  green = "#44cb46", -- success text color
-  darkblue = "#082050", -- active cursor line background
-  purple = "#9966b8", -- all JSDoc
-  pink = "#f280d0", -- numbers, booleans etc.
-  lightgrey = "#80A2B7", -- active cursor line
-  lowgrey = "#406385", -- inactive cursor line numbers
-  darkgrey = "#225588", -- statements and symbols
+  darkgreen = "#22aa44",
+  green = "#44cb46",
+  darkblue = "#082050",
+  purple = "#9966b8",
+  pink = "#f280d0",
+  lightgrey = "#80A2B7",
+  lowgrey = "#406385",
+  darkgrey = "#225588",
   midblue = "#384887",
-  shinyblue = "#2277ff", -- parameters color
-  red = "#cb4444", -- error text color
+  shinyblue = "#2277ff",
+  red = "#cb4444",
   darkred = "#770811",
   orange = "#FF9900",
-  yellow = "#ddbb88", -- functions color
+  yellow = "#ddbb88",
   heavyyellow = "#FFEEBB",
   white = "#FFFFFF",
   black = "#000000",
 }
 
+---The updated documentation of each property is in types.lua
 ---@type Spec
 local spec = {
   base = {
@@ -99,6 +100,33 @@ local spec = {
     color13 = palette.darkred,
     color14 = palette.orange,
     color15 = palette.yellow,
+  },
+  lualine = {
+    basebg_b = palette.bg1,
+    basebg_c = palette.bg1,
+    base_fg = palette.fg0,
+
+    normalfg = palette.white,
+    normalbg_a = palette.bg1,
+
+    visualfg = palette.shinyblue,
+    visualbg_a = palette.bg1,
+
+    replacefg = palette.red,
+    replacebg_a = palette.bg1,
+
+    insertfg = palette.darkgreen,
+    insertbg_a  = palette.bg1,
+
+    commandfg = palette.purple,
+    commandbg_a = palette.bg1,
+
+    terminalfg = palette.yellow,
+    terminalbg_a = palette.bg1,
+
+    inactivefg = palette.midblue,
+    inactivebg_a = palette.bg1,
+
   },
 }
 
