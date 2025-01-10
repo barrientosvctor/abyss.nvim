@@ -126,8 +126,8 @@ require('abyss').setup({
     italic = false, -- Toggle italic for function names, keywords, strings and booleans
     bold = false, -- Toggle bold for function names, keywords and booleans
     transparent_background = false, -- Toggle transparency on neovim background
-    treesitter = true -- Enable treesitter highlighting. No need to configuration. Default value: (Neovim = true), (Vim = false)
-    palette = "abyss" -- Changes the Abyss palette. Available palettes's name on lua/abyss/palettes
+    treesitter = true, -- Enable treesitter highlighting. No need to configuration. Default value: (Neovim = true), (Vim = false)
+    palette = "abyss", -- Changes the Abyss palette. Available palettes's name on lua/abyss/palettes
     overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
 })
 ```
