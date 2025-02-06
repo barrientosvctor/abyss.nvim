@@ -33,7 +33,7 @@ function M.get(user_opts, spec)
 
     Type = { fg = spec.syntax.type, italic = true },
     StorageClass = { link = "Statement" }, -- Volatile keywords
-    Structure = { fg = spec.syntax.structure, underline = true },
+    Structure = { fg = spec.syntax.structure, sp = spec.syntax.structure, underline = true },
 
     Special = { fg = spec.syntax.special },
     SpecialChar = { link = "Special" },
@@ -43,11 +43,11 @@ function M.get(user_opts, spec)
 
     Underlined = { underline = true },
 
-    Error = { fg = spec.diagnostics.error, bold = true, underline = true },
+    Error = { fg = spec.diagnostics.error, sp = spec.diagnostics.error, bold = true, underline = true },
 
     Todo = { fg = spec.diagnostics.hint, bg = spec.base.bg1, bold = true },
 
-    markdownURL = { fg = spec.syntax.string, underline = true },
+    markdownURL = { fg = spec.syntax.string, sp = spec.syntax.string, underline = true },
     markdownCodeBlock = { fg = spec.syntax.special, italic = user_opts.italic },
 
     -- Editor --
@@ -103,7 +103,7 @@ function M.get(user_opts, spec)
     FoldColumn = { link = "CursorColumn" },
     SignColumn = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
 
-    CurSearch = { fg = spec.base.bg0, bg = spec.editor.match_selected, bold = true, underline = true },
+    CurSearch = { fg = spec.base.bg0, bg = spec.editor.match_selected, sp = spec.base.bg0, bold = true, underline = true },
     IncSearch = { link = "CurSearch" },
     Substitute = { link = "Search" },
 
@@ -285,7 +285,7 @@ function M.get(user_opts, spec)
     -- packer
     groups.packerString = { link = "String" }
     groups.packerHash = { link = "Special" }
-    groups.packerRelDate = { fg = spec.diagnostics.info, bold = true, underline = true }
+    groups.packerRelDate = { fg = spec.diagnostics.info, sp = spec.diagnostics.info, bold = true, underline = true }
     groups.packerSuccess = { fg = spec.diagnostics.ok, bg = none, bold = true }
     groups.packerStatusSuccess = { link = "PackerSuccess" }
 
@@ -301,7 +301,7 @@ function M.get(user_opts, spec)
     groups.NeoTreeDirectoryName = { fg = spec.dirtree.dirname }
     groups.NeoTreeDirectoryIcon = { fg = spec.dirtree.dirname }
     groups.NeoTreeGitUntracked = { fg = spec.diff.untracked, italic = true }
-    groups.NeoTreeCursorLine = { fg = spec.dirtree.curline, bg = none, underline = true }
+    groups.NeoTreeCursorLine = { fg = spec.dirtree.curline, bg = none, sp = spec.dirtree.curline, underline = true }
 
     -- notify
     groups.NotifyERROR = { fg = spec.diagnostics.error }
@@ -320,11 +320,11 @@ function M.get(user_opts, spec)
     groups.DashboardHeader = { link = "Title" }
     groups.DashboardCenter = { link = "Special" }
     groups.DashboardFooter = { link = "Comment" }
-      
+
     -- aerial
-    groups.AerialLine = { fg = spec.dirtree.curline, bg = none, underline = true }
+    groups.AerialLine = { fg = spec.dirtree.curline, bg = none, sp = spec.dirtree.curline, underline = true }
   end
-    
+
   return groups
 end
 
