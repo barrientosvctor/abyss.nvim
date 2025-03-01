@@ -8,6 +8,7 @@ local M = {
     transparent_background = false,
     treesitter = not api.is_vim,
     palette = "abyss",
+    dim_inactive = false,
     overrides = nil,
   },
 }
