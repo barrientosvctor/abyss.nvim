@@ -118,7 +118,7 @@ function M.get(user_opts, spec)
     MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
-    NormalNC = { link = "Normal" },
+    NormalNC = user_opts.dim_inactive and { fg = spec.base.fg2, bg = spec.base.bg2 } or { link = "Normal" },
     NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
     FloatBorder = { link = "NormalFloat" },
 

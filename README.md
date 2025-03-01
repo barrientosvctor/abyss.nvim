@@ -128,6 +128,7 @@ require('abyss').setup({
     transparent_background = false, -- Toggle transparency on neovim background
     treesitter = true, -- Enable treesitter highlighting. No need to configuration. Default value: (Neovim = true), (Vim = false)
     palette = "abyss", -- Changes the Abyss palette. Available palettes's name on lua/abyss/palettes
+    dim_inactive = false, -- Colorize the inactive buffers with another colour.
     overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
 })
 ```

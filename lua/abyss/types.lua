@@ -5,7 +5,8 @@
 ---@field bold boolean? Enables bold on colorscheme.
 ---@field transparent_background boolean? Enables transparent background on colorscheme.
 ---@field treesitter boolean? Enables Treesitter highlights on colorscheme (only for Neovim).
----@field palette "abyss"? Changes the Abyss palette.
+---@field palette "abyss"|"abyss-boreal"? Changes the Abyss palette.
+---@field dim_inactive boolean? Colorize the inactive buffers with another colour.
 ---@field overrides table<string, table<string, unknown>> | nil? Override the default colorscheme highlight to a any else. The highlight properties can be found here: https://neovim.io/doc/user/api.html#nvim_set_hl()
 
 ---@class Spec
