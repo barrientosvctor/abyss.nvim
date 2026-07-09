@@ -26,14 +26,14 @@ function M.get(user_opts, spec)
     Identifier = { fg = spec.syntax.identifier },
     Function = { fg = spec.syntax.func, bold = user_opts.bold, italic = user_opts.italic },
 
-    Statement = { fg = spec.syntax.statement, italic = user_opts.italic, bold = user_opts.bold },
-
+    Statement = { fg = spec.syntax.statement },
+    Operator = { link = "Statement" },
+    
     PreProc = { link = "Statement" },
-    Operator = { fg = spec.syntax.statement },
 
     Type = { fg = spec.syntax.type, italic = true },
     StorageClass = { link = "Statement" }, -- Volatile keywords
-    Structure = { fg = spec.syntax.structure, sp = spec.syntax.structure, underline = true },
+    -- Structure = { fg = spec.syntax.structure, sp = spec.syntax.structure, underline = true },
 
     Special = { fg = spec.syntax.special },
     SpecialChar = { link = "Special" },
