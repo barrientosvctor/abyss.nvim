@@ -50,11 +50,11 @@ local spec = {
     linenr = palette.lowgrey,
   },
   syntax = {
-    identifier = palette.fg1,
+    identifier = palette.fg0,
     structure = palette.heavyyellow,
     statement = palette.darkgrey,
-    constant = palette.fg0,
-    special = palette.darkgrey,
+    constant = palette.pink,
+    special = palette.heavyyellow,
     comment = palette.midblue,
     string = palette.darkgreen,
     regex = palette.pink,
@@ -74,7 +74,7 @@ local spec = {
   diagnostics = {
     error = palette.red,
     ok = palette.green,
-    hint = palette.shinyblue,
+    hint = palette.white,
     info = palette.white,
     warn = palette.yellow,
   },
