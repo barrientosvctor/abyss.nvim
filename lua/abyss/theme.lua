@@ -51,51 +51,48 @@ function M.get(user_opts, spec)
     markdownCodeBlock = { fg = spec.syntax.special, italic = user_opts.italic },
 
     -- Editor --
-    ColorColumn = { link = "CursorLine" },
+    ColorColumn = { bg = spec.base.fg1 },
+
     Conceal = { fg = spec.base.fg0, bg = none },
 
     Cursor = { fg = spec.base.bg0, bg = spec.editor.cursor },
-    lCursor = { link = "Cursor" },
-    CursorIM = { link = "Cursor" },
+    lCursor = { fg = spec.base.bg0, bg = spec.editor.cursor },
+    CursorIM = { fg = spec.base.bg0, bg = spec.editor.cursor },
     CursorLine = { fg = none, bg = spec.editor.cursorline },
-    CursorLineNr = { fg = spec.base.fg01, bg = spec.editor.cursorline, bold = true },
+    CursorLineNr = { fg = spec.base.fg01, bg = spec.editor.cursorline },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { link = "Function" },
+    Directory = { fg = spec.syntax.special },
 
-    DiffAdd = { fg = spec.diff.added },
-    DiffChange = { fg = spec.diff.changed },
-    DiffDelete = { fg = spec.diff.deleted },
-    DiffText = { fg = spec.diff.text },
-    diffAdded = { link = "DiffAdd" },
-    diffRemoved = { link = "DiffDelete" },
-    diffChanged = { link = "DiffChange" },
-    diffOldFile = { link = "DiffDelete" },
-    diffNewFile = { link = "DiffAdd" },
-    diffFile = { fg = spec.diff.text, bg = none, bold = true },
-    diffLine = { link = "diffFile" },
-    diffIndexLine = { link = "diffLine" },
-
+    DiffAdd = { bg = spec.diff.bg.added },
+    DiffChange = { bg = spec.diff.bg.changed },
+    DiffDelete = { bg = spec.diff.bg.deleted },
+    DiffText = { bg = spec.diff.bg.text },
+    
     -- Neovim v0.10 diff highlights
-    Added = { link = "DiffAdd" },
-    Changed = { link = "DiffChange" },
-    Removed = { link = "DiffDelete" },
+    Added = { fg = spec.diff.added },
+    Changed = { fg = spec.diff.changed },
+    Removed = { fg = spec.diff.deleted },
+
+    diffAdded = { link = "Added" },
+    diffRemoved = { link = "Removed" },
+    diffChanged = { link = "Changed" },
+    diffFile = { link = "Type" },
+    diffOldFile = { link = "diffFile" },
+    diffNewFile = { link = "diffFile" },
+    diffLine = { link = "Statement" },
 
     healthError = { fg = spec.diagnostics.error },
     healthSuccess = { fg = spec.diagnostics.ok },
     healthWarning = { fg = spec.diagnostics.warn },
 
-    NonText = {
-      fg = spec.editor.nontext,
-    },
-    EndOfBuffer = {
-      fg = user_opts.transparent_background and none or spec.base.bg0,
-      bg = user_opts.transparent_background and none or spec.base.bg0,
-    },
+    NonText = { fg = spec.editor.nontext },
+    EndOfBuffer = { link = "NonText" },
 
-    VertSplit = { fg = spec.base.fg0, bg = spec.base.bg0 },
-    WinSeparator = { link = "VertSplit" },
+    WinSeparator = { fg = spec.editor.nontext },
+    VertSplit = { link = "WinSeparator" },
 
+    OkMsg = { fg = spec.diagnostics.ok },
     ErrorMsg = { fg = spec.diagnostics.error },
     WarningMsg = { fg = spec.diagnostics.warn },
 
