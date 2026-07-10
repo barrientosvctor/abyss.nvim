@@ -55,7 +55,14 @@
 ---@field bracket string Brackets like () [] {}
 ---@field parameter string Any parameter name in functions
 
+---@class AbyssDiffBg
+---@field added string
+---@field changed string
+---@field deleted string
+---@field text string
+
 ---@class AbyssDiff
+---@field bg AbyssDiffBg
 ---@field added string
 ---@field changed string
 ---@field deleted string

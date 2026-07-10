@@ -6,8 +6,9 @@ local palette = {
   fg0 = "#6688cc",
   fg1 = "#283D60",
   darkgreen = "#22aa44",
-  green = "#44cb46",
+  green = "#1C7A7B",
   darkblue = "#082050",
+  mutedblue = "#103050",
   purple = "#9966b8",
   pink = "#f280d0",
   lightgrey = "#80A2B7",
@@ -20,6 +21,10 @@ local palette = {
   orange = "#FF9900",
   yellow = "#ddbb88",
   heavyyellow = "#FFEEBB",
+  diff_added_bg = "#1F2F24",
+  diff_deleted_bg = "#330A13",
+  diff_changed_bg = "#253F51",
+  diff_text_bg = "#611E2E",
   white = "#FFFFFF",
   black = "#000000",
 }
@@ -46,7 +51,7 @@ local spec = {
     title = palette.white,
     match = palette.yellow,
     match_selected = palette.heavyyellow,
-    nontext = palette.darkgrey,
+    nontext = palette.mutedblue,
     linenr = palette.lowgrey,
   },
   syntax = {
@@ -65,6 +70,12 @@ local spec = {
     parameter = palette.shinyblue,
   },
   diff = {
+    bg = {
+      added = palette.diff_added_bg,
+      changed = palette.diff_changed_bg,
+      deleted = palette.diff_deleted_bg,
+      text = palette.diff_text_bg,
+    },
     added = palette.green,
     changed = palette.yellow,
     deleted = palette.red,
