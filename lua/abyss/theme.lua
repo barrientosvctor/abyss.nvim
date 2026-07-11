@@ -97,18 +97,17 @@ function M.get(user_opts, spec)
     WarningMsg = { fg = spec.diagnostics.warn },
 
     Folded = { link = "Comment" },
-    FoldColumn = { link = "CursorColumn" },
-    SignColumn = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
+    SignColumn = { fg = spec.base.fg0 },
+    FoldColumn = { link = "SignColumn" },
 
-    CurSearch = { fg = spec.base.bg0, bg = spec.editor.match_selected, sp = spec.base.bg0, bold = true, underline = true },
+    Search = { bg = spec.editor.match, fg = spec.base.fg0 },
+    CurSearch = { bg = spec.editor.match_selected, fg = spec.base.fg0 },
     IncSearch = { link = "CurSearch" },
     Substitute = { link = "Search" },
 
-    LineNr = { fg = spec.editor.linenr, bg = user_opts.transparent_background and none or spec.base.bg0 },
-    LineNrAbove = { link = "LineNr" },
-    LineNrBelow = { link = "LineNrAbove" },
+    LineNr = { fg = spec.editor.linenr },
 
-    MatchParen = { link = "CurSearch" },
+    MatchParen = { bg = spec.editor.cursor_selection },
 
     MsgArea = { fg = spec.diagnostics.info },
     ModeMsg = { link = "MsgArea" },
@@ -128,7 +127,6 @@ function M.get(user_opts, spec)
 
     QuickFixLine = { link = "CursorLine" },
 
-    Search = { fg = spec.base.bg0, bg = spec.editor.match },
     SpecialKey = { link = "NonText" },
 
     SpellBad = { fg = spec.diagnostics.error, undercurl = true },
