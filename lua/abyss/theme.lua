@@ -62,7 +62,7 @@ function M.get(user_opts, spec)
     CursorLineNr = { fg = spec.base.fg01, bg = spec.editor.cursorline },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { fg = spec.syntax.special },
+    Directory = { fg = spec.syntax.special, bold = true },
 
     DiffAdd = { bg = spec.diff.bg.added },
     DiffChange = { bg = spec.diff.bg.changed },
@@ -89,7 +89,7 @@ function M.get(user_opts, spec)
     NonText = { fg = spec.editor.nontext },
     EndOfBuffer = { link = "NonText" },
 
-    WinSeparator = { fg = spec.editor.nontext },
+    WinSeparator = { fg = spec.editor.border },
     VertSplit = { link = "WinSeparator" },
 
     OkMsg = { fg = spec.diagnostics.ok },
@@ -116,12 +116,21 @@ function M.get(user_opts, spec)
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
     NormalNC = { link = "Normal" },
     NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
-    FloatBorder = { link = "NormalFloat" },
+    FloatBorder = { fg = spec.editor.border, bg = spec.base.bg1 },
+    FloatTitle = { fg = spec.editor.title, bg = spec.base.bg1, bold = true },
+    FloatFooter = { link = "FloatTitle" },
 
     Pmenu = { fg = spec.base.fg0, bg = spec.base.bg00 },
     PmenuSbar = { bg = spec.base.bg00 },
     PmenuSel = { fg = spec.base.fg01, bg = spec.base.bg01 },
     PmenuThumb = { bg = spec.base.bg01 },
+    PmenuExtra = { fg = spec.syntax.comment, italic = true },
+    PmenuExtraSel = { fg = spec.syntax.comment, bg = spec.base.bg01, italic = true },
+    PmenuKind = { fg = spec.syntax.comment },
+    PmenuKindSel = { fg = spec.syntax.comment, bg = spec.base.bg01 },
+    PmenuBorder = { fg = spec.editor.border },
+    PmenuMatch = { link = "Special" },
+    PmenuMatchSel = { link = "Special" },
 
     Question = { link = "MoreMsg" },
 
@@ -129,19 +138,19 @@ function M.get(user_opts, spec)
 
     SpecialKey = { link = "NonText" },
 
-    SpellBad = { fg = spec.diagnostics.error, undercurl = true },
-    SpellRare = { fg = spec.diagnostics.info, undercurl = true },
-    SpellCap = { fg = spec.diagnostics.warn, undercurl = true },
-    SpellLocal = { fg = spec.diagnostics.info, undercurl = true },
+    SpellBad = { sp = spec.diagnostics.error, undercurl = true },
+    SpellRare = { sp = spec.diagnostics.warn, undercurl = true },
+    SpellCap = { sp = spec.diagnostics.warn, undercurl = true },
+    SpellLocal = { sp = spec.diagnostics.ok, undercurl = true },
 
-    StatusLine = { fg = none, bg = spec.base.bg1 },
+    StatusLine = { bg = spec.base.bg1 },
     StatusLineTerm = { link = "StatusLine" },
-    StatusLineNC = { fg = none, bg = spec.base.bg2 },
+    StatusLineNC = { bg = spec.base.bg2, fg = spec.base.fg2 },
     StatusLineTermNC = { link = "StatusLineNC" },
 
     TabLine = { fg = spec.base.fg1, bg = spec.base.bg0 },
     TabLineFill = { fg = none, bg = spec.base.bg0 },
-    TabLineSel = { fg = spec.base.fg01, bg = spec.base.bg01 },
+    TabLineSel = { fg = spec.base.fg01, bg = spec.base.bg01, bold = true },
 
     Title = { fg = spec.editor.title, bold = true },
 
