@@ -1,6 +1,7 @@
 local palette = {
   bg0 = "#000c18",
-  bg1 = "#000C38",
+  -- bg1 = "#000C38",
+  bg1 = "#001224",
   bg00 = "#262641",
   bg01 = "#08286B",
   fg0 = "#6688cc",
@@ -28,7 +29,7 @@ local palette = {
   match = "#304961",
   match_sel = "#0d4984",
   white = "#FFFFFF",
-  black = "#000000",
+  black = "#000b15", -- inactive/dim color
 }
 
 ---The updated documentation of each property is in types.lua
