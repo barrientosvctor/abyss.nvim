@@ -109,7 +109,7 @@ function M.get(user_opts, spec)
 
     MatchParen = { bg = spec.editor.cursor_selection },
 
-    ModeMsg = { link = "MsgArea" },
+    ModeMsg = { fg = spec.diagnostics.hint },
     MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
