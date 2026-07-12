@@ -109,7 +109,6 @@ function M.get(user_opts, spec)
 
     MatchParen = { bg = spec.editor.cursor_selection },
 
-    MsgArea = { fg = spec.diagnostics.info },
     ModeMsg = { link = "MsgArea" },
     MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
