@@ -190,19 +190,14 @@ function M.get(user_opts, spec)
     groups.DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true }
     groups.DiagnosticUnderlineInfo = { sp = spec.diagnostics.info, underline = true }
     groups.DiagnosticUnderlineHint = { sp = spec.diagnostics.hint, underline = true }
+    groups.DiagnosticUnderlineOk = { sp = spec.diagnostics.ok, underline = true }
 
     groups.LspDiagnosticsError = { link = "DiagnosticError" }
     groups.LspDiagnosticsWarning = { link = "DiagnosticWarn" }
     groups.LspDiagnosticsInformation = { link = "DiagnosticInfo" }
     groups.LspDiagnosticsHint = { link = "DiagnosticHint" }
 
-    groups.LspSignatureActiveParameter = {
-      fg = spec.base.fg01,
-      bg = spec.base.bg01,
-      italic = user_opts.italic,
-      bold = user_opts.bold,
-    }
-    groups.LspInlayHint = { link = "NonText" }
+    groups.LspInlayHint = { fg = spec.syntax.comment, bg = spec.base.bg1, italic = true }
 
     -- Neovim-compatible plugins --
     -- Telescope
