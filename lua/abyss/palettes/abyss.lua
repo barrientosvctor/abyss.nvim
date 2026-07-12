@@ -55,13 +55,14 @@ local spec = {
     match_selected = palette.match_sel,
     nontext = palette.mutedblue,
     linenr = palette.lowgrey,
+    border = palette.mutedblue
   },
   syntax = {
     identifier = palette.fg0,
     structure = palette.heavyyellow,
     statement = palette.darkgrey,
     constant = palette.pink,
-    special = palette.heavyyellow,
+    special = palette.yellow,
     comment = palette.midblue,
     string = palette.darkgreen,
     regex = palette.pink,

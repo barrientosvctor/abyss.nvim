@@ -39,6 +39,7 @@
 ---@field match_selected string Background color of any selected matched text when using / commands
 ---@field nontext string Color of any non-printable character
 ---@field linenr string Line number's color
+---@field border string Foreground color for borders, this includes VertSplit and WinSeparator.
 
 ---@class AbyssSyntax
 ---@field comment string Comment
