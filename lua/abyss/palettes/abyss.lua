@@ -90,7 +90,7 @@ local spec = {
     error = palette.red,
     ok = palette.green,
     hint = palette.white,
-    info = palette.white,
+    info = palette.shinyblue,
     warn = palette.yellow,
   },
   dirtree = {
