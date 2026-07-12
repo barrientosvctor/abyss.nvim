@@ -174,10 +174,9 @@ function M.get(user_opts, spec)
 
     -- Vim-compatible plugins --
     -- git gutter
-    GitGutterAdd = { link = "DiffAdd" },
-    GitGutterChange = { link = "DiffChange" },
-    GitGutterDelete = { link = "DiffDelete" },
-    GitGutterChangeDelete = { link = "GitGutterDelete" },
+    GitGutterAdd = { fg = spec.diff.added },
+    GitGutterChange = { fg = spec.diff.changed },
+    GitGutterDelete = { fg = spec.diff.deleted },
   }
 
   if api.is_nvim then
