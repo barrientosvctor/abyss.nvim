@@ -201,19 +201,11 @@ function M.get(user_opts, spec)
 
     -- Neovim-compatible plugins --
     -- Telescope
-    -- Sets the highlight for selected items within the picker.
-    groups.TelescopeSelection = { link = "Title" }
-    groups.TelescopeSelectionCaret = { link = "TelescopeSelection" }
-    groups.TelescopeMultiSelection = { link = "TelescopeSelection" }
-    groups.TelescopeMultiIcon = { link = "TelescopeSelectionCaret" }
-
     groups.TelescopeTitle = { link = "Title" }
 
-    groups.TelescopeBorder = { fg = spec.base.fg1 }
+    groups.TelescopeBorder = { fg = spec.editor.border }
 
-    groups.TelescopePrompt = { link = "TelescopeNormal" }
-    groups.TelescopePromptPrefix = { link = "TelescopeSelectionCaret" }
-    groups.TelescopeMatching = { fg = spec.editor.match }
+    groups.TelescopePromptPrefix = { fg = spec.editor.title }
 
     -- nvim-cmp
     groups.CmpItemAbbrMatch = { fg = spec.editor.match, bold = true }
