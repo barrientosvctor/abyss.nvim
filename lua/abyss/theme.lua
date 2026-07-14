@@ -264,12 +264,16 @@ function M.get(user_opts, spec)
     groups.TargetWord = { fg = spec.editor.match }
 
     -- nvim-tree
-    groups.NvimTreeGitNew = { link = "DiffAdd" }
-    groups.NvimTreeGitDeletedIcon = { link = "DiffDelete" }
-    groups.NvimTreeGitRenamedIcon = { link = "DiffChange" }
-    groups.NvimTreeGitStagedIcon = { link = "diffFile" }
-    groups.NvimTreeGitMergeIcon = { link = "diffFile" }
-    groups.NvimTreeIndentMarker = { link = "NonText" }
+    groups.NvimTreeSpecialFile = { fg = spec.syntax.special, underline = true, sp = spec.syntax.special }
+    groups.NvimTreeIndentMarker = { fg = spec.syntax.comment }
+
+    groups.NvimTreeGitDeletedIcon = { fg = spec.diff.deleted }
+    groups.NvimTreeGitNewIcon = { fg = spec.diff.added }
+    groups.NvimTreeGitRenamedIcon = { fg = spec.diff.changed }
+    groups.NvimTreeGitStagedIcon = { fg = spec.diff.added }
+    groups.NvimTreeGitDirtyIcon = { fg = spec.diff.untracked }
+
+    groups.NvimTreeGitNew = { link = "NvimTreeGitNewIcon" }
 
     -- indent blankline
     groups.IndentBlanklineChar = { link = "NonText" }
