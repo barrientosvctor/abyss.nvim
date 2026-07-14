@@ -317,9 +317,17 @@ function M.get(user_opts, spec)
 
     -- dashboard
     groups.DashboardShortCut = { link = "Comment" }
-    groups.DashboardHeader = { link = "Title" }
-    groups.DashboardCenter = { link = "Special" }
     groups.DashboardFooter = { link = "Comment" }
+
+    groups.DashboardHeader = { link = "Title" }
+    
+    groups.DashboardProjectTitle = { link = "Special" }
+    groups.DashboardMruTitle = { link = "Special" }
+    
+    groups.DashboardProjectIcon = { link = "Special" }
+
+    groups.DashboardKey = { link = "Special" }
+    groups.DashboardIcon = { link = "Special" }
 
     -- aerial
     groups.AerialLine = { fg = spec.dirtree.curline, bg = none, sp = spec.dirtree.curline, underline = true }
