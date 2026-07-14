@@ -294,11 +294,26 @@ function M.get(user_opts, spec)
     groups.NotifyINFO = { fg = spec.diagnostics.info }
     groups.NotifyDEBUG = { fg = spec.diagnostics.hint }
     groups.NotifyTRACE = { link = "NotifyINFO" }
-    groups.NotifyERRORTitle = { link = "NotifyERROR" }
-    groups.NotifyWARNTitle = { link = "NotifyWARN" }
-    groups.NotifyINFOTitle = { link = "NotifyINFO" }
-    groups.NotifyDEBUGTitle = { link = "NotifyDEBUG" }
-    groups.NotifyTRACETitle = { link = "NotifyTRACE" }
+
+    groups.NotifyERRORTitle = { fg = spec.diagnostics.error, bold = true }
+    groups.NotifyERRORBorder = { fg = spec.diagnostics.error }
+    groups.NotifyERRORIcon = { fg = spec.diagnostics.error }
+
+    groups.NotifyWARNTitle = { fg = spec.diagnostics.warn, bold = true }
+    groups.NotifyWARNBorder = { fg = spec.diagnostics.warn }
+    groups.NotifyWARNIcon = { fg = spec.diagnostics.warn }
+
+    groups.NotifyINFOTitle = { fg = spec.diagnostics.info, bold = true }
+    groups.NotifyINFOBorder = { fg = spec.diagnostics.info }
+    groups.NotifyINFOIcon = { fg = spec.diagnostics.info }
+
+    groups.NotifyDEBUGTitle = { fg = spec.diagnostics.hint, bold = true }
+    groups.NotifyDEBUGBorder = { fg = spec.diagnostics.hint }
+    groups.NotifyDEBUGIcon = { fg = spec.diagnostics.hint }
+
+    groups.NotifyTRACETitle = { fg = spec.diagnostics.info, bold = true }
+    groups.NotifyTRACEBorder = { fg = spec.diagnostics.info }
+    groups.NotifyTRACEIcon = { fg = spec.diagnostics.info }
 
     -- dashboard
     groups.DashboardShortCut = { link = "Comment" }
