@@ -271,13 +271,6 @@ function M.get(user_opts, spec)
     groups.NvimTreeGitMergeIcon = { link = "diffFile" }
     groups.NvimTreeIndentMarker = { link = "NonText" }
 
-    -- packer
-    groups.packerString = { link = "String" }
-    groups.packerHash = { link = "Special" }
-    groups.packerRelDate = { fg = spec.diagnostics.info, sp = spec.diagnostics.info, bold = true, underline = true }
-    groups.packerSuccess = { fg = spec.diagnostics.ok, bg = none, bold = true }
-    groups.packerStatusSuccess = { link = "PackerSuccess" }
-
     -- indent blankline
     groups.IndentBlanklineChar = { link = "NonText" }
     groups.IndentBlanklineContextChar = { fg = spec.base.fg01 }
