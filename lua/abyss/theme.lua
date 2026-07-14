@@ -197,7 +197,7 @@ function M.get(user_opts, spec)
     groups.LspDiagnosticsInformation = { link = "DiagnosticInfo" }
     groups.LspDiagnosticsHint = { link = "DiagnosticHint" }
 
-    groups.LspInlayHint = { fg = spec.syntax.comment, bg = spec.base.bg1, italic = true }
+    groups.LspInlayHint = { fg = spec.syntax.comment, bg = spec.base.bg1 }
 
     -- Neovim-compatible plugins --
     -- Telescope
