@@ -208,33 +208,38 @@ function M.get(user_opts, spec)
     groups.TelescopePromptPrefix = { fg = spec.editor.title }
 
     -- nvim-cmp
-    groups.CmpItemAbbrMatch = { fg = spec.editor.match, bold = true }
-    groups.CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }
     groups.CmpItemAbbr = { fg = spec.base.fg0 }
-    groups.CmpItemMenu = { link = "Comment" }
-    groups.CmpItemKindText = { link = "String" }
-    groups.CmpItemKindMethod = { link = "Function" }
-    groups.CmpItemKindFunction = { link = "Function" }
-    groups.CmpItemKindConstructor = { link = "Structure" }
-    groups.CmpItemKindField = { link = "Constant" }
-    groups.CmpItemKindVariable = { link = "Constant" }
-    groups.CmpItemKindClass = { link = "Structure" }
-    groups.CmpItemKindInterface = { link = "Structure" }
-    groups.CmpItemKindModule = { link = "Structure" }
-    groups.CmpItemKindProperty = { link = "Constant" }
-    groups.CmpItemKindUnit = { link = "Constant" }
-    groups.CmpItemKindValue = { link = "CmpItemKindText" }
-    groups.CmpItemKindEnum = { link = "Constant" }
-    groups.CmpItemKindKeyword = { link = "Statement" }
-    groups.CmpItemKindSnippet = { fg = spec.base.fg1 }
-    groups.CmpItemKindColor = { link = "CmpItemKindProperty" }
-    groups.CmpItemKindReference = { link = "CmpItemKindMethod" }
-    groups.CmpItemKindFolder = { link = "Structure" }
-    groups.CmpItemKindEnumMember = { link = "Constant" }
-    groups.CmpItemKindConstant = { link = "Constant" }
-    groups.CmpItemKindStruct = { link = "Structure" }
-    groups.CmpItemKindEvent = { link = "CmpItemKindMethod" }
-    groups.CmpItemKindOperator = { link = "Operator" }
+    groups.CmpItemAbbrDeprecated = { fg = spec.syntax.comment, strikethrough = true }
+    
+    groups.CmpItemMenu = { fg = spec.syntax.comment }
+    
+    groups.CmpItemAbbrMatch = { link = "PmenuMatch" }
+    groups.CmpItemAbbrMatchFuzzy = { link = "PmenuMatch" }
+
+    groups.CmpItemKindText = { fg = spec.syntax.string }
+    groups.CmpItemKindFunction = { fg = spec.syntax.func }
+    groups.CmpItemKindMethod = { link = "CmpItemKindFunction" }
+    groups.CmpItemKindClass = { fg = spec.syntax.structure }
+    groups.CmpItemKindConstructor = { link = "CmpItemKindClass" }
+    groups.CmpItemKindVariable = { fg = spec.syntax.identifier }
+    groups.CmpItemKindField = { link = "CmpItemKindVariable" }
+    groups.CmpItemKindInterface = { fg = spec.syntax.structure } -- possible change....
+    groups.CmpItemKindModule = { fg = spec.syntax.structure } -- possible change....
+    groups.CmpItemKindProperty = { fg = spec.syntax.identifier } -- possible change....
+    groups.CmpItemKindUnit = { fg = spec.syntax.number }
+    groups.CmpItemKindValue = { fg = spec.syntax.constant } -- possible change....
+    groups.CmpItemKindEnum = { link = "CmpItemKindValue" }
+    groups.CmpItemKindKeyword = { fg = spec.syntax.statement }
+    groups.CmpItemKindSnippet = { fg = spec.syntax.special }
+    groups.CmpItemKindColor = { fg = spec.syntax.special }
+    groups.CmpItemKindFile = { fg = spec.syntax.special }
+    groups.CmpItemKindReference = { fg = spec.syntax.identifier }
+    groups.CmpItemKindFolder = { fg = spec.syntax.special }
+    groups.CmpItemKindEnumMember = { link = "CmpItemKindValue" }
+    groups.CmpItemKindConstant = { fg = spec.syntax.constant }
+    groups.CmpItemKindStruct = { fg = spec.syntax.structure }
+    groups.CmpItemKindEvent = { fg = spec.syntax.special }
+    groups.CmpItemKindOperator = { fg = spec.syntax.statement }
     groups.CmpItemKindTypeParameter = { fg = spec.syntax.parameter }
 
     -- gitsigns
