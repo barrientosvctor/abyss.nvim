@@ -243,12 +243,7 @@ function M.get(user_opts, spec)
     groups.CmpItemKindTypeParameter = { fg = spec.syntax.parameter }
 
     -- gitsigns
-    groups.GitSignsAddLn = { link = "DiffAdd" }
-    groups.GitSignsAddNr = { link = "GitSignsAddLn" }
-    groups.GitSignsChangeLn = { link = "DiffChange" }
-    groups.GitSignsChangeNr = { link = "GitSignsChangeLn" }
-    groups.GitSignsDeleteLn = { link = "DiffChange" }
-    groups.GitSignsDeleteNr = { link = "GitSignsDeleteLn" }
+    groups.GitSignsCurrentLineBlame = { link = "Comment" }
 
     -- lspsaga
     groups.LspFloatWinNormal = { bg = spec.base.bg0 }
