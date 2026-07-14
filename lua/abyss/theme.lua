@@ -278,7 +278,6 @@ function M.get(user_opts, spec)
     -- indent blankline
     groups.IndentBlanklineChar = { link = "NonText" }
     groups.IndentBlanklineContextChar = { fg = spec.base.fg01 }
-    groups["@ibl.indent.char.1"] = { link = "String" }
     groups["@ibl.scope.char.1"] = { fg = spec.base.fg01 }
     groups["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" }
 
