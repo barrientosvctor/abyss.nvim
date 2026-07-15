@@ -342,68 +342,148 @@ end
 ---@param spec Spec
 ---@return table
 function M.get_treesitter(spec)
-  return {
-    -- Treesitter --
-    -- Semantic tokens
-    ["@lsp.type.class"] = { link = "Structure" },
-    ["@lsp.type.comment"] = { link = "Comment" },
-    ["@lsp.type.enum"] = { link = "Structure" },
-    ["@lsp.type.enumMember"] = { link = "Constant" },
-    ["@lsp.type.function"] = { link = "Function" },
-    ["@lsp.type.interface"] = { link = "Structure" },
-    ["@lsp.type.macro"] = { link = "Macro" },
-    ["@lsp.type.method"] = { link = "Function" },
-    ["@lsp.type.namespace"] = { link = "Structure" },
-    ["@lsp.type.parameter"] = { fg = spec.syntax.parameter, italic = true },
-    ["@lsp.type.property"] = { link = "Constant" },
-    ["@lsp.type.struct"] = { link = "Structure" },
-    ["@lsp.type.type"] = { link = "Type" },
-    ["@lsp.type.typeParameter"] = { link = "Type" },
-    ["@lsp.type.variable"] = { link = "Constant" },
+  return {    
+    -- Treesitter captures
+    -- :help treesitter-highlight-groups
+    ["@variable"] = { link = "Identifier" },
+    ["@variable.builtin"] = { link = "@variable" },
+    ["@variable.parameter"] = { fg = spec.syntax.parameter, italic = true },
+    ["@variable.member"] = { link = "@variable" },
+    
+    ["@constant"] = { link = "Constant" },
+    ["@constant.builtin"] = { link = "@constant" },
+    ["@constant.macro"] = { link = "@constant" },
 
-    -- Misc
-    ["@comment"] = { link = "@lsp.type.comment" },
-    ["@error"] = { link = "Error" },
+    ["@module"] = { fg = spec.syntax.structure, underline = true, sp = spec.syntax.structure },
+    ["@module.builtin"] = { link = "@module" },
+    ["@label"] = { link = "Label" },
+
+    ["@string"] = { link = "String" },
+    ["@string.documentation"] = { link = "@string" },
+    ["@string.regexp"] = { link = "Constant" },
+    ["@string.escape"] = { link = "Special" },
+    ["@string.special"] = { link = "Special" },
+    ["@string.special.symbol"] = { link = "@string.special" },
+    ["@string.special.path"] = { link = "@string.special" },
+    ["@string.special.url"] = { fg = spec.syntax.string, underline = true, sp = spec.syntax.string },
+
+    ["@character"] = { link = "Character" },
+    ["@character.special"] = { link = "Special" },
+
+    ["@boolean"] = { link = "Boolean" },
+    ["@number"] = { link = "Number" },
+    ["@number.float"] = { link = "Float" },
+
+    ["@type"] = { link = "Type" },
+    ["@type.builtin"] = { link = "@type" },
+    ["@type.definition"] = { link = "@module" },
+
+    ["@attribute"] = { link = "Function" },
+    ["@attribute.builtin"] = { link = "@attribute" },
+    ["@property"] = { link = "@variable" },
+
+    ["@function"] = { link = "Function" },
+    ["@function.builtin"] = { link = "@function" },
+    ["@function.call"] = { link = "@function" },
+    ["@function.macro"] = { link = "@function" },
+
+    ["@function.method"] = { link = "@function" },
+    ["@function.method.call"] = { link = "@function" },
+
+    ["@constructor"] = { link = "Function" },
     ["@operator"] = { link = "Operator" },
 
-    -- Punctuation
+    ["@keyword"] = { link = "Statement" },
+    ["@keyword.coroutine"] = { link = "@keyword" },
+    ["@keyword.function"] = { link = "@keyword" },
+    ["@keyword.operator"] = { link = "@keyword" },
+    ["@keyword.import"] = { link = "@keyword" },
+    ["@keyword.type"] = { link = "@type" }, -- or @keyword
+    ["@keyword.modifier"] = { link = "@keyword" },
+    ["@keyword.repeat"] = { link = "@keyword" },
+    ["@keyword.return"] = { link = "@keyword" },
+    ["@keyword.debug"] = { link = "@keyword" },
+    ["@keyword.exception"] = { link = "@keyword" },
+    ["@keyword.conditional"] = { link = "@keyword" },
+    ["@keyword.conditional.ternary"] = { link = "@keyword" },
+    ["@keyword.directive"] = { link = "PreProc" },
+    ["@keyword.directive.define"] = { link = "@keyword.directive" },
+
     ["@punctuation.delimiter"] = { link = "Delimiter" },
-    ["@punctuation.bracket"] = { fg = spec.syntax.bracket },
-    ["@punctuation.special"] = { link = "SpecialChar" },
+    ["@punctuation.bracket"] = { link = "@punctuation.delimiter" },
+    ["@punctuation.special"] = { link = "Special" },
 
-    ["@constructor"] = { link = "@lsp.type.class" },
-    ["@field"] = { link = "@lsp.type.property" },
-    ["@variable"] = { link = "@lsp.type.variable" },
-    ["@variable.builtin"] = { link = "@lsp.type.variable" },
-    ["@property"] = { link = "@lsp.type.property" },
-    ["@parameter"] = { link = "@lsp.type.parameter" },
-    ["@variable.parameter"] = { link = "@lsp.type.parameter" },
-    ["@function"] = { link = "@lsp.type.function" },
-    ["@function.call"] = { link = "@lsp.type.function" },
-    ["@function.builtin"] = { link = "@lsp.type.function" },
-    ["@function.macro"] = { link = "@lsp.type.function" },
-    ["@constant"] = { link = "Constant" },
-    ["@constant.builtin"] = { link = "Constant" },
-    ["@constant.macro"] = { link = "Constant" },
-    ["@parameter.reference"] = { link = "@lsp.type.parameter" },
-    ["@exception"] = { link = "Exception" },
-    ["@type.builtin"] = { link = "@lsp.type.type" },
+    ["@comment"] = { link = "Comment" },
+    ["@comment.documentation"] = { link = "@comment" },
 
-    -- Typescript
-    ["@constant.builtin.typescript"] = { link = "Boolean" },
+    ["@comment.error"] = { link = "DiagnosticError" },
+    ["@comment.warning"] = { link = "DiagnosticWarn" },
+    ["@comment.todo"] = { link = "Todo" },
+    ["@comment.note"] = { link = "DiagnosticInfo" },
 
-    ["@preproc"] = { link = "PreProc" },
-    ["@include"] = { link = "PreProc" },
+    ["@markup.quote"] = { link = "Comment" },
+    ["@markup.math"] = { link = "Special" },
 
-    ["@repeat"] = { link = "Statement" },
-    ["@conditional"] = { link = "Statement" },
-    ["@type.qualifier"] = { link = "Statement" },
+    ["@markup.link"] = { link = "@string.special.url" },
+    ["@markup.link.label"] = { link = "Underlined" },
+    ["@markup.link.url"] = { link = "@string.special.url" },
 
-    -- HTML
+    ["@markup.raw"] = { fg = spec.base.fg0 },
+    ["@markup.raw.block"] = { link = "@markup.raw" },
+
+    ["@markup.list"] = { link = "Special" },
+    ["@markup.list.checked"] = { link = "Special" },
+    ["@markup.list.unchecked"] = { link = "Special" },
+    
+    ["@diff.plus"] = { link = "Added" },
+    ["@diff.minus"] = { link = "Removed" },
+    ["@diff.delta"] = { link = "Changed" },
+    
     ["@tag"] = { link = "Statement" },
     ["@tag.builtin"] = { link = "@tag" },
-    ["@tag.delimiter"] = { link = "Delimiter" },
     ["@tag.attribute"] = { link = "Function" },
+    ["@tag.delimiter"] = { link = "Delimiter" },
+    
+    -- Misc
+    ["@error"] = { link = "Error" },
+    ["@type.qualifier"] = { link = "Statement" },
+    
+    ["@preproc"] = { link = "PreProc" },
+    ["@include"] = { link = "PreProc" },
+    
+    ["@repeat"] = { link = "Statement" },
+    ["@conditional"] = { link = "Statement" },
+
+    ["@field"] = { link = "@lsp.type.property" },
+    ["@parameter"] = { link = "@variable.parameter" },
+    ["@parameter.reference"] = { link = "@variable.parameter" },
+    ["@exception"] = { link = "Exception" },
+
+    -- LSP Semantic tokens
+    -- :help lsp-semantic-highlight
+    ["@lsp.type.class"] = { fg = spec.syntax.structure, underline = true, sp = spec.syntax.structure },
+    ["@lsp.type.comment"] = { link = "Comment" },
+    ["@lsp.type.decorator"] = { link = "Function" },
+    ["@lsp.type.enum"] = { link = "@lsp.type.class" },
+    ["@lsp.type.enumMember"] = { fg = spec.syntax.identifier },
+    ["@lsp.type.event"] = { link = "@lsp.type.class"},
+    ["@lsp.type.function"] = { link = "Function" },
+    ["@lsp.type.interface"] = { link = "@lsp.type.class" },
+    ["@lsp.type.keyword"] = { link = "Statement" },
+    ["@lsp.type.macro"] = { link = "Macro" },
+    ["@lsp.type.method"] = { link = "Function" },
+    ["@lsp.type.modifier"] = { link = "Statement" },
+    ["@lsp.type.namespace"] = { link = "@lsp.type.class" },
+    ["@lsp.type.number"] = { link = "Number" },
+    ["@lsp.type.operator"] = { link = "Operator" },
+    ["@lsp.type.parameter"] = { link = "@variable.parameter" },
+    ["@lsp.type.property"] = { link = "Identifier" },
+    ["@lsp.type.regexp"] = { link = "@string.regexp" },
+    ["@lsp.type.string"] = { link = "String" },
+    ["@lsp.type.struct"] = { link = "@lsp.type.class" },
+    ["@lsp.type.type"] = { link = "Type" },
+    ["@lsp.type.typeParameter"] = { link = "Type" },
+    ["@lsp.type.variable"] = { link = "@variable" },
   }
 end
 
