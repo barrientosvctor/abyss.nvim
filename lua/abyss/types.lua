@@ -57,18 +57,18 @@
 ---@field parameter string Any parameter name in functions
 
 ---@class AbyssDiffBg
----@field added string
----@field changed string
----@field deleted string
----@field text string
+---@field added string Background color used only for nvim diff mode highlight groups. See `:h hl-Diff*`.
+---@field changed string Background color used only for nvim diff mode highlight groups. See `:h hl-Diff*`.
+---@field deleted string Background color used only for nvim diff mode highlight groups. See `:h hl-Diff*`.
+---@field text string Background color used only for nvim diff mode highlight groups. See `:h hl-Diff*`.
 
 ---@class AbyssDiff
----@field bg AbyssDiffBg
----@field added string
----@field changed string
----@field deleted string
----@field text string
----@field untracked string
+---@field bg AbyssDiffBg Background color used only for nvim diff mode highlight groups. See `:h hl-Diff*`.
+---@field added string Color used in plugins (no nvim diff mode)
+---@field changed string Color used in plugins (no nvim diff mode)
+---@field deleted string Color used in plugins (no nvim diff mode)
+---@field text string Color used in plugins (no nvim diff mode)
+---@field untracked string Color used in plugins (no nvim diff mode)
 
 ---@class AbyssDiagnostics
 ---@field error string

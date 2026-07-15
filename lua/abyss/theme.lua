@@ -34,7 +34,6 @@ function M.get(user_opts, spec)
 
     Type = { fg = spec.syntax.type, italic = true },
     StorageClass = { link = "Statement" }, -- Volatile keywords
-    -- Structure = { fg = spec.syntax.structure, sp = spec.syntax.structure, underline = true },
 
     Special = { fg = spec.syntax.special },
     SpecialChar = { link = "Special" },
@@ -225,11 +224,11 @@ function M.get(user_opts, spec)
     groups.CmpItemKindConstructor = { link = "CmpItemKindClass" }
     groups.CmpItemKindVariable = { fg = spec.syntax.identifier }
     groups.CmpItemKindField = { link = "CmpItemKindVariable" }
-    groups.CmpItemKindInterface = { fg = spec.syntax.structure } -- possible change....
-    groups.CmpItemKindModule = { fg = spec.syntax.structure } -- possible change....
-    groups.CmpItemKindProperty = { fg = spec.syntax.identifier } -- possible change....
+    groups.CmpItemKindInterface = { fg = spec.syntax.structure }
+    groups.CmpItemKindModule = { fg = spec.syntax.structure }
+    groups.CmpItemKindProperty = { fg = spec.syntax.identifier }
     groups.CmpItemKindUnit = { fg = spec.syntax.number }
-    groups.CmpItemKindValue = { fg = spec.syntax.constant } -- possible change....
+    groups.CmpItemKindValue = { fg = spec.syntax.constant }
     groups.CmpItemKindEnum = { link = "CmpItemKindValue" }
     groups.CmpItemKindKeyword = { fg = spec.syntax.statement }
     groups.CmpItemKindSnippet = { fg = spec.syntax.special }
@@ -398,7 +397,7 @@ function M.get_treesitter(spec)
     ["@keyword.function"] = { link = "@keyword" },
     ["@keyword.operator"] = { link = "@keyword" },
     ["@keyword.import"] = { link = "@keyword" },
-    ["@keyword.type"] = { link = "@type" }, -- or @keyword
+    ["@keyword.type"] = { link = "@keyword" },
     ["@keyword.modifier"] = { link = "@keyword" },
     ["@keyword.repeat"] = { link = "@keyword" },
     ["@keyword.return"] = { link = "@keyword" },
