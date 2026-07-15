@@ -2,7 +2,7 @@ local utils = require("abyss.lib.util")
 local M = {}
 
 M.base_spec_length = 10
-M.diff_spec_length = 5
+M.diff_spec_length = 6
 M.editor_spec_length = 8
 M.syntax_spec_length = 13
 M.terminal_spec_length = 16
