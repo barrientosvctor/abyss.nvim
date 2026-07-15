@@ -454,7 +454,7 @@ function M.get_treesitter(spec)
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
 
-    ["@field"] = { link = "@lsp.type.property" },
+    ["@field"] = { link = "@property" },
     ["@parameter"] = { link = "@variable.parameter" },
     ["@parameter.reference"] = { link = "@variable.parameter" },
     ["@exception"] = { link = "Exception" },
