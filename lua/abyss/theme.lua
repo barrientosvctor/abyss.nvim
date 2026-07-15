@@ -27,6 +27,7 @@ function M.get(user_opts, spec)
     Function = { fg = spec.syntax.func, bold = user_opts.bold, italic = user_opts.italic },
 
     Statement = { fg = spec.syntax.statement },
+    Label = { link = "Statement" },
     Operator = { link = "Statement" },
     
     PreProc = { link = "Statement" },
@@ -185,6 +186,7 @@ function M.get(user_opts, spec)
     groups.DiagnosticInfo = { fg = spec.diagnostics.info }
     groups.DiagnosticHint = { fg = spec.diagnostics.hint }
     groups.DiagnosticOk = { fg = spec.diagnostics.ok }
+    groups.DiagnosticUnnecessary = { fg = spec.syntax.comment, undercurl = true, sp = spec.syntax.comment, italic = true }
 
     groups.DiagnosticUnderlineError = { sp = spec.diagnostics.error, undercurl = true }
     groups.DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true }
