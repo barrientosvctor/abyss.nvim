@@ -68,6 +68,7 @@ local spec = {
     match_selected = palette.lightpink,
     nontext = palette.darkgrey,
     linenr = palette.lowgrey,
+    border = palette.fg0,
   },
   syntax = {
     identifier = palette.fg1,
@@ -85,6 +86,7 @@ local spec = {
     parameter = palette.shinyblue,
   },
   diff = {
+    bg = {},
     added = palette.lime,
     changed = palette.coral,
     deleted = palette.red,
