@@ -3,7 +3,8 @@ local M = {}
 
 M.base_spec_length = 10
 M.diff_spec_length = 6
-M.editor_spec_length = 8
+M.diff_bg_spec_length = 4
+M.editor_spec_length = 9
 M.syntax_spec_length = 13
 M.terminal_spec_length = 16
 M.diagnostics_spec_length = 5
@@ -38,6 +39,7 @@ function M.check_properties(spec)
   assert.is.truthy(spec.editor.match_selected)
   assert.is.truthy(spec.editor.nontext)
   assert.is.truthy(spec.editor.linenr)
+  assert.is.truthy(spec.editor.border)
 
   -- SYNTAX TABLE --
   assert.is.truthy(spec.syntax)
@@ -64,6 +66,13 @@ function M.check_properties(spec)
   assert.is.truthy(spec.diff.deleted)
   assert.is.truthy(spec.diff.text)
   assert.is.truthy(spec.diff.untracked)
+
+  assert.is.truthy(spec.diff.bg)
+
+  assert.is.truthy(spec.diff.bg.added)
+  assert.is.truthy(spec.diff.bg.changed)
+  assert.is.truthy(spec.diff.bg.deleted)
+  assert.is.truthy(spec.diff.bg.text)
 
   -- DIAGNOSTICS TABLE --
   assert.is.truthy(spec.diagnostics)
@@ -125,6 +134,7 @@ end
 function M.check_properties_length(spec)
     assert.are.equals(M.base_spec_length, utils.table_length(spec.base))
     assert.are.equals(M.diff_spec_length, utils.table_length(spec.diff))
+    assert.are.equals(M.diff_bg_spec_length, utils.table_length(spec.diff.bg))
     assert.are.equals(M.editor_spec_length, utils.table_length(spec.editor))
     assert.are.equals(M.syntax_spec_length, utils.table_length(spec.syntax))
     assert.are.equals(M.terminal_spec_length, utils.table_length(spec.terminal))
@@ -162,6 +172,7 @@ function M.check_typeof(spec)
   assert.are.same(property_expected_type, type(spec.editor.match_selected))
   assert.are.same(property_expected_type, type(spec.editor.nontext))
   assert.are.same(property_expected_type, type(spec.editor.linenr))
+  assert.are.same(property_expected_type, type(spec.editor.border))
 
   -- SYNTAX TABLE --
   assert.are.same(table_expected_type, type(spec.syntax))
@@ -186,6 +197,12 @@ function M.check_typeof(spec)
   assert.are.same(property_expected_type, type(spec.diff.deleted))
   assert.are.same(property_expected_type, type(spec.diff.text))
   assert.are.same(property_expected_type, type(spec.diff.untracked))
+
+  assert.are.same(table_expected_type, type(spec.diff.bg))
+  assert.are.same(property_expected_type, type(spec.diff.bg.added))
+  assert.are.same(property_expected_type, type(spec.diff.bg.changed))
+  assert.are.same(property_expected_type, type(spec.diff.bg.deleted))
+  assert.are.same(property_expected_type, type(spec.diff.bg.text))
 
   -- DIAGNOSTICS TABLE --
   assert.are.same(table_expected_type, type(spec.diagnostics))
