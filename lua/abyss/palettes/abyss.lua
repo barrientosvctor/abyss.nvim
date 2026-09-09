@@ -1,6 +1,6 @@
 local palette = {
   bg0 = "#000c18",
-  bg1 = "#000C38",
+  bg1 = "#001224",
   bg00 = "#262641",
   bg01 = "#08286B",
   fg0 = "#6688cc",
@@ -8,6 +8,7 @@ local palette = {
   darkgreen = "#22aa44",
   green = "#44cb46",
   darkblue = "#082050",
+  mutedblue = "#103050",
   purple = "#9966b8",
   pink = "#f280d0",
   lightgrey = "#80A2B7",
@@ -20,8 +21,14 @@ local palette = {
   orange = "#FF9900",
   yellow = "#ddbb88",
   heavyyellow = "#FFEEBB",
+  diff_added_bg = "#1F2F24",
+  diff_deleted_bg = "#330A13",
+  diff_changed_bg = "#253F51",
+  diff_text_bg = "#611E2E",
+  match = "#304961",
+  match_sel = "#0d4984",
   white = "#FFFFFF",
-  black = "#000000",
+  black = "#000b15", -- inactive/dim color
 }
 
 ---The updated documentation of each property is in types.lua
@@ -44,17 +51,18 @@ local spec = {
     cursorline = palette.darkblue,
     cursor_selection = palette.darkred,
     title = palette.white,
-    match = palette.yellow,
-    match_selected = palette.heavyyellow,
-    nontext = palette.darkgrey,
+    match = palette.match,
+    match_selected = palette.match_sel,
+    nontext = palette.mutedblue,
     linenr = palette.lowgrey,
+    border = palette.mutedblue
   },
   syntax = {
-    identifier = palette.fg1,
+    identifier = palette.fg0,
     structure = palette.heavyyellow,
     statement = palette.darkgrey,
-    constant = palette.fg0,
-    special = palette.darkgrey,
+    constant = palette.pink,
+    special = palette.yellow,
     comment = palette.midblue,
     string = palette.darkgreen,
     regex = palette.pink,
@@ -65,6 +73,12 @@ local spec = {
     parameter = palette.shinyblue,
   },
   diff = {
+    bg = {
+      added = palette.diff_added_bg,
+      changed = palette.diff_changed_bg,
+      deleted = palette.diff_deleted_bg,
+      text = palette.diff_text_bg,
+    },
     added = palette.green,
     changed = palette.yellow,
     deleted = palette.red,
@@ -74,8 +88,8 @@ local spec = {
   diagnostics = {
     error = palette.red,
     ok = palette.green,
-    hint = palette.shinyblue,
-    info = palette.white,
+    hint = palette.white,
+    info = palette.shinyblue,
     warn = palette.yellow,
   },
   dirtree = {
