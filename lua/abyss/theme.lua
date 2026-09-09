@@ -26,14 +26,14 @@ function M.get(user_opts, spec)
     Identifier = { fg = spec.syntax.identifier },
     Function = { fg = spec.syntax.func, bold = user_opts.bold, italic = user_opts.italic },
 
-    Statement = { fg = spec.syntax.statement, italic = user_opts.italic, bold = user_opts.bold },
-
+    Statement = { fg = spec.syntax.statement },
+    Label = { link = "Statement" },
+    Operator = { link = "Statement" },
+    
     PreProc = { link = "Statement" },
-    Operator = { fg = spec.syntax.statement },
 
     Type = { fg = spec.syntax.type, italic = true },
     StorageClass = { link = "Statement" }, -- Volatile keywords
-    Structure = { fg = spec.syntax.structure, sp = spec.syntax.structure, underline = true },
 
     Special = { fg = spec.syntax.special },
     SpecialChar = { link = "Special" },
@@ -51,102 +51,105 @@ function M.get(user_opts, spec)
     markdownCodeBlock = { fg = spec.syntax.special, italic = user_opts.italic },
 
     -- Editor --
-    ColorColumn = { link = "CursorLine" },
+    ColorColumn = { bg = spec.base.fg1 },
+
     Conceal = { fg = spec.base.fg0, bg = none },
 
     Cursor = { fg = spec.base.bg0, bg = spec.editor.cursor },
-    lCursor = { link = "Cursor" },
-    CursorIM = { link = "Cursor" },
+    lCursor = { fg = spec.base.bg0, bg = spec.editor.cursor },
+    CursorIM = { fg = spec.base.bg0, bg = spec.editor.cursor },
     CursorLine = { fg = none, bg = spec.editor.cursorline },
-    CursorLineNr = { fg = spec.base.fg01, bg = spec.editor.cursorline, bold = true },
+    CursorLineNr = { fg = spec.base.fg01, bg = spec.editor.cursorline },
     CursorColumn = { link = "CursorLine" },
 
-    Directory = { link = "Function" },
+    Directory = { fg = spec.syntax.special, bold = true },
 
-    DiffAdd = { fg = spec.diff.added },
-    DiffChange = { fg = spec.diff.changed },
-    DiffDelete = { fg = spec.diff.deleted },
-    DiffText = { fg = spec.diff.text },
-    diffAdded = { link = "DiffAdd" },
-    diffRemoved = { link = "DiffDelete" },
-    diffChanged = { link = "DiffChange" },
-    diffOldFile = { link = "DiffDelete" },
-    diffNewFile = { link = "DiffAdd" },
-    diffFile = { fg = spec.diff.text, bg = none, bold = true },
-    diffLine = { link = "diffFile" },
-    diffIndexLine = { link = "diffLine" },
-
+    DiffAdd = { bg = spec.diff.bg.added },
+    DiffChange = { bg = spec.diff.bg.changed },
+    DiffDelete = { bg = spec.diff.bg.deleted },
+    DiffText = { bg = spec.diff.bg.text },
+    
     -- Neovim v0.10 diff highlights
-    Added = { link = "DiffAdd" },
-    Changed = { link = "DiffChange" },
-    Removed = { link = "DiffDelete" },
+    Added = { fg = spec.diff.added },
+    Changed = { fg = spec.diff.changed },
+    Removed = { fg = spec.diff.deleted },
+
+    diffAdded = { link = "Added" },
+    diffRemoved = { link = "Removed" },
+    diffChanged = { link = "Changed" },
+    diffFile = { link = "Type" },
+    diffOldFile = { link = "diffFile" },
+    diffNewFile = { link = "diffFile" },
+    diffLine = { link = "Statement" },
 
     healthError = { fg = spec.diagnostics.error },
     healthSuccess = { fg = spec.diagnostics.ok },
     healthWarning = { fg = spec.diagnostics.warn },
 
-    NonText = {
-      fg = spec.editor.nontext,
-    },
-    EndOfBuffer = {
-      fg = user_opts.transparent_background and none or spec.base.bg0,
-      bg = user_opts.transparent_background and none or spec.base.bg0,
-    },
+    NonText = { fg = spec.editor.nontext },
+    EndOfBuffer = { link = "NonText" },
 
-    VertSplit = { fg = spec.base.fg0, bg = spec.base.bg0 },
-    WinSeparator = { link = "VertSplit" },
+    WinSeparator = { fg = spec.editor.border },
+    VertSplit = { link = "WinSeparator" },
 
+    OkMsg = { fg = spec.diagnostics.ok },
     ErrorMsg = { fg = spec.diagnostics.error },
     WarningMsg = { fg = spec.diagnostics.warn },
 
     Folded = { link = "Comment" },
-    FoldColumn = { link = "CursorColumn" },
-    SignColumn = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
+    SignColumn = { fg = spec.base.fg0 },
+    FoldColumn = { link = "SignColumn" },
 
-    CurSearch = { fg = spec.base.bg0, bg = spec.editor.match_selected, sp = spec.base.bg0, bold = true, underline = true },
+    Search = { bg = spec.editor.match, fg = spec.base.fg0 },
+    CurSearch = { bg = spec.editor.match_selected, fg = spec.base.fg0 },
     IncSearch = { link = "CurSearch" },
     Substitute = { link = "Search" },
 
-    LineNr = { fg = spec.editor.linenr, bg = user_opts.transparent_background and none or spec.base.bg0 },
-    LineNrAbove = { link = "LineNr" },
-    LineNrBelow = { link = "LineNrAbove" },
+    LineNr = { fg = spec.editor.linenr },
 
-    MatchParen = { link = "CurSearch" },
+    MatchParen = { bg = spec.editor.cursor_selection },
 
-    MsgArea = { fg = spec.diagnostics.info },
-    ModeMsg = { link = "MsgArea" },
+    ModeMsg = { fg = spec.diagnostics.hint },
     MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
     NormalNC = { link = "Normal" },
     NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
-    FloatBorder = { link = "NormalFloat" },
+    FloatBorder = { fg = spec.editor.border, bg = spec.base.bg1 },
+    FloatTitle = { fg = spec.editor.title, bg = spec.base.bg1, bold = true },
+    FloatFooter = { link = "FloatTitle" },
 
     Pmenu = { fg = spec.base.fg0, bg = spec.base.bg00 },
     PmenuSbar = { bg = spec.base.bg00 },
     PmenuSel = { fg = spec.base.fg01, bg = spec.base.bg01 },
     PmenuThumb = { bg = spec.base.bg01 },
+    PmenuExtra = { fg = spec.syntax.comment, italic = true },
+    PmenuExtraSel = { fg = spec.syntax.comment, bg = spec.base.bg01, italic = true },
+    PmenuKind = { fg = spec.syntax.comment },
+    PmenuKindSel = { fg = spec.syntax.comment, bg = spec.base.bg01 },
+    PmenuBorder = { fg = spec.editor.border },
+    PmenuMatch = { link = "Special" },
+    PmenuMatchSel = { link = "Special" },
 
     Question = { link = "MoreMsg" },
 
     QuickFixLine = { link = "CursorLine" },
 
-    Search = { fg = spec.base.bg0, bg = spec.editor.match },
     SpecialKey = { link = "NonText" },
 
-    SpellBad = { fg = spec.diagnostics.error, undercurl = true },
-    SpellRare = { fg = spec.diagnostics.info, undercurl = true },
-    SpellCap = { fg = spec.diagnostics.warn, undercurl = true },
-    SpellLocal = { fg = spec.diagnostics.info, undercurl = true },
+    SpellBad = { sp = spec.diagnostics.error, undercurl = true },
+    SpellRare = { sp = spec.diagnostics.warn, undercurl = true },
+    SpellCap = { sp = spec.diagnostics.warn, undercurl = true },
+    SpellLocal = { sp = spec.diagnostics.ok, undercurl = true },
 
-    StatusLine = { fg = none, bg = spec.base.bg1 },
+    StatusLine = { bg = spec.base.bg1 },
     StatusLineTerm = { link = "StatusLine" },
-    StatusLineNC = { fg = none, bg = spec.base.bg2 },
+    StatusLineNC = { bg = spec.base.bg2, fg = spec.base.fg2 },
     StatusLineTermNC = { link = "StatusLineNC" },
 
     TabLine = { fg = spec.base.fg1, bg = spec.base.bg0 },
     TabLineFill = { fg = none, bg = spec.base.bg0 },
-    TabLineSel = { fg = spec.base.fg01, bg = spec.base.bg01 },
+    TabLineSel = { fg = spec.base.fg01, bg = spec.base.bg01, bold = true },
 
     Title = { fg = spec.editor.title, bold = true },
 
@@ -170,10 +173,9 @@ function M.get(user_opts, spec)
 
     -- Vim-compatible plugins --
     -- git gutter
-    GitGutterAdd = { link = "DiffAdd" },
-    GitGutterChange = { link = "DiffChange" },
-    GitGutterDelete = { link = "DiffDelete" },
-    GitGutterChangeDelete = { link = "GitGutterDelete" },
+    GitGutterAdd = { fg = spec.diff.added },
+    GitGutterChange = { fg = spec.diff.changed },
+    GitGutterDelete = { fg = spec.diff.deleted },
   }
 
   if api.is_nvim then
@@ -183,78 +185,66 @@ function M.get(user_opts, spec)
     groups.DiagnosticInfo = { fg = spec.diagnostics.info }
     groups.DiagnosticHint = { fg = spec.diagnostics.hint }
     groups.DiagnosticOk = { fg = spec.diagnostics.ok }
+    groups.DiagnosticUnnecessary = { fg = spec.syntax.comment, undercurl = true, sp = spec.syntax.comment, italic = true }
 
     groups.DiagnosticUnderlineError = { sp = spec.diagnostics.error, undercurl = true }
     groups.DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true }
     groups.DiagnosticUnderlineInfo = { sp = spec.diagnostics.info, underline = true }
     groups.DiagnosticUnderlineHint = { sp = spec.diagnostics.hint, underline = true }
+    groups.DiagnosticUnderlineOk = { sp = spec.diagnostics.ok, underline = true }
 
     groups.LspDiagnosticsError = { link = "DiagnosticError" }
     groups.LspDiagnosticsWarning = { link = "DiagnosticWarn" }
     groups.LspDiagnosticsInformation = { link = "DiagnosticInfo" }
     groups.LspDiagnosticsHint = { link = "DiagnosticHint" }
 
-    groups.LspSignatureActiveParameter = {
-      fg = spec.base.fg01,
-      bg = spec.base.bg01,
-      italic = user_opts.italic,
-      bold = user_opts.bold,
-    }
-    groups.LspInlayHint = { link = "NonText" }
+    groups.LspInlayHint = { fg = spec.syntax.comment, bg = spec.base.bg1 }
 
     -- Neovim-compatible plugins --
     -- Telescope
-    -- Sets the highlight for selected items within the picker.
-    groups.TelescopeSelection = { link = "Title" }
-    groups.TelescopeSelectionCaret = { link = "TelescopeSelection" }
-    groups.TelescopeMultiSelection = { link = "TelescopeSelection" }
-    groups.TelescopeMultiIcon = { link = "TelescopeSelectionCaret" }
-
     groups.TelescopeTitle = { link = "Title" }
 
-    groups.TelescopeBorder = { fg = spec.base.fg1 }
+    groups.TelescopeBorder = { fg = spec.editor.border }
 
-    groups.TelescopePrompt = { link = "TelescopeNormal" }
-    groups.TelescopePromptPrefix = { link = "TelescopeSelectionCaret" }
-    groups.TelescopeMatching = { fg = spec.editor.match }
+    groups.TelescopePromptPrefix = { fg = spec.editor.title }
 
     -- nvim-cmp
-    groups.CmpItemAbbrMatch = { fg = spec.editor.match, bold = true }
-    groups.CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }
     groups.CmpItemAbbr = { fg = spec.base.fg0 }
-    groups.CmpItemMenu = { link = "Comment" }
-    groups.CmpItemKindText = { link = "String" }
-    groups.CmpItemKindMethod = { link = "Function" }
-    groups.CmpItemKindFunction = { link = "Function" }
-    groups.CmpItemKindConstructor = { link = "Structure" }
-    groups.CmpItemKindField = { link = "Constant" }
-    groups.CmpItemKindVariable = { link = "Constant" }
-    groups.CmpItemKindClass = { link = "Structure" }
-    groups.CmpItemKindInterface = { link = "Structure" }
-    groups.CmpItemKindModule = { link = "Structure" }
-    groups.CmpItemKindProperty = { link = "Constant" }
-    groups.CmpItemKindUnit = { link = "Constant" }
-    groups.CmpItemKindValue = { link = "CmpItemKindText" }
-    groups.CmpItemKindEnum = { link = "Constant" }
-    groups.CmpItemKindKeyword = { link = "Statement" }
-    groups.CmpItemKindSnippet = { fg = spec.base.fg1 }
-    groups.CmpItemKindColor = { link = "CmpItemKindProperty" }
-    groups.CmpItemKindReference = { link = "CmpItemKindMethod" }
-    groups.CmpItemKindFolder = { link = "Structure" }
-    groups.CmpItemKindEnumMember = { link = "Constant" }
-    groups.CmpItemKindConstant = { link = "Constant" }
-    groups.CmpItemKindStruct = { link = "Structure" }
-    groups.CmpItemKindEvent = { link = "CmpItemKindMethod" }
-    groups.CmpItemKindOperator = { link = "Operator" }
+    groups.CmpItemAbbrDeprecated = { fg = spec.syntax.comment, strikethrough = true }
+    
+    groups.CmpItemMenu = { fg = spec.syntax.comment }
+    
+    groups.CmpItemAbbrMatch = { link = "PmenuMatch" }
+    groups.CmpItemAbbrMatchFuzzy = { link = "PmenuMatch" }
+
+    groups.CmpItemKindText = { fg = spec.syntax.string }
+    groups.CmpItemKindFunction = { fg = spec.syntax.func }
+    groups.CmpItemKindMethod = { link = "CmpItemKindFunction" }
+    groups.CmpItemKindClass = { fg = spec.syntax.structure }
+    groups.CmpItemKindConstructor = { link = "CmpItemKindClass" }
+    groups.CmpItemKindVariable = { fg = spec.syntax.identifier }
+    groups.CmpItemKindField = { link = "CmpItemKindVariable" }
+    groups.CmpItemKindInterface = { fg = spec.syntax.structure }
+    groups.CmpItemKindModule = { fg = spec.syntax.structure }
+    groups.CmpItemKindProperty = { fg = spec.syntax.identifier }
+    groups.CmpItemKindUnit = { fg = spec.syntax.number }
+    groups.CmpItemKindValue = { fg = spec.syntax.constant }
+    groups.CmpItemKindEnum = { link = "CmpItemKindValue" }
+    groups.CmpItemKindKeyword = { fg = spec.syntax.statement }
+    groups.CmpItemKindSnippet = { fg = spec.syntax.special }
+    groups.CmpItemKindColor = { fg = spec.syntax.special }
+    groups.CmpItemKindFile = { fg = spec.syntax.special }
+    groups.CmpItemKindReference = { fg = spec.syntax.identifier }
+    groups.CmpItemKindFolder = { fg = spec.syntax.special }
+    groups.CmpItemKindEnumMember = { link = "CmpItemKindValue" }
+    groups.CmpItemKindConstant = { fg = spec.syntax.constant }
+    groups.CmpItemKindStruct = { fg = spec.syntax.structure }
+    groups.CmpItemKindEvent = { fg = spec.syntax.special }
+    groups.CmpItemKindOperator = { fg = spec.syntax.statement }
     groups.CmpItemKindTypeParameter = { fg = spec.syntax.parameter }
 
     -- gitsigns
-    groups.GitSignsAddLn = { link = "DiffAdd" }
-    groups.GitSignsAddNr = { link = "GitSignsAddLn" }
-    groups.GitSignsChangeLn = { link = "DiffChange" }
-    groups.GitSignsChangeNr = { link = "GitSignsChangeLn" }
-    groups.GitSignsDeleteLn = { link = "DiffChange" }
-    groups.GitSignsDeleteNr = { link = "GitSignsDeleteLn" }
+    groups.GitSignsCurrentLineBlame = { link = "Comment" }
 
     -- lspsaga
     groups.LspFloatWinNormal = { bg = spec.base.bg0 }
@@ -275,24 +265,20 @@ function M.get(user_opts, spec)
     groups.TargetWord = { fg = spec.editor.match }
 
     -- nvim-tree
-    groups.NvimTreeGitNew = { link = "DiffAdd" }
-    groups.NvimTreeGitDeletedIcon = { link = "DiffDelete" }
-    groups.NvimTreeGitRenamedIcon = { link = "DiffChange" }
-    groups.NvimTreeGitStagedIcon = { link = "diffFile" }
-    groups.NvimTreeGitMergeIcon = { link = "diffFile" }
-    groups.NvimTreeIndentMarker = { link = "NonText" }
+    groups.NvimTreeSpecialFile = { fg = spec.syntax.special, underline = true, sp = spec.syntax.special }
+    groups.NvimTreeIndentMarker = { fg = spec.syntax.comment }
 
-    -- packer
-    groups.packerString = { link = "String" }
-    groups.packerHash = { link = "Special" }
-    groups.packerRelDate = { fg = spec.diagnostics.info, sp = spec.diagnostics.info, bold = true, underline = true }
-    groups.packerSuccess = { fg = spec.diagnostics.ok, bg = none, bold = true }
-    groups.packerStatusSuccess = { link = "PackerSuccess" }
+    groups.NvimTreeGitDeletedIcon = { fg = spec.diff.deleted }
+    groups.NvimTreeGitNewIcon = { fg = spec.diff.added }
+    groups.NvimTreeGitRenamedIcon = { fg = spec.diff.changed }
+    groups.NvimTreeGitStagedIcon = { fg = spec.diff.added }
+    groups.NvimTreeGitDirtyIcon = { fg = spec.diff.untracked }
+
+    groups.NvimTreeGitNew = { link = "NvimTreeGitNewIcon" }
 
     -- indent blankline
     groups.IndentBlanklineChar = { link = "NonText" }
     groups.IndentBlanklineContextChar = { fg = spec.base.fg01 }
-    groups["@ibl.indent.char.1"] = { link = "String" }
     groups["@ibl.scope.char.1"] = { fg = spec.base.fg01 }
     groups["@ibl.scope.underline.1"] = { link = "@ibl.scope.char.1" }
 
@@ -309,17 +295,40 @@ function M.get(user_opts, spec)
     groups.NotifyINFO = { fg = spec.diagnostics.info }
     groups.NotifyDEBUG = { fg = spec.diagnostics.hint }
     groups.NotifyTRACE = { link = "NotifyINFO" }
-    groups.NotifyERRORTitle = { link = "NotifyERROR" }
-    groups.NotifyWARNTitle = { link = "NotifyWARN" }
-    groups.NotifyINFOTitle = { link = "NotifyINFO" }
-    groups.NotifyDEBUGTitle = { link = "NotifyDEBUG" }
-    groups.NotifyTRACETitle = { link = "NotifyTRACE" }
+
+    groups.NotifyERRORTitle = { fg = spec.diagnostics.error, bold = true }
+    groups.NotifyERRORBorder = { fg = spec.diagnostics.error }
+    groups.NotifyERRORIcon = { fg = spec.diagnostics.error }
+
+    groups.NotifyWARNTitle = { fg = spec.diagnostics.warn, bold = true }
+    groups.NotifyWARNBorder = { fg = spec.diagnostics.warn }
+    groups.NotifyWARNIcon = { fg = spec.diagnostics.warn }
+
+    groups.NotifyINFOTitle = { fg = spec.diagnostics.info, bold = true }
+    groups.NotifyINFOBorder = { fg = spec.diagnostics.info }
+    groups.NotifyINFOIcon = { fg = spec.diagnostics.info }
+
+    groups.NotifyDEBUGTitle = { fg = spec.diagnostics.hint, bold = true }
+    groups.NotifyDEBUGBorder = { fg = spec.diagnostics.hint }
+    groups.NotifyDEBUGIcon = { fg = spec.diagnostics.hint }
+
+    groups.NotifyTRACETitle = { fg = spec.diagnostics.info, bold = true }
+    groups.NotifyTRACEBorder = { fg = spec.diagnostics.info }
+    groups.NotifyTRACEIcon = { fg = spec.diagnostics.info }
 
     -- dashboard
     groups.DashboardShortCut = { link = "Comment" }
-    groups.DashboardHeader = { link = "Title" }
-    groups.DashboardCenter = { link = "Special" }
     groups.DashboardFooter = { link = "Comment" }
+
+    groups.DashboardHeader = { link = "Title" }
+    
+    groups.DashboardProjectTitle = { link = "Special" }
+    groups.DashboardMruTitle = { link = "Special" }
+    
+    groups.DashboardProjectIcon = { link = "Special" }
+
+    groups.DashboardKey = { link = "Special" }
+    groups.DashboardIcon = { link = "Special" }
 
     -- aerial
     groups.AerialLine = { fg = spec.dirtree.curline, bg = none, sp = spec.dirtree.curline, underline = true }
@@ -332,68 +341,148 @@ end
 ---@param spec Spec
 ---@return table
 function M.get_treesitter(spec)
-  return {
-    -- Treesitter --
-    -- Semantic tokens
-    ["@lsp.type.class"] = { link = "Structure" },
-    ["@lsp.type.comment"] = { link = "Comment" },
-    ["@lsp.type.enum"] = { link = "Structure" },
-    ["@lsp.type.enumMember"] = { link = "Constant" },
-    ["@lsp.type.function"] = { link = "Function" },
-    ["@lsp.type.interface"] = { link = "Structure" },
-    ["@lsp.type.macro"] = { link = "Macro" },
-    ["@lsp.type.method"] = { link = "Function" },
-    ["@lsp.type.namespace"] = { link = "Structure" },
-    ["@lsp.type.parameter"] = { fg = spec.syntax.parameter, italic = true },
-    ["@lsp.type.property"] = { link = "Constant" },
-    ["@lsp.type.struct"] = { link = "Structure" },
-    ["@lsp.type.type"] = { link = "Type" },
-    ["@lsp.type.typeParameter"] = { link = "Type" },
-    ["@lsp.type.variable"] = { link = "Constant" },
+  return {    
+    -- Treesitter captures
+    -- :help treesitter-highlight-groups
+    ["@variable"] = { link = "Identifier" },
+    ["@variable.builtin"] = { link = "@variable" },
+    ["@variable.parameter"] = { fg = spec.syntax.parameter, italic = true },
+    ["@variable.member"] = { link = "@variable" },
+    
+    ["@constant"] = { link = "Constant" },
+    ["@constant.builtin"] = { link = "@constant" },
+    ["@constant.macro"] = { link = "@constant" },
 
-    -- Misc
-    ["@comment"] = { link = "@lsp.type.comment" },
-    ["@error"] = { link = "Error" },
+    ["@module"] = { fg = spec.syntax.structure, underline = true, sp = spec.syntax.structure },
+    ["@module.builtin"] = { link = "@module" },
+    ["@label"] = { link = "Label" },
+
+    ["@string"] = { link = "String" },
+    ["@string.documentation"] = { link = "@string" },
+    ["@string.regexp"] = { link = "Constant" },
+    ["@string.escape"] = { link = "Special" },
+    ["@string.special"] = { link = "Special" },
+    ["@string.special.symbol"] = { link = "@string.special" },
+    ["@string.special.path"] = { link = "@string.special" },
+    ["@string.special.url"] = { fg = spec.syntax.string, underline = true, sp = spec.syntax.string },
+
+    ["@character"] = { link = "Character" },
+    ["@character.special"] = { link = "Special" },
+
+    ["@boolean"] = { link = "Boolean" },
+    ["@number"] = { link = "Number" },
+    ["@number.float"] = { link = "Float" },
+
+    ["@type"] = { link = "Type" },
+    ["@type.builtin"] = { link = "@type" },
+    ["@type.definition"] = { link = "@module" },
+
+    ["@attribute"] = { link = "Function" },
+    ["@attribute.builtin"] = { link = "@attribute" },
+    ["@property"] = { link = "@variable" },
+
+    ["@function"] = { link = "Function" },
+    ["@function.builtin"] = { link = "@function" },
+    ["@function.call"] = { link = "@function" },
+    ["@function.macro"] = { link = "@function" },
+
+    ["@function.method"] = { link = "@function" },
+    ["@function.method.call"] = { link = "@function" },
+
+    ["@constructor"] = { link = "Function" },
     ["@operator"] = { link = "Operator" },
 
-    -- Punctuation
+    ["@keyword"] = { link = "Statement" },
+    ["@keyword.coroutine"] = { link = "@keyword" },
+    ["@keyword.function"] = { link = "@keyword" },
+    ["@keyword.operator"] = { link = "@keyword" },
+    ["@keyword.import"] = { link = "@keyword" },
+    ["@keyword.type"] = { link = "@keyword" },
+    ["@keyword.modifier"] = { link = "@keyword" },
+    ["@keyword.repeat"] = { link = "@keyword" },
+    ["@keyword.return"] = { link = "@keyword" },
+    ["@keyword.debug"] = { link = "@keyword" },
+    ["@keyword.exception"] = { link = "@keyword" },
+    ["@keyword.conditional"] = { link = "@keyword" },
+    ["@keyword.conditional.ternary"] = { link = "@keyword" },
+    ["@keyword.directive"] = { link = "PreProc" },
+    ["@keyword.directive.define"] = { link = "@keyword.directive" },
+
     ["@punctuation.delimiter"] = { link = "Delimiter" },
-    ["@punctuation.bracket"] = { fg = spec.syntax.bracket },
-    ["@punctuation.special"] = { link = "SpecialChar" },
+    ["@punctuation.bracket"] = { link = "@punctuation.delimiter" },
+    ["@punctuation.special"] = { link = "Special" },
 
-    ["@constructor"] = { link = "@lsp.type.class" },
-    ["@field"] = { link = "@lsp.type.property" },
-    ["@variable"] = { link = "@lsp.type.variable" },
-    ["@variable.builtin"] = { link = "@lsp.type.variable" },
-    ["@property"] = { link = "@lsp.type.property" },
-    ["@parameter"] = { link = "@lsp.type.parameter" },
-    ["@variable.parameter"] = { link = "@lsp.type.parameter" },
-    ["@function"] = { link = "@lsp.type.function" },
-    ["@function.call"] = { link = "@lsp.type.function" },
-    ["@function.builtin"] = { link = "@lsp.type.function" },
-    ["@function.macro"] = { link = "@lsp.type.function" },
-    ["@constant"] = { link = "Constant" },
-    ["@constant.builtin"] = { link = "Constant" },
-    ["@constant.macro"] = { link = "Constant" },
-    ["@parameter.reference"] = { link = "@lsp.type.parameter" },
-    ["@exception"] = { link = "Exception" },
-    ["@type.builtin"] = { link = "@lsp.type.type" },
+    ["@comment"] = { link = "Comment" },
+    ["@comment.documentation"] = { link = "@comment" },
 
-    -- Typescript
-    ["@constant.builtin.typescript"] = { link = "Boolean" },
+    ["@comment.error"] = { link = "DiagnosticError" },
+    ["@comment.warning"] = { link = "DiagnosticWarn" },
+    ["@comment.todo"] = { link = "Todo" },
+    ["@comment.note"] = { link = "DiagnosticInfo" },
 
-    ["@preproc"] = { link = "PreProc" },
-    ["@include"] = { link = "PreProc" },
+    ["@markup.quote"] = { link = "Comment" },
+    ["@markup.math"] = { link = "Special" },
 
-    ["@repeat"] = { link = "Statement" },
-    ["@conditional"] = { link = "Statement" },
-    ["@type.qualifier"] = { link = "Statement" },
+    ["@markup.link"] = { link = "@string.special.url" },
+    ["@markup.link.label"] = { link = "Underlined" },
+    ["@markup.link.url"] = { link = "@string.special.url" },
 
-    -- HTML
+    ["@markup.raw"] = { fg = spec.base.fg0 },
+    ["@markup.raw.block"] = { link = "@markup.raw" },
+
+    ["@markup.list"] = { link = "Special" },
+    ["@markup.list.checked"] = { link = "Special" },
+    ["@markup.list.unchecked"] = { link = "Special" },
+    
+    ["@diff.plus"] = { link = "Added" },
+    ["@diff.minus"] = { link = "Removed" },
+    ["@diff.delta"] = { link = "Changed" },
+    
     ["@tag"] = { link = "Statement" },
     ["@tag.builtin"] = { link = "@tag" },
-    ["@tag.delimiter"] = { link = "Delimiter" },
     ["@tag.attribute"] = { link = "Function" },
+    ["@tag.delimiter"] = { link = "Delimiter" },
+    
+    -- Misc
+    ["@error"] = { link = "Error" },
+    ["@type.qualifier"] = { link = "Statement" },
+    
+    ["@preproc"] = { link = "PreProc" },
+    ["@include"] = { link = "PreProc" },
+    
+    ["@repeat"] = { link = "Statement" },
+    ["@conditional"] = { link = "Statement" },
+
+    ["@field"] = { link = "@property" },
+    ["@parameter"] = { link = "@variable.parameter" },
+    ["@parameter.reference"] = { link = "@variable.parameter" },
+    ["@exception"] = { link = "Exception" },
+
+    -- LSP Semantic tokens
+    -- :help lsp-semantic-highlight
+    ["@lsp.type.class"] = { fg = spec.syntax.structure, underline = true, sp = spec.syntax.structure },
+    ["@lsp.type.comment"] = { link = "Comment" },
+    ["@lsp.type.decorator"] = { link = "Function" },
+    ["@lsp.type.enum"] = { link = "@lsp.type.class" },
+    ["@lsp.type.enumMember"] = { fg = spec.syntax.identifier },
+    ["@lsp.type.event"] = { link = "@lsp.type.class"},
+    ["@lsp.type.function"] = { link = "Function" },
+    ["@lsp.type.interface"] = { link = "@lsp.type.class" },
+    ["@lsp.type.keyword"] = { link = "Statement" },
+    ["@lsp.type.macro"] = { link = "Macro" },
+    ["@lsp.type.method"] = { link = "Function" },
+    ["@lsp.type.modifier"] = { link = "Statement" },
+    ["@lsp.type.namespace"] = { link = "@lsp.type.class" },
+    ["@lsp.type.number"] = { link = "Number" },
+    ["@lsp.type.operator"] = { link = "Operator" },
+    ["@lsp.type.parameter"] = { link = "@variable.parameter" },
+    ["@lsp.type.property"] = { link = "Identifier" },
+    ["@lsp.type.regexp"] = { link = "@string.regexp" },
+    ["@lsp.type.string"] = { link = "String" },
+    ["@lsp.type.struct"] = { link = "@lsp.type.class" },
+    ["@lsp.type.type"] = { link = "Type" },
+    ["@lsp.type.typeParameter"] = { link = "Type" },
+    ["@lsp.type.variable"] = { link = "@variable" },
   }
 end
 

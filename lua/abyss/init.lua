@@ -7,6 +7,9 @@ local util = require("abyss.util")
 --opts: The custom colorscheme user options
 ---@param opts AbyssOptions
 function M.setup(opts)
+  -- FIXME: not automatically change the colorscheme when this function is called. Only when user explicitly use `colorscheme abyss`.
+  -- this cause that custom user settings don't save when the colorscheme is changed to another one.
+
   if api.is_nvim then
     if vim.version().minor < 8 then
       vim.notify(
