@@ -86,7 +86,12 @@ local spec = {
     parameter = palette.shinyblue,
   },
   diff = {
-    bg = {},
+    bg = {
+      added = palette.darkgrey,
+      changed = palette.darkgrey,
+      deleted = palette.darkgrey,
+      text = palette.darkgrey,
+    },
     added = palette.lime,
     changed = palette.coral,
     deleted = palette.red,
