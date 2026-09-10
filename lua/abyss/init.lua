@@ -3,13 +3,8 @@ local api = require("abyss.lib.api")
 local config = require("abyss.config")
 local util = require("abyss.util")
 
--- Load the theme
---opts: The custom colorscheme user options
----@param opts AbyssOptions
-function M.setup(opts)
-  -- FIXME: not automatically change the colorscheme when this function is called. Only when user explicitly use `colorscheme abyss`.
-  -- this cause that custom user settings don't save when the colorscheme is changed to another one.
-
+-- Loads the palette.
+function M.load()
   if api.is_nvim then
     if vim.version().minor < 8 then
       vim.notify(
@@ -21,8 +16,13 @@ function M.setup(opts)
     end
   end
 
+  util.load()
+end
+
+-- Setup the configuration for the colorscheme.
+---@param opts AbyssOptions: The custom colorscheme user options
+function M.setup(opts)
   config.set_options(opts)
-  util.load(config.options)
 end
 
 return M
