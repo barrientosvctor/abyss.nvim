@@ -116,6 +116,10 @@ git clone https://github.com/barrientosvctor/abyss.nvim.git
 
 ## 💻 Setup
 
+> [!WARNING]
+> `require('abyss').setup()` does not colorize the editor, use either
+> `require('abyss').load()` or `:colorscheme abyss` instead.
+
 Abyss.nvim has options to customize your colorscheme instance according to your preferences.
 
 These are the available options for the colorscheme:
@@ -130,6 +134,11 @@ require('abyss').setup({
     palette = "abyss", -- Changes the Abyss palette. Available palettes's name on lua/abyss/palettes
     overrides = {} -- Override the default colorscheme highlight to a any else. Default value: nil
 })
+
+-- Start using the colorscheme:
+require('abyss').load()
+-- or:
+vim.cmd.colorscheme('abyss')
 ```
 
 ### Vim Script with Lua
@@ -140,6 +149,8 @@ require("abyss").setup {
     " your setup options
 }
 EOF
+
+colorscheme abyss
 ```
 
 ### Overwriting highlights
