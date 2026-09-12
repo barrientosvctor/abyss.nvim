@@ -55,7 +55,7 @@ local spec = {
     match_selected = palette.match_sel,
     nontext = palette.mutedblue,
     linenr = palette.lowgrey,
-    border = palette.mutedblue
+    border = palette.mutedblue,
   },
   syntax = {
     identifier = palette.fg0,
@@ -130,7 +130,7 @@ local spec = {
     replacebg_a = palette.bg1,
 
     insertfg = palette.darkgreen,
-    insertbg_a  = palette.bg1,
+    insertbg_a = palette.bg1,
 
     commandfg = palette.purple,
     commandbg_a = palette.bg1,
@@ -140,7 +140,6 @@ local spec = {
 
     inactivefg = palette.midblue,
     inactivebg_a = palette.bg1,
-
   },
 }
 

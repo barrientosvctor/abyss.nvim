@@ -132,15 +132,15 @@ end
 ---Checks if all the tables of the spec have the same amount of properties.
 ---@param spec Spec
 function M.check_properties_length(spec)
-    assert.are.equals(M.base_spec_length, utils.table_length(spec.base))
-    assert.are.equals(M.diff_spec_length, utils.table_length(spec.diff))
-    assert.are.equals(M.diff_bg_spec_length, utils.table_length(spec.diff.bg))
-    assert.are.equals(M.editor_spec_length, utils.table_length(spec.editor))
-    assert.are.equals(M.syntax_spec_length, utils.table_length(spec.syntax))
-    assert.are.equals(M.terminal_spec_length, utils.table_length(spec.terminal))
-    assert.are.equals(M.diagnostics_spec_length, utils.table_length(spec.diagnostics))
-    assert.are.equals(M.dirtree_spec_length, utils.table_length(spec.dirtree))
-    assert.are.equals(M.lualine_spec_length, utils.table_length(spec.lualine))
+  assert.are.equals(M.base_spec_length, utils.table_length(spec.base))
+  assert.are.equals(M.diff_spec_length, utils.table_length(spec.diff))
+  assert.are.equals(M.diff_bg_spec_length, utils.table_length(spec.diff.bg))
+  assert.are.equals(M.editor_spec_length, utils.table_length(spec.editor))
+  assert.are.equals(M.syntax_spec_length, utils.table_length(spec.syntax))
+  assert.are.equals(M.terminal_spec_length, utils.table_length(spec.terminal))
+  assert.are.equals(M.diagnostics_spec_length, utils.table_length(spec.diagnostics))
+  assert.are.equals(M.dirtree_spec_length, utils.table_length(spec.dirtree))
+  assert.are.equals(M.lualine_spec_length, utils.table_length(spec.lualine))
 end
 
 ---Checks if all spec properties have the same expected type.

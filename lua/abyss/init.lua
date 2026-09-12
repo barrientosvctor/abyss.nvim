@@ -21,8 +21,6 @@ end
 
 -- Setup the configuration for the colorscheme.
 ---@param opts AbyssOptions: The custom colorscheme user options
-function M.setup(opts)
-  config.set_options(opts)
-end
+function M.setup(opts) config.set_options(opts) end
 
 return M
