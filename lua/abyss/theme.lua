@@ -29,7 +29,7 @@ function M.get(user_opts, spec)
     Statement = { fg = spec.syntax.statement },
     Label = { link = "Statement" },
     Operator = { link = "Statement" },
-    
+
     PreProc = { link = "Statement" },
 
     Type = { fg = spec.syntax.type, italic = true },
@@ -68,7 +68,7 @@ function M.get(user_opts, spec)
     DiffChange = { bg = spec.diff.bg.changed },
     DiffDelete = { bg = spec.diff.bg.deleted },
     DiffText = { bg = spec.diff.bg.text },
-    
+
     -- Neovim v0.10 diff highlights
     Added = { fg = spec.diff.added },
     Changed = { fg = spec.diff.changed },
@@ -113,7 +113,8 @@ function M.get(user_opts, spec)
     MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
-    NormalNC = user_opts.dim_inactive and { fg = spec.base.fg2, bg = spec.base.bg2 } or { link = "Normal" },
+    NormalNC = (user_opts.dim_inactive and not user_opts.transparent_background) and { fg = spec.base.fg2, bg = spec.base.bg2 } or { link = "Normal" },
+
     NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
     FloatBorder = { fg = spec.editor.border, bg = spec.base.bg1 },
     FloatTitle = { fg = spec.editor.title, bg = spec.base.bg1, bold = true },
@@ -211,9 +212,9 @@ function M.get(user_opts, spec)
     -- nvim-cmp
     groups.CmpItemAbbr = { fg = spec.base.fg0 }
     groups.CmpItemAbbrDeprecated = { fg = spec.syntax.comment, strikethrough = true }
-    
+
     groups.CmpItemMenu = { fg = spec.syntax.comment }
-    
+
     groups.CmpItemAbbrMatch = { link = "PmenuMatch" }
     groups.CmpItemAbbrMatchFuzzy = { link = "PmenuMatch" }
 
@@ -321,10 +322,10 @@ function M.get(user_opts, spec)
     groups.DashboardFooter = { link = "Comment" }
 
     groups.DashboardHeader = { link = "Title" }
-    
+
     groups.DashboardProjectTitle = { link = "Special" }
     groups.DashboardMruTitle = { link = "Special" }
-    
+
     groups.DashboardProjectIcon = { link = "Special" }
 
     groups.DashboardKey = { link = "Special" }
@@ -341,14 +342,14 @@ end
 ---@param spec Spec
 ---@return table
 function M.get_treesitter(spec)
-  return {    
+  return {
     -- Treesitter captures
     -- :help treesitter-highlight-groups
     ["@variable"] = { link = "Identifier" },
     ["@variable.builtin"] = { link = "@variable" },
     ["@variable.parameter"] = { fg = spec.syntax.parameter, italic = true },
     ["@variable.member"] = { link = "@variable" },
-    
+
     ["@constant"] = { link = "Constant" },
     ["@constant.builtin"] = { link = "@constant" },
     ["@constant.macro"] = { link = "@constant" },
@@ -433,23 +434,23 @@ function M.get_treesitter(spec)
     ["@markup.list"] = { link = "Special" },
     ["@markup.list.checked"] = { link = "Special" },
     ["@markup.list.unchecked"] = { link = "Special" },
-    
+
     ["@diff.plus"] = { link = "Added" },
     ["@diff.minus"] = { link = "Removed" },
     ["@diff.delta"] = { link = "Changed" },
-    
+
     ["@tag"] = { link = "Statement" },
     ["@tag.builtin"] = { link = "@tag" },
     ["@tag.attribute"] = { link = "Function" },
     ["@tag.delimiter"] = { link = "Delimiter" },
-    
+
     -- Misc
     ["@error"] = { link = "Error" },
     ["@type.qualifier"] = { link = "Statement" },
-    
+
     ["@preproc"] = { link = "PreProc" },
     ["@include"] = { link = "PreProc" },
-    
+
     ["@repeat"] = { link = "Statement" },
     ["@conditional"] = { link = "Statement" },
 
