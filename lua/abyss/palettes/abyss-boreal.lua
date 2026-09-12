@@ -27,22 +27,22 @@ local palette = {
   darkgrey = "#225588", -- statements and symbols
 
   -- Terminal --
-  color0 = '#121212',
-  color1 = '#A52AFF',
-  color2 = '#7129FF',
-  color3 = '#3D2AFF',
-  color4 = '#2B4FFF',
-  color5 = '#881798',
-  color6 = '#28B9FF',
-  color7 = '#F1F1F1',
-  color8 = '#666666',
-  color9 = '#BA5AFF',
-	color10 = '#905AFF',
-	color11 = '#4D4FFF',
-  color12 = '#5C78FF',
-  color13 = '#B4009E',
-  color14 = '#5AC8FF',
-  color15 = '#FFFFFF',
+  color0 = "#121212",
+  color1 = "#A52AFF",
+  color2 = "#7129FF",
+  color3 = "#3D2AFF",
+  color4 = "#2B4FFF",
+  color5 = "#881798",
+  color6 = "#28B9FF",
+  color7 = "#F1F1F1",
+  color8 = "#666666",
+  color9 = "#BA5AFF",
+  color10 = "#905AFF",
+  color11 = "#4D4FFF",
+  color12 = "#5C78FF",
+  color13 = "#B4009E",
+  color14 = "#5AC8FF",
+  color15 = "#FFFFFF",
 }
 
 ---@type Spec
@@ -144,7 +144,7 @@ local spec = {
     replacebg_a = palette.darkred,
 
     insertfg = palette.white,
-    insertbg_a  = palette.darkpurple,
+    insertbg_a = palette.darkpurple,
 
     commandfg = palette.black,
     commandbg_a = palette.aurorayellow,
@@ -154,7 +154,6 @@ local spec = {
 
     inactivefg = palette.midblue,
     inactivebg_a = palette.bg1,
-
   },
 }
 

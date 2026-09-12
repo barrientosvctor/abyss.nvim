@@ -1,9 +1,9 @@
 local M = {}
 local api = require("abyss.lib.api")
+local config = require("abyss.config")
 local lib_util = require("abyss.lib.util")
 local palettes = require("abyss.palettes")
 local theme = require("abyss.theme")
-local config = require("abyss.config")
 
 ---Performs the necessary processes to correctly load the colorscheme.
 function M.load()
@@ -27,9 +27,9 @@ function M.load()
   end
 
   if
-      type(config.options.overrides) ~= "nil"
-      and type(config.options.overrides) == "table"
-      and lib_util.table_length(config.options.overrides) > 0
+    type(config.options.overrides) ~= "nil"
+    and type(config.options.overrides) == "table"
+    and lib_util.table_length(config.options.overrides) > 0
   then
     for key, opts in pairs(config.options.overrides) do
       api.highlight(key, opts)

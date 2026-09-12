@@ -113,7 +113,9 @@ function M.get(user_opts, spec)
     MoreMsg = { fg = spec.diagnostics.info, bold = true },
 
     Normal = { fg = spec.base.fg0, bg = user_opts.transparent_background and none or spec.base.bg0 },
-    NormalNC = (user_opts.dim_inactive and not user_opts.transparent_background) and { fg = spec.base.fg2, bg = spec.base.bg2 } or { link = "Normal" },
+    NormalNC = (user_opts.dim_inactive and not user_opts.transparent_background)
+        and { fg = spec.base.fg2, bg = spec.base.bg2 }
+      or { link = "Normal" },
 
     NormalFloat = { fg = spec.base.fg0, bg = spec.base.bg1 },
     FloatBorder = { fg = spec.editor.border, bg = spec.base.bg1 },
@@ -186,7 +188,8 @@ function M.get(user_opts, spec)
     groups.DiagnosticInfo = { fg = spec.diagnostics.info }
     groups.DiagnosticHint = { fg = spec.diagnostics.hint }
     groups.DiagnosticOk = { fg = spec.diagnostics.ok }
-    groups.DiagnosticUnnecessary = { fg = spec.syntax.comment, undercurl = true, sp = spec.syntax.comment, italic = true }
+    groups.DiagnosticUnnecessary =
+      { fg = spec.syntax.comment, undercurl = true, sp = spec.syntax.comment, italic = true }
 
     groups.DiagnosticUnderlineError = { sp = spec.diagnostics.error, undercurl = true }
     groups.DiagnosticUnderlineWarn = { sp = spec.diagnostics.warn, undercurl = true }
@@ -466,7 +469,7 @@ function M.get_treesitter(spec)
     ["@lsp.type.decorator"] = { link = "Function" },
     ["@lsp.type.enum"] = { link = "@lsp.type.class" },
     ["@lsp.type.enumMember"] = { fg = spec.syntax.identifier },
-    ["@lsp.type.event"] = { link = "@lsp.type.class"},
+    ["@lsp.type.event"] = { link = "@lsp.type.class" },
     ["@lsp.type.function"] = { link = "Function" },
     ["@lsp.type.interface"] = { link = "@lsp.type.class" },
     ["@lsp.type.keyword"] = { link = "Statement" },
