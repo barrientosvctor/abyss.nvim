@@ -13,6 +13,9 @@ local M = {}
 function M.get(user_opts, spec)
   local none = "NONE"
   local groups = {
+    -- Custom highlight groups --
+    AbyssNormalFloatBorder = { fg = spec.editor.border, bg = spec.base.bg1 }, -- used for borders in floating windows.
+
     -- Syntax --
     Comment = { fg = spec.syntax.comment, italic = user_opts.italic_comments },
 
@@ -206,9 +209,10 @@ function M.get(user_opts, spec)
 
     -- Neovim-compatible plugins --
     -- Telescope
+    groups.TelescopeNormal = { link = "NormalFloat" }
     groups.TelescopeTitle = { link = "Title" }
 
-    groups.TelescopeBorder = { fg = spec.editor.border }
+    groups.TelescopeBorder = { link = "AbyssNormalFloatBorder" }
 
     groups.TelescopePromptPrefix = { fg = spec.editor.title }
 
