@@ -324,6 +324,8 @@ function M.get(user_opts, spec)
     groups.NotifyTRACEBorder = { fg = spec.diagnostics.info }
     groups.NotifyTRACEIcon = { fg = spec.diagnostics.info }
 
+    groups.NotifyBackground = { fg = spec.base.fg0, bg = spec.base.bg0 }
+
     -- dashboard
     groups.DashboardShortCut = { link = "Comment" }
     groups.DashboardFooter = { link = "Comment" }
