@@ -1,39 +1,39 @@
-local colors = require("abyss.palettes.abyss-boreal")
+local colors = require("abyss.palettes.abyss-boreal").palette
 
 return {
   normal = {
-    a = { fg = colors.lualine.normalfg, bg = colors.lualine.normalbg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.black, bg = colors.darkteal, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
   visual = {
-    a = { fg = colors.lualine.visualfg, bg = colors.lualine.visualbg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.black, bg = colors.coral, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
   replace = {
-    a = { fg = colors.lualine.replacefg, bg = colors.lualine.replacebg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.black, bg = colors.darkred, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
   insert = {
-    a = { fg = colors.lualine.insertfg, bg = colors.lualine.insertbg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.white, bg = colors.darkpurple, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
   command = {
-    a = { fg = colors.lualine.commandfg, bg = colors.lualine.commandbg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.black, bg = colors.aurorayellow, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
   terminal = {
-    a = { fg = colors.lualine.terminalfg, bg = colors.lualine.terminalbg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.black, bg = colors.aurorayellow, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
   inactive = {
-    a = { fg = colors.lualine.inactivefg, bg = colors.lualine.inactivebg_a, gui = "bold" },
-    b = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_b },
-    c = { fg = colors.lualine.base_fg, bg = colors.lualine.basebg_c },
+    a = { fg = colors.midblue, bg = colors.bg1, gui = "bold" },
+    b = { fg = colors.white, bg = colors.lowgrey },
+    c = { fg = colors.white, bg = colors.black },
   },
 }

@@ -9,7 +9,7 @@ function M.get_spec_from_palette(name)
   if not ok then
     api.notify("Abyss.nvim: " .. name .. " palette not found. Applying default palette...", vim.log.levels.ERROR)
   end
-  return ok == true and pal or require("abyss.palettes.abyss")
+  return ok == true and pal.spec or require("abyss.palettes.abyss").spec
 end
 
 return M
