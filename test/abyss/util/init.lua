@@ -9,7 +9,6 @@ M.syntax_spec_length = 13
 M.terminal_spec_length = 16
 M.diagnostics_spec_length = 5
 M.dirtree_spec_length = 3
-M.lualine_spec_length = 17
 
 ---Checks if the spec has all its properties.
 ---@param spec Spec
@@ -109,24 +108,6 @@ function M.check_properties(spec)
   assert.is.truthy(spec.terminal.color13)
   assert.is.truthy(spec.terminal.color14)
   assert.is.truthy(spec.terminal.color15)
-
-  -- LUALINE TABLE --
-  assert.is.truthy(spec.lualine)
-
-  assert.is.truthy(spec.lualine.normalfg)
-  assert.is.truthy(spec.lualine.normalbg_a)
-  assert.is.truthy(spec.lualine.visualfg)
-  assert.is.truthy(spec.lualine.visualbg_a)
-  assert.is.truthy(spec.lualine.replacefg)
-  assert.is.truthy(spec.lualine.replacebg_a)
-  assert.is.truthy(spec.lualine.insertfg)
-  assert.is.truthy(spec.lualine.insertbg_a)
-  assert.is.truthy(spec.lualine.commandfg)
-  assert.is.truthy(spec.lualine.commandbg_a)
-  assert.is.truthy(spec.lualine.terminalfg)
-  assert.is.truthy(spec.lualine.terminalbg_a)
-  assert.is.truthy(spec.lualine.inactivefg)
-  assert.is.truthy(spec.lualine.inactivebg_a)
 end
 
 ---Checks if all the tables of the spec have the same amount of properties.
@@ -140,7 +121,6 @@ function M.check_properties_length(spec)
   assert.are.equals(M.terminal_spec_length, utils.table_length(spec.terminal))
   assert.are.equals(M.diagnostics_spec_length, utils.table_length(spec.diagnostics))
   assert.are.equals(M.dirtree_spec_length, utils.table_length(spec.dirtree))
-  assert.are.equals(M.lualine_spec_length, utils.table_length(spec.lualine))
 end
 
 ---Checks if all spec properties have the same expected type.
@@ -236,23 +216,6 @@ function M.check_typeof(spec)
   assert.are.same(property_expected_type, type(spec.terminal.color13))
   assert.are.same(property_expected_type, type(spec.terminal.color14))
   assert.are.same(property_expected_type, type(spec.terminal.color15))
-
-  -- LUALINE TABLE --
-  assert.are.same(table_expected_type, type(spec.lualine))
-  assert.are.same(property_expected_type, type(spec.lualine.normalfg))
-  assert.are.same(property_expected_type, type(spec.lualine.normalbg_a))
-  assert.are.same(property_expected_type, type(spec.lualine.visualfg))
-  assert.are.same(property_expected_type, type(spec.lualine.visualbg_a))
-  assert.are.same(property_expected_type, type(spec.lualine.replacefg))
-  assert.are.same(property_expected_type, type(spec.lualine.replacebg_a))
-  assert.are.same(property_expected_type, type(spec.lualine.insertfg))
-  assert.are.same(property_expected_type, type(spec.lualine.insertbg_a))
-  assert.are.same(property_expected_type, type(spec.lualine.commandfg))
-  assert.are.same(property_expected_type, type(spec.lualine.commandbg_a))
-  assert.are.same(property_expected_type, type(spec.lualine.terminalfg))
-  assert.are.same(property_expected_type, type(spec.lualine.terminalbg_a))
-  assert.are.same(property_expected_type, type(spec.lualine.inactivefg))
-  assert.are.same(property_expected_type, type(spec.lualine.inactivebg_a))
 end
 
 return M
