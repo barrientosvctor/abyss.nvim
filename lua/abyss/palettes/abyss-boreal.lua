@@ -129,32 +129,6 @@ local spec = {
     color14 = palette.color14, --was orange
     color15 = palette.color15,
   },
-  lualine = {
-    basebg_b = palette.lowgrey,
-    basebg_c = palette.black,
-    base_fg = palette.white,
-
-    normalfg = palette.black,
-    normalbg_a = palette.darkteal,
-
-    visualfg = palette.black,
-    visualbg_a = palette.coral,
-
-    replacefg = palette.black,
-    replacebg_a = palette.darkred,
-
-    insertfg = palette.white,
-    insertbg_a = palette.darkpurple,
-
-    commandfg = palette.black,
-    commandbg_a = palette.aurorayellow,
-
-    terminalfg = palette.black,
-    terminalbg_a = palette.aurorayellow,
-
-    inactivefg = palette.midblue,
-    inactivebg_a = palette.bg1,
-  },
 }
 
-return spec
+return { palette = palette, spec = spec }
