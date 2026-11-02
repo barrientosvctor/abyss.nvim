@@ -98,22 +98,29 @@ local spec = {
     curline = palette.heavyyellow,
   },
   terminal = {
-    color0 = palette.bg0,
+    color0 = palette.black,
+    color8 = palette.black,
+
     color1 = palette.red,
-    color2 = palette.darkgreen,
-    color3 = palette.green,
-    color4 = palette.darkblue,
-    color5 = palette.purple,
-    color6 = palette.darkgreen,
-    color7 = palette.lightgrey,
-    color8 = palette.heavyyellow,
     color9 = palette.red,
-    color10 = palette.midblue,
-    color11 = palette.orange,
-    color12 = palette.red,
-    color13 = palette.darkred,
-    color14 = palette.orange,
-    color15 = palette.yellow,
+
+    color2 = palette.darkgreen,
+    color10 = palette.darkgreen,
+
+    color3 = palette.heavyyellow,
+    color11 = palette.heavyyellow,
+
+    color4 = palette.yellow,
+    color12 = palette.yellow,
+
+    color5 = palette.purple,
+    color13 = palette.purple,
+
+    color6 = palette.shinyblue,
+    color14 = palette.shinyblue,
+
+    color7 = palette.white,
+    color15 = palette.white,
   },
 }
 
