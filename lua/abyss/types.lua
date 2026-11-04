@@ -4,6 +4,7 @@
 ---@field italic boolean? Enables italic on colorscheme.
 ---@field bold boolean? Enables bold on colorscheme.
 ---@field transparent_background boolean? Enables transparent background on colorscheme.
+---@field terminal_colors boolean? Enables terminal colors inside Neovim.
 ---@field treesitter boolean? Enables Treesitter highlights on colorscheme (only for Neovim).
 ---@field palette "abyss"|"abyss-boreal"? Changes the Abyss palette.
 ---@field dim_inactive boolean? Colorize the inactive buffers with another colour.

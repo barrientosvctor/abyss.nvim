@@ -36,7 +36,7 @@ function M.load()
     end
   end
 
-  theme.load_terminal_colors(spec)
+  if config.options.terminal_colors then theme.load_terminal_colors(spec) end
 end
 
 return M
