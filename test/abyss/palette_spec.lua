@@ -1,6 +1,6 @@
-local test_utils = require("test.abyss.util.init")
 local abyss = require("abyss.palettes.abyss")
 local abyssboreal = require("abyss.palettes.abyss-boreal")
+local test_utils = require("test.abyss.util.init")
 
 describe("Palettes of abyss", function()
   it("should have palette and spec property", function()

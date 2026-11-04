@@ -6,6 +6,7 @@ local M = {
     italic = false,
     bold = false,
     transparent_background = false,
+    terminal_colors = true,
     treesitter = not api.is_vim,
     palette = "abyss",
     dim_inactive = false,
