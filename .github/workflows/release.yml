@@ -3,6 +3,7 @@ run-name: Released by @${{ github.actor }}
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 on:
@@ -13,8 +14,8 @@ on:
 jobs:
   release:
     name: release
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         with:
           release-type: simple
