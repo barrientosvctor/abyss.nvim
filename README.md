@@ -1,8 +1,6 @@
 # abyss.nvim
 Unofficial port for (Neo)Vim inspired by the Abyss theme from Visual Studio Code.
 
-**This is the latest version of the old [abyss.vim](https://github.com/barrientosvctor/abyss.vim), now supporting Vim.**
-
 https://github.com/barrientosvctor/abyss.nvim/assets/113469901/7d20f6f0-c438-4ac1-9838-7c1d49f412b9
 
 ## 🎨 Themes
@@ -25,8 +23,6 @@ A cool toned theme inspired by the Northern Lights and Minnesota North Woods
 ## 📦 Installation
 
 You can use any package manager you like.
-
-**I highly recommend updating abyss.nvim when a release/tag comes out, since it is possible that there are development commits before that that can cause unexpected errors when using the colorscheme. To do this, make sure to specify a tag in your preferred package manager (if it supports it) before downloading the colorscheme.**
 
 <table>
 <tr>
